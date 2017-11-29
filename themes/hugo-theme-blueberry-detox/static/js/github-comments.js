@@ -21,7 +21,7 @@ function ParseLinkHeader(link)
 
 function DoGithubComments(comment_id, page_id)
 {
-    var repo_name = "dwilliamson/donw.io";
+    var repo_name = "vatlab/blog";
 
     if (page_id === undefined)
         page_id = 1;
@@ -30,7 +30,7 @@ function DoGithubComments(comment_id, page_id)
     var api_issue_url = api_url + "/issues/" + comment_id;
     var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?page=" + page_id;
 
-    var url = "https://github.com/dwilliamson/donw.io/issues/" + comment_id;
+    var url = "https://github.com/vatlab/blog/issues/" + comment_id;
 
     $(document).ready(function ()
     {
