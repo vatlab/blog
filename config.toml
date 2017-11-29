@@ -1,6 +1,7 @@
 baseurl = "http://vatlab.github.io/blog/"
 languageCode = "en-us"
 title = "vatlab"
+publishDir = 'docs'
 
 canonifyurls = true
 metaDataFormat = "toml"
