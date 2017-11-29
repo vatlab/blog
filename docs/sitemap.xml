@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>http://vatlab.github.io/blog/en/sitemap.xml</loc>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>http://vatlab.github.io/blog/sv/sitemap.xml</loc>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/1/01/01/sos-notebook/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/jupyter/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/multi-language/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/notebook/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/sos/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/sos-notebook/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/topics/topic-1/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://vatlab.github.io/blog/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
