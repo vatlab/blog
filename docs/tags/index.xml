@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on vatlab blog</title>
+    <title>Tags on vatlab</title>
     <link>http://vatlab.github.io/blog/tags/</link>
-    <description>Recent content in Tags on vatlab blog</description>
+    <description>Recent content in Tags on vatlab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>bpeng@mdanderson.org (Bo Peng)</managingEditor>
-    <webMaster>bpeng@mdanderson.org (Bo Peng)</webMaster>
-    <copyright>(c) 2018 Copyright Bo Peng</copyright>
     
 	<atom:link href="http://vatlab.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +14,7 @@
       <title>Jupyter</title>
       <link>http://vatlab.github.io/blog/tags/jupyter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
+      
       <guid>http://vatlab.github.io/blog/tags/jupyter/</guid>
       <description></description>
     </item>
@@ -26,7 +23,7 @@
       <title>Multi Language</title>
       <link>http://vatlab.github.io/blog/tags/multi-language/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
+      
       <guid>http://vatlab.github.io/blog/tags/multi-language/</guid>
       <description></description>
     </item>
@@ -35,7 +32,7 @@
       <title>Notebook</title>
       <link>http://vatlab.github.io/blog/tags/notebook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
+      
       <guid>http://vatlab.github.io/blog/tags/notebook/</guid>
       <description></description>
     </item>
@@ -44,7 +41,7 @@
       <title>Sos</title>
       <link>http://vatlab.github.io/blog/tags/sos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
+      
       <guid>http://vatlab.github.io/blog/tags/sos/</guid>
       <description></description>
     </item>
@@ -53,7 +50,7 @@
       <title>Sos Notebook</title>
       <link>http://vatlab.github.io/blog/tags/sos-notebook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
+      
       <guid>http://vatlab.github.io/blog/tags/sos-notebook/</guid>
       <description></description>
     </item>

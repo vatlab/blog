@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on vatlab blog</title>
+    <title>Posts on vatlab</title>
     <link>http://vatlab.github.io/blog/post/</link>
-    <description>Recent content in Posts on vatlab blog</description>
+    <description>Recent content in Posts on vatlab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>bpeng@mdanderson.org (Bo Peng)</managingEditor>
-    <webMaster>bpeng@mdanderson.org (Bo Peng)</webMaster>
-    <copyright>(c) 2018 Copyright Bo Peng</copyright>
     
 	<atom:link href="http://vatlab.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>http://vatlab.github.io/blog/1/01/01/sos-notebook/</link>
+      <title>One Jupyter notebook, multiple languages</title>
+      <link>http://vatlab.github.io/blog/post/sos-notebook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>bpeng@mdanderson.org (Bo Peng)</author>
-      <guid>http://vatlab.github.io/blog/1/01/01/sos-notebook/</guid>
-      <description>One Jupyter notebook, multiple languages Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
+      
+      <guid>http://vatlab.github.io/blog/post/sos-notebook/</guid>
+      <description>Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
 A SoS (Script of Scripts) kernel has been developed to fill this gap, basically allows you to have multiple live kernels in the same notebook.</description>
     </item>
     
