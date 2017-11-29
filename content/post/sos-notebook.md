@@ -2,13 +2,13 @@
 type: "post"
 draft: false
 author: "Bo Peng"
+title: "One Jupyter notebook, multiple languages"
 description: "Introduction to SoS Notebook"
 keywords: ["SoS Notebook", "Jupyter"]
 topics: ["topic 1"]
+ghcommentid: 2
 tags: ["Jupyter", "SoS", "SoS Notebook", "Multi-language", "Notebook"]
 ---
-
-# One Jupyter notebook, multiple languages
 
 Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
 
