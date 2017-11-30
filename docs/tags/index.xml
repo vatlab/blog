@@ -2,56 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on vatlab</title>
-    <link>https://vatlab.github.io/blog/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on vatlab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/vatlab&#34;&gt;Bo Peng&lt;/a&gt; 2017</copyright>
+    <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vatlab.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Jupyter</title>
-      <link>https://vatlab.github.io/blog/tags/jupyter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/tags/jupyter/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vatlab.github.io/blog/tags/jupyter/</guid>
+      <guid>/tags/jupyter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi Language</title>
-      <link>https://vatlab.github.io/blog/tags/multi-language/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/tags/multi-language/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vatlab.github.io/blog/tags/multi-language/</guid>
+      <guid>/tags/multi-language/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notebook</title>
-      <link>https://vatlab.github.io/blog/tags/notebook/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/tags/notebook/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vatlab.github.io/blog/tags/notebook/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sos</title>
-      <link>https://vatlab.github.io/blog/tags/sos/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vatlab.github.io/blog/tags/sos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sos Notebook</title>
-      <link>https://vatlab.github.io/blog/tags/sos-notebook/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vatlab.github.io/blog/tags/sos-notebook/</guid>
+      <guid>/tags/notebook/</guid>
       <description></description>
     </item>
     
