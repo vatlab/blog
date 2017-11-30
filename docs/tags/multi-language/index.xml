@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Multi Language on vatlab</title>
-    <link>/tags/multi-language/</link>
+    <link>https://vatlab.github.io/blog/tags/multi-language/</link>
     <description>Recent content in Multi Language on vatlab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/vatlab&#34;&gt;Bo Peng&lt;/a&gt; 2017</copyright>
     <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/multi-language/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vatlab.github.io/blog/tags/multi-language/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>One Jupyter notebook, multiple languages</title>
-      <link>/post/sos-notebook/</link>
+      <link>https://vatlab.github.io/blog/post/sos-notebook/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/sos-notebook/</guid>
+      <guid>https://vatlab.github.io/blog/post/sos-notebook/</guid>
       <description>Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
 A SoS (Script of Scripts) kernel has been developed to fill this gap, basically allows you to have multiple live kernels in the same notebook.</description>
     </item>
