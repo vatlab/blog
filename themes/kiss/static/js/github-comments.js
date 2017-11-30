@@ -43,9 +43,6 @@ function DoGithubComments(comment_id, page_id)
             dataType: "json",
             success: function(comments, textStatus, jqXHR) {
 
-                // Add post button to first page
-                if (page_id == 1)
-                    $("#gh-comments-list").append("<a href='" + url + "#new_comment_field' rel='nofollow' class='btn btn-secondary'>Post a comment on Github</a>");
 
                 // Individual comments
                 $.each(comments, function(i, comment) {
@@ -63,6 +60,10 @@ function DoGithubComments(comment_id, page_id)
                     $("#gh-comments-list").append(t);
                 });
 
+                // Add post button to first page
+                if (page_id == 1)
+                    $("#gh-comments-list").append("<a href='" + url + "#new_comment_field' rel='nofollow' class='btn btn-secondary'>Post a comment on Github</a>");
+                
                 // Setup comments button if there are more pages to display
                 var links = ParseLinkHeader(jqXHR.getResponseHeader("Link"));
                 if ("next" in links)
