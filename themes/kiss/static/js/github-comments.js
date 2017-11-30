@@ -5,6 +5,9 @@ var CurrentPage = 0;
 
 function ParseLinkHeader(link)
 {
+    if (! link)
+        return {};
+
     var entries = link.split(",");
     var links = { };
     for (var i in entries)
