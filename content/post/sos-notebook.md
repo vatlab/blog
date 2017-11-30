@@ -4,6 +4,7 @@ draft: false
 author: "Bo Peng"
 title: "One Jupyter notebook, multiple languages"
 ghcommentid: 2
+category: "SoS Notebook"
 date: "2017-11-29"
 tags: ["Jupyter", "Multi-language", "Notebook"]
 ---
