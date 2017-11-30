@@ -8,6 +8,10 @@ metaDataFormat = "toml"
 theme = "kiss"
 
 copyright = "&copy; <a href=\"https://github.com/vatlab\">Bo Peng</a> 2017"
+googleAnalytics = "UA-107286198-1"
+
+[params]
+comments = "http://https://github.com/vatlab/blog/issues"
 
 [params.info]
 enableSocial = true
@@ -15,7 +19,7 @@ enableSocial = true
 homeTitle = "vatlab"
 
 [params.opengraph.twitter]
-page = "ScriptOfScripts" # Twitter Page username. If not set, params.social.twitter will be used.
+page = "ScriptOfScripts" 
 
 [params.social]
 
