@@ -7,7 +7,8 @@ canonifyurls = true
 metaDataFormat = "toml"
 theme = "kiss"
 
-copyright = "&copy; <a href=\"https://github.com/vatlab\">Bo Peng</a> 2017"
+copyright = "&copy; <a href=\"https://faculty.mdanderson.org/profiles/bo_peng.html\">Bo Peng, Ph.D. / MD Anderson Cancer Center</a> All rights reserved"
+ 
 googleAnalytics = "UA-107286198-1"
 
 [params]
