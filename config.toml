@@ -1,18 +1,31 @@
-baseurl = "https://vatlab.github.io/blog/"
+baseurl = "/"
 languageCode = "en-us"
 title = "vatlab"
 publishDir = 'docs'
 
 canonifyurls = true
 metaDataFormat = "toml"
-theme = "hugo-theme-blueberry-detox"
+theme = "kiss"
 
+copyright = "&copy; <a href=\"https://github.com/vatlab\">Bo Peng</a> 2017"
+
+[params.info]
+enableSocial = true
+
+homeTitle = "vatlab"
+
+[params.opengraph.twitter]
+page = "ScriptOfScripts" # Twitter Page username. If not set, params.social.twitter will be used.
+
+[params.social]
+
+twitter = "ScriptOfScripts"
+github = "vatlab"
+email = "bpeng@mdanderson.org"
 
 [taxonomies]
-tag = "tags"
+tag ="tags"
 
-[params]
- author = "Bo Peng"
- description = "Bo Peng, MD Anderson Cancer Center/Assistant Professor"
- twitter = "ScriptOfScripts"
- github = "BoPeng"
+[blackfriday]
+hrefTargetBlank = true
+
