@@ -4,15 +4,15 @@
 
 #gh-comment {
   text-align: left;
-  color:#FFF;
-  background-color:#272822;
-  border:1px solid #b3b3b3;
+/*  color:#FFF;*/
+/*  background-color:#272822;*/
+/*  border: 1px solid #b3b3b3;*/
   margin:2.5em 0;
   padding:10px;
 }
 
 #gh-comment-hr {
-  border-top: inset 1px white;
+/*  border-top: inset 1px white;*/
   margin: 8px 0px;
 }
 
