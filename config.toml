@@ -13,6 +13,9 @@ googleAnalytics = "UA-107286198-1"
 [params]
 comments = "http://https://github.com/vatlab/blog/issues"
 
+[params.assets]
+customCSS = ["css/custom.css"]
+
 [params.info]
 enableSocial = true
 
