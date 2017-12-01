@@ -30,22 +30,21 @@ function DoGithubComments(comment_id, page_id)
         page_id = 1;
 
     var api_url = "https://api.github.com/repos/" + repo_name;
-    var api_issue_url = api_url + "/issues/" + comment_id;
+    // var api_issue_url = api_url + "/issues/" + comment_id;
     var api_comments_url = api_url + "/issues/" + comment_id + "/comments" + "?page=" + page_id;
 
     var url = "https://github.com/vatlab/blog/issues/" + comment_id;
 
     $(document).ready(function ()
     {
-        $.getJSON(api_issue_url, function(data) {
+        /*$.getJSON(api_issue_url, function(data) {
             NbComments = data.comments;
-        });
+        });*/
 
         $.ajax(api_comments_url, {
             headers: {Accept: "application/vnd.github.v3.html+json"},
             dataType: "json",
             success: function(comments, textStatus, jqXHR) {
-
 
                 // Individual comments
                 $.each(comments, function(i, comment) {
@@ -58,7 +57,11 @@ function DoGithubComments(comment_id, page_id)
                     t += " posted at ";
                     t += "<em>" + date.toLocaleString() + "</em>";
                     t += "<div id='gh-comment-hr'></div>";
-                    t += comment.body_html;
+                    /* replace emoji with their fallback image because some emoji cannot be displayed. 
+                     * https://github.com/vatlab/blog/issues/4
+                     * */
+                    t += comment.body_html.replace(/fallback-src="([^"]*)"(.*?>).(<\/g-emoji>)/ug, 'fallback-src="$1"$2<img class="emoji" style="vertical-align:middle" height="14" width="14" src="$1">$3');
+                    /* t += comment.body_html; */
                     t += "</div>";
                     $("#gh-comments-list").append(t);
                 });
