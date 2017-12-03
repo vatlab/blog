@@ -9,64 +9,51 @@ date: "2017-11-29"
 tags: ["Jupyter", "Multi-language", "Notebook"]
 ---
 
-I started to use IPython, and then [Jupyter](http://jupyter.org/) more than ten years ago but despite of all the nice features,
-there were always something missing, something that prevented me from using it as my main working environment. I still liked
-Jupyter and used it from time to time, but when I tried to write a Jupyter kernel for my 
-[SoS Workflow Engine](https://vatlab.github.io/sos-docs/), I realized that I really need to expand Jupyter to make SoS useful
-for interactive data analysis, so I developed SoS Notebook, a multi-language kernel for Jupyter.
-
 ## What Jupyter is lacking
 
-Instead of jumping directly into what SoS Notebook can do for you, allow me to explain what Jupyter lacks as an interactive
-data anlysis environment, at least for a bioinformatician like me.
+I started to use IPython, and then [Jupyter](http://jupyter.org/) more than ten years ago but despite of all the nice features,
+there were always something missing, something that prevented me from using it as my main working environment. Notably,
 
-### Line by line execution of scripts
-
-This is IMHO the single most important feature that is missing from Jupyter. In Jupyter, the basic execution units are cells so
+* **Line by line execution of scripts**: The basic execution units of Jupyter are cells so
 there is no way for you to execute, tweak, and re-execute pieces of the code for debugging purposes
-[Jupyter Issue 1094](https://github.com/jupyter/notebook/issues/1094). The problem here is actually not how difficult it is
-for Jupyter to execute part of the cell content (it is actually quite easy), but where to execute the code and display the
-output. The cell output in the main notebook is certainly not a good place because you do not want to change the output of
-the entire cell when you would like to inspect the value of a single variable. A Jupyter notebook extension called 
-[scratchpad](https://github.com/minrk/nbextension-scratchpad) was developed in 2015 to
-alleviate this problem but you will have to manually enter (or copy/paste) the code to be executed, whichis quite inconvenient
-compared to line-by-line execution mode of other IDEs.
+[Jupyter Issue 1094](https://github.com/jupyter/notebook/issues/1094). The problem here is not how difficult it is
+for Jupyter to execute part of the cell content, but where to execute the code and display the
+output. You could use a [scratchpad](https://github.com/minrk/nbextension-scratchpad) extension to execute scratch cells but 
+this is still less convenient than line-by-line execution mode of other IDEs.
 
-### The single-kernel model of Jupyter notebooks
-
-Jupyter supports virtually all scripting languages ever invented but each notebook can only use one of the kernels. This
-is usually acceptable because almost all IDEs and working environments works in this manner. However, with increasing
-complexity of modern data analysis, especially in the field of bioinformatics, analyzing data with more than one scripting
-languages has become more and more a necessity. Keeping the entire data analysis in a single notebook has obvious advantages
-in the book-keeping and sharing of data analysis, and allows easier reproducibility of prior analysis. Unfortunately,
-with the emergence of several multi-language notebooks such as [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html),
+* **Supporting multiple kernels in one notebook**: Jupyter supports virtually all scripting languages ever invented but each 
+notebook can only use one of the kernels. With increasing complexity of modern data analysis, especially in the field of
+bioinformatics, analyzing data with more than one scripting languages has become more and more a necessity. Keeping the
+entire data analysis in a single notebook has obvious advantages in the book-keeping and sharing of data analysis, and allows
+easier reproducibility of prior analysis. Unfortunately, despite of the emergence of several multi-language notebooks such as
+[R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html),
 [Apache Zeppelin](https://zeppelin.apache.org/), and [Beaker Notebook](http://beakernotebook.com/) 
 (Now [BeakerX](https://github.com/twosigma/beakerx)), Jupyter (even JupyterLab) does not seem to be moving in this
 direction.
 
-### Literate programming and other missing usability features
-
-There are also many others features that, IMHO, should have been there in Jupyter. For example, whereas RSdutio allows
-in-line interpolation (Literate programming), Jupyter has failed to provide such a feature after years of discussions
-[ipython #2592](https://github.com/ipython/ipython/pull/2592). The developers has 
+* **Literate programming and other missing usability features**: There are also many others features that, IMHO, should have been
+there in Jupyter. For example, whereas RSdutio allows in-line interpolation (Literate programming), Jupyter has failed to provide
+such a feature after years of discussions [ipython #2592](https://github.com/ipython/ipython/pull/2592). The developers has 
 [explained](https://github.com/jupyter/help/issues/41) the complexity of this feature but even a non-perfect soluation
-is better than none.
-
-Other features that I have found useful but missing include but not limited to the ability to clear cell outputs 
-(e.g. when an output is really long and non-informativa), the ability to execute long scripts without doubling 
-braces in cell magics (e.g. [%%script](http://ipython.readthedocs.io/en/stable/interactive/magics.html), preview of
-file content, and table of content. Sure, some of the features can be achived with nbextensions (e.g. 
-[toc2](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/toc2)
-but I suppose only experienced Jupyter users know these.
+is better than none. Other features that I have found useful but missing include but not limited to the ability to clear cell outputs 
+(e.g. when an output is really long and non-informativa), and the ability to execute long scripts without doubling 
+braces in cell magics (e.g. [%%script](http://ipython.readthedocs.io/en/stable/interactive/magics.html).
 
 ## SoS Notebook
 
-[SoS Notebook](https://vatlab.github.io/sos-docs/) is a kernel for the SoS Workflow Engine, but the SoS Kernel itself
-is first a multi-language notebook with many extensions to the Jupyter frontend. It is useful by itself if you ignore
-the workflow engine part (which we will introduce in a separate post). For the impatience, here is a youtube video for
-an overview of SoS Notebook
+When I started to implement a Jupyter kernel for the [SoS Workflow Engine](https://vatlab.github.io/sos-docs/), I decided to
+tackle these limitations to provide an interactive multi-language data analysis environment. Although the SoS kernel is
+based on the SoS workflow engine, SoS Notebook is useful by itself because SoS is based on Python 3.6 so you can use it
+just like a regular Python 3 kernel. 
+
+If you are already feeling impatient, here is a youtube video for an overview of SoS Notebook
 
 {{< youtube xrwhNMRTBp4 >}}
+
+and if you start a SoS Notebook if you click the 
+<i class="fa fa-rocket" aria-hidden="true"></i>
+button at the top right corner of the
+[SoS Homepage](https://vatlab.github.io/sos-docs/).
 
 
 ### Multi-language notebook
