@@ -2,7 +2,7 @@
 type: "post"
 draft: false
 author: "Bo Peng"
-title: "SoS Notebook: a multi-language notebook for Jupyter"
+title: "SoS Notebook: one notebook, multiple languages"
 ghcommentid: 2
 category: "SoS Notebook"
 date: "2017-11-29"
