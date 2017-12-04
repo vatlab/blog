@@ -10,11 +10,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     
-<title>One Jupyter notebook, multiple languages | vatlab</title>
+<title>SoS Notebook: a multi-language notebook for Jupyter | vatlab</title>
 
-<meta property='og:title' content='One Jupyter notebook, multiple languages - vatlab'>
-<meta property='og:description' content='Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
-A SoS (Script of Scripts) kernel has been developed to fill this gap, basically allows you to have multiple live kernels in the same notebook.'>
+<meta property='og:title' content='SoS Notebook: a multi-language notebook for Jupyter - vatlab'>
+<meta property='og:description' content='I started to use IPython, and then Jupyter more than ten years ago but despite of all the nice features, there were always something missing, something that prevented me from using it as my main working environment. Notably, Jupyter lacks
+ Line by line execution of scripts: The basic execution units of Jupyter are cells so there is no way for you to execute, tweak, and re-execute pieces of the code for debugging purposes Jupyter Issue 1094.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-notebook/'>
 <meta property='og:site_name' content='vatlab'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='Jupyter'><meta property='article:tag' content='Multi-language'><meta property='article:tag' content='Notebook'><meta property='article:published_time' content='2017-11-29T00:00:00Z'/><meta property='article:modified_time' content='2017-11-29T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
@@ -78,20 +78,203 @@ A SoS (Script of Scripts) kernel has been developed to fill this gap, basically 
       
     </div>
     <h2 class="subtitle is-6">November 29, 2017</h2>
-    <h1 class="title">One Jupyter notebook, multiple languages</h1>
+    <h1 class="title">SoS Notebook: a multi-language notebook for Jupyter</h1>
       
     <div class="content">
-      <p>Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.</p>
+      
 
-<p>A SoS (Script of Scripts) kernel has been developed to fill this gap, basically allows you to have multiple live kernels in the same notebook. Besides obvious advantages in fitting your entire multi-language analysis in one notebook, it allows you to transfer variables freely between kernels using SoS magics so that you can gather your data in Python, analyze it in R or MATLAB, plot the results in JavaScript. Data types in different scripting languages are mapped heuristically so a R data.frame will be mapped as Pandas DataFrame in Python, dictionary in JavaScript, and table in MATLAB.</p>
+<p>I started to use IPython, and then <a href="http://jupyter.org/" target="_blank">Jupyter</a> more than ten years ago but despite of all the nice features,
+there were always something missing, something that prevented me from using it as my main working environment. Notably, Jupyter lacks</p>
 
-<p>The SoS Notebook based on the SoS kernel also tries to address several of Jupyter&rsquo;s limitations by providing</p>
+<ul>
+<li><p><strong>Line by line execution of scripts</strong>: The basic execution units of Jupyter are cells so
+there is no way for you to execute, tweak, and re-execute pieces of the code for debugging purposes
+<a href="https://github.com/jupyter/notebook/issues/1094" target="_blank">Jupyter Issue 1094</a>. The problem here is not how difficult it is
+for Jupyter to execute part of the cell content, but where to execute the code and display the
+output. You could use a <a href="https://github.com/minrk/nbextension-scratchpad" target="_blank">scratchpad</a> extension to execute scratch cells but
+this is still less convenient than line-by-line execution mode of other IDEs.</p></li>
 
-<p>A side panel to execute scratch commands, preview variables (in multiple kernels) and files, display table of content, and more importantly, allows
-Line-by-line execution of scripts in cells so that you can step through your code for debugging purposes
-A large number of magics to render cell output as markdown or HTML, to clear output of cells, and to preview variables and files
-Support for the SoS workflow engine so that you can organize jupyter cells as workflows and execute them in a non-linear fashion
-SoS Notebook is hosted at <a href="https://github.com/vatlab/SoS" target="_blank">https://github.com/vatlab/SoS</a> with complete documentation hosted at <a href="https://vatlab.github.io/SoS" target="_blank">https://vatlab.github.io/SoS</a>. You can check out its video library for an overview (<a href="https://vatlab.github.io/sos-docs/#documentation" target="_blank">https://vatlab.github.io/sos-docs/#documentation</a>) or start playing with it using a live SoS server (top right button at the SoS homepage).</p>
+<li><p><strong>Support for multiple kernels in one notebook</strong>: Jupyter supports virtually all scripting languages ever invented but each
+notebook can only use one of the kernels. With increasing complexity of modern data analysis, especially in the field of
+bioinformatics, analyzing data with more than one scripting languages has become more and more a necessity. Keeping the
+entire data analysis in a single notebook has obvious advantages in the book-keeping and sharing of data analysis, and allows
+easier reproducibility of prior analyses. Unfortunately, despite of the emergence of several multi-language notebooks such as
+<a href="http://rmarkdown.rstudio.com/r_notebooks.html" target="_blank">R Notebooks</a>,
+<a href="https://zeppelin.apache.org/" target="_blank">Apache Zeppelin</a>, and <a href="http://beakernotebook.com/" target="_blank">Beaker Notebook</a>
+(Now <a href="https://github.com/twosigma/beakerx" target="_blank">BeakerX</a>), Jupyter (even JupyterLab) does not seem to be moving in this
+direction.</p></li>
+
+<li><p><strong>Literate programming and some other usability features</strong>: Whereas RSdutio allows in-line interpolation in Markdown paragraphs
+(Literate programming), Jupyter has failed to provide such a feature after years of discussions
+<a href="https://github.com/ipython/ipython/pull/2592" target="_blank">ipython #2592</a>. The developers has
+<a href="https://github.com/jupyter/help/issues/41" target="_blank">explained</a> the complexity of this feature but IMHO even a non-perfect soluation
+is better than no solution. Other features that I have found useful but missing include but not limited to the ability to clear cell outputs
+(e.g. when an output is really long and non-informative), the ability to execute long scripts without doubling
+braces in cell magics (e.g. magic <a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html" target="_blank">%%script</a>), and preview of
+variables even content of files.</p></li>
+</ul>
+
+<h2 id="sos-notebook">SoS Notebook</h2>
+
+<p>When I started to implement a Jupyter kernel for the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS Workflow Engine</a>, I decided to
+tackle these limitations to provide an interactive multi-language data analysis environment. Because SoS is based on Python 3.6,
+you can use a SoS Notebook just like a Python 3 kernel with multi-language support. I will explain the SoS workflow engine in
+another post.</p>
+
+<p>The rest of this post will explain features of SoS Notebook in details. However, if you are already feeling impatient, you can
+click the <i class="fa fa-rocket" aria-hidden="true"></i>
+button at the top right corner of the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS Homepage</a> and start a SoS notebook
+while watching the follow video:</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/xrwhNMRTBp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="multi-language-notebook">Multi-language notebook</h3>
+
+<p>The first thing you will notice from a SoS notebook is the language-selection dropdown boxes at the top right corner of each cell. This dropdown
+box allows you to change the kernel of a notebook cell to any of the installed Jupyter kernels (called subkernels in
+SoS Notebook). This allows you to, for example, execute a shell script using the <a href="https://github.com/takluyver/bash_kernel" target="_blank">Bash kernel</a>
+in a cell, import data in Python (SoS), and analyze data in R using an
+<a href="https://github.com/IRkernel/IRkernel" target="_blank">ir kernel</a>.
+In addition to the per-cell language-selection dropfown, you can also use the global language-selection dropdown to change
+the global default kernel for new cells, and magics such as <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#%use-1023" target="_blank"><code>%use</code></a>
+and <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#%with-1024" target="_blank"><code>%with</code></a> to switch kernels in the cell.</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Notebook.gif" alt="Demo of SoS Notebook" /></p>
+
+<p>It is worth noting that SoS uses string interpolation (<a href="https://www.python.org/dev/peps/pep-0498/" target="_blank">Python f-string</a>) to
+compose scripts before sending them to subkernels. However, unlike the iPython <code>%%script</code> magic that always expand
+expressions in braces (e.g. <code>{variable}</code>), <strong>SoS by default does not interpolate cell content</strong> so that you can use
+subkernels freely without worrying about the inclusion of braces in the scripts.
+If there is a need to pass variables from SoS to the subkernels, you can use the</p>
+
+<pre><code>%expand
+</code></pre>
+
+<p>magic to expand expressions in braces with expressions in the SoS kernel. Furthermore, if your script in the subkernel
+contains many braces, you can specify an alternative sigil so that you do not have to double the braces for string
+interpolation. For example, in a cell with Bash subkernel, you can pass <code>filename</code> to the subkernel with sigil <code>%( )</code>
+as follows if it is unsafe to expand the script with either <code>{ }</code> or <code>${ }</code>:</p>
+
+<pre><code>%expand %( )
+for i in {1..25}
+do
+    echo ${i} &gt;&gt; %(filename)
+done
+</code></pre>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/expand_magic.gif" alt="expand magic" /></p>
+
+<h3 id="inter-language-data-exchange">Inter-language data exchange</h3>
+
+<p>If you followed the animations in the first figure, you might have noticed another way to pass variables
+from one kernel to another, namely the use of the <code>%get</code> magic. This magic allows you to
+transfer variables in one to another kernel, so whereas it is correct to think of a SoS notebook with multiple
+subkernels as multiple trains (cells belonging to each subkernel) running on their own tracks,</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange/Slide1.png" alt="multi kernels" /></p>
+
+<p>the <strong>data actually flow through cells of the same kernel and cross cells to other live kernels</strong> as shown in the following
+figure</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange/Slide2.png" alt="data flow" /></p>
+
+<p>This allows you to, for example, load and clean your data in Python, analyze them in R, SAS, or MATLAB, and plot the results
+in other kernels such as JavaScript. The data exchange can be done explicitly with magic <code>%get</code></p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange_magic_get.png" alt="magic get" /></p>
+
+<p>implicitly for variables with names starting with <code>sos</code></p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange_auto.png" alt="auto data exchange" /></p>
+
+<p>or as side effect of kernel switch</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange_magic_with.png" alt="magic with" /></p>
+
+<p>The last method is pretty interesting because it allows you to execute a cell in another kernel with input and
+output variables, similar to calling a function.</p>
+
+<p>Exchanging data of different types between live kernels in different languages is a very chanllenging task and requires
+coordination between sending and receiving kernels, either directly or by way of SoS. SoS currently
+supports data exchange of most native data types among SoS and nine supported languages and you are encouraged to
+check out the SoS manual on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html" target="_blank">Supported Languages</a>
+for details. But just to clarify a few questions you might already have,</p>
+
+<ol>
+<li><p>SoS does not copy or transfer variables from one kernel to another. It <strong>creates independent homonymous
+variables in the destination kernel</strong> so that changing variables in another kernel does not affect the variables
+in the sending kernel.</p></li>
+
+<li><p>SoS <strong>creates variables of similar types that are native to the destination language</strong>. For example, although <code>3</code>
+and <code>c(3, 5)</code> are both numeric arrays in <code>R</code>, they are converted to Python as integer <code>3</code> and
+numpy <code>array([3, 5])</code> respectively. Similarly, a Python <code>DataFrame</code> is converted to <code>data.frame</code> in <code>R</code>, <code>dataset</code> in SAS,
+<code>table</code> in <code>Matlab</code>, <code>dataframe</code> in Octave, and nested dictionaries in JavaScript.</p></li>
+
+<li><p>Data exchange between subkernels are usually done by way of SoS (e.g. <code>kernel A</code> -&gt; <code>SoS</code> -&gt; <code>Kernel B</code>) but the protocol
+allows direct data exchange between subkernels.</p></li>
+</ol>
+
+<h3 id="side-panel-line-by-line-execution-of-cells">Side panel, line-by-line execution of cells</h3>
+
+<p>SoS Notebook provides a side panel that can be used to execute a variety of nonpermanent actions, namely actions that
+are temporary in nature and with results kept outside of the main notebook. Such actions include executing scratch commands,
+showing results of line-by-line execution, previewing variables and files, and showing the table of contents
+of the notebook. The most important feature is the <strong><code>Ctrl-Shift-Enter</code> keyboard shortcut for executing
+selected code (or current line if no code is selected) in the side panel</strong>. As you can see from the following figure, the
+side-panel automatically switch langauges so you can step through your cells in any language.</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/step_through.gif" alt="step through" /></p>
+
+<h3 id="preview-of-variables-and-files">Preview of variables and files</h3>
+
+<p>Instant feedback is crucial for smooth interactive data analysis so SoS Notebook went a long way in providing
+a really powerful magic called <code>%preview</code>. Basically, the <code>%preview</code> magic can</p>
+
+<ol>
+<li>Preview variables and expressions (quotation required if expressions contain spaces) in any kernel.</li>
+<li>Preview files in many different formats, including bioinformatic-specific formats such as fastq, vcf, and bam.
+Depending on the nature of the data, SoS shows  images in different formats, lists contents of compressed
+files, and summarizes key information such as the length of reads for fastq files and the reference genome used for VCF files.</li>
+<li>Preview Python DataFrames in scrollable, sortable, and searchable tabular format, or in interactive scatterplot with a tooltip for each data point.
+These features make it easy to present and search large tables, show sample distribution and identify outliers of the data.</li>
+<li>Automatically determines whether the code is a single variable or an assignment statement and previews the resulting
+variable. This works for different syntaxes in different languages (e.g., a &lt;- 3 in R) and is arguably easier to use than
+looking for a variable in a dedicated window that lists all variables in some IDEs such as RStudio.</li>
+</ol>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/preview_magic.gif" alt="step through" /></p>
+
+<p>The <code>%preview</code> magic also provides options to preview results in the side panel or main document,
+preview files on local and remote hosts, save displayed results in the main notebook or side panel, and control
+the style of preview results. Please refer to
+<a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview-of-results-13" target="_blank">the documentation of <code>%preview</code> magic</a> for details.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>SoS Notebook was started as a Jupyter kernel for the SoS workflow engine but evolved to a multi-language notebook to provide users to
+complete environment for interactive data analysis using multiple languages. This post lists several of its key features but these are
+more interesting magics such as</p>
+
+<ol>
+<li>A <code>%render</code> magic is provided to render output from any kernel as markdown, HTML, svg etc, which essentially allows inline
+string interpolation from any subkernel.</li>
+<li>A <code>%clear</code> magic can be used to suppress output of cells to be executed, or clear output of selected or all cells after they are executed.</li>
+<li>A <code>%toc</code> magic to display dynamically updated table of content in the side panel.</li>
+<li>A <code>%sessioninfo</code> magic to collect and display session information from all running kernels.</li>
+</ol>
+
+<p>More details of these magics and SoS Notebook in general can be found at the <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview-of-results-13" target="_blank">SoS Notebook documentation</a>,
+<a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html" target="_blank">SoS Magics</a>, <a href="https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html" target="_blank">Supported Languages</a>,
+and videos from the <a href="https://vatlab.github.io/sos-docs/index.html#documentation" target="_blank">SoS Video Library</a>.</p>
+
+<p>SoS Notebook is fairly stable but we would not want to make a 1.0 release without hearing from you. Please test SoS Notebook and send
+us your feedback and/or bug report to our <a href="https://github.com/vatlab/sos-notebook/issues" target="_blank">github issue tracker</a>.
+If you find SoS Notebook useful, please support the project by starring the <a href="https://github.com/vatlab/SoS" target="_blank">SoS</a> and <a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a>
+github projects, or spreading the word with <a href="https://twitter.com/ScriptOfScripts" target="_blank">twitter</a>.</p>
 
     </div>
     

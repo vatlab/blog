@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>One Jupyter notebook, multiple languages</title>
+      <title>SoS Notebook: a multi-language notebook for Jupyter</title>
       <link>https://vatlab.github.io/blog/post/sos-notebook/</link>
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://vatlab.github.io/blog/post/sos-notebook/</guid>
-      <description>Jupyter supports a large number of kernels for virtually all scripting languages ever invented, but despite of all the magical ways (magics) to call shell commands and scripts in other languages, one notebook only supports one kernel. You will have to create multiple notebooks if your analysis involves multiple scripting languages, making it difficult to organize, share and reproduce.
-A SoS (Script of Scripts) kernel has been developed to fill this gap, basically allows you to have multiple live kernels in the same notebook.</description>
+      <description>I started to use IPython, and then Jupyter more than ten years ago but despite of all the nice features, there were always something missing, something that prevented me from using it as my main working environment. Notably, Jupyter lacks
+ Line by line execution of scripts: The basic execution units of Jupyter are cells so there is no way for you to execute, tweak, and re-execute pieces of the code for debugging purposes Jupyter Issue 1094.</description>
     </item>
     
   </channel>
