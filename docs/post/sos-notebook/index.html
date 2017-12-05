@@ -118,7 +118,7 @@ variables even content of files.</p></li>
 
 <h2 id="sos-notebook">SoS Notebook</h2>
 
-<p>When I started to implement <a href="(https://github.com/vatlab/sos-notebook)" target="_blank">SoS Notebook</a> as a Jupyter kernel for a Python3-based workflow
+<p>When I started to implement <a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a> as a Jupyter kernel for a Python3-based workflow
 engine called <a href="https://github.com/vatlab/SoS" target="_blank">SoS</a>, it became obvious to me that I needed to expand the Jupyter frontend to provide
 a more comprehensive user interface for interactive multi-language data analysis. Although SoS Notebook is based on a
 workflow engine, you can use <strong>SoS Notebook as a Python 3 kernel with multi-language support</strong> because SoS is implemented as an
@@ -183,7 +183,7 @@ done
 <h3 id="inter-language-data-exchange">Inter-language data exchange</h3>
 
 <p>If you followed the animations in the first figure, you might have noticed another way to pass variables
-from one kernel to another, namely the use of the <code>%get</code> magic. This magic allows you to
+from one kernel to another, namely the use of the <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_get" target="_blank"><code>%get</code></a> magic. This magic allows you to
 transfer variables from one to another kernel, so whereas it is correct to think of a SoS notebook with multiple
 subkernels as multiple trains (cells belonging to each subkernel) running on their own tracks,</p>
 
@@ -207,7 +207,7 @@ or MATLAB, and plot the results in other kernels such as JavaScript. The data ex
 
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/data_exchange_magic_with.png" alt="magic with" /></p>
 
-<p>The last method is pretty interesting because it allows you to execute a cell in another kernel with input and
+<p>The last method that uses a <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_with" target="_blank"><code>%with</code></a> magic is pretty interesting because it allows you to execute a cell in another kernel with input and
 output variables, similar to calling a function.</p>
 
 <p>Exchanging data of different types between live kernels in different languages is a very challenging task and requires
@@ -248,7 +248,8 @@ side-panel automatically switch languages so you can step through your cells in 
 <h3 id="preview-of-variables-and-files">Preview of variables and files</h3>
 
 <p>Instant feedback is crucial for smooth interactive data analysis so SoS Notebook went a long way in providing
-a really powerful magic called <code>%preview</code>. Basically, the <code>%preview</code> magic can</p>
+a really powerful magic called <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview_of_results" target="_blank"><code>%preview</code></a>.
+Basically, the <code>%preview</code> magic can</p>
 
 <ol>
 <li>Preview variables and expressions (quotation required if expressions contain spaces) in any kernel.</li>
@@ -276,15 +277,15 @@ comprehensive environment for interactive data analysis using multiple languages
 more interesting magics such as</p>
 
 <ol>
-<li>A <code>%render</code> magic to render output from any kernel as markdown, HTML, svg etc, which essentially allows inline
+<li>A <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_render" target="_blank"><code>%render</code></a> magic to render output from any kernel as markdown, HTML, svg etc, which essentially allows inline
 string interpolation from any subkernel.</li>
-<li>A <code>%clear</code> magic to suppress output of cells to be executed, or clear output of selected or all cells after they are executed.</li>
-<li>A <code>%toc</code> magic to display dynamically updated table of contents in the side panel.</li>
-<li>A <code>%sessioninfo</code> magic to collect and display session information from all running kernels.</li>
+<li>A <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_clear" target="_blank"><code>%clear</code></a> magic to suppress output of cells to be executed, or clear output of selected or all cells after they are executed.</li>
+<li>A <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_toc" target="_blank"><code>%toc</code></a> magic to display dynamically updated table of contents in the side panel.</li>
+<li>A <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_sessioninfo" target="_blank"><code>%sessioninfo</code></a> magic to collect and display session information from all running kernels.</li>
 </ol>
 
 <p>More details of these magics and SoS Notebook in general can be found at the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS website</a> from which you can find
-documentation on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview-of-results-13" target="_blank">SoS Notebook</a>,
+documentation on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html" target="_blank">SoS Notebook</a>,
 on <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html" target="_blank">SoS Magics</a>,
 on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html" target="_blank">Supported Languages</a>,
 and videos from the <a href="https://vatlab.github.io/sos-docs/index.html#documentation" target="_blank">SoS Video Library</a>.</p>
@@ -294,7 +295,8 @@ your feedback and/or bug reports to our <a href="https://github.com/vatlab/sos-n
 If you are interested in adding support for
 your favorite scripting language (remember that SoS supports all Jupyter kernels but can only exchange variables among supported
 languages), please check out our tutorial on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Language_Module.html" target="_blank">adding a new language</a> and
-discuss with us on github. If you find SoS Notebook useful, please support the project by starring the <a href="https://github.com/vatlab/SoS" target="_blank">SoS</a> and <a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a>
+discuss with us on github. If you find SoS Notebook useful, please support the project by starring the <a href="https://github.com/vatlab/SoS" target="_blank">SoS</a> and
+<a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a>
 github projects, or spreading the word with <a href="https://twitter.com/ScriptOfScripts" target="_blank">twitter</a>.</p>
 
     </div>

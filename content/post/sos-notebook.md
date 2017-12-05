@@ -41,7 +41,7 @@ variables even content of files.
 
 ## SoS Notebook
 
-When I started to implement [SoS Notebook]((https://github.com/vatlab/sos-notebook)) as a Jupyter kernel for a Python3-based workflow
+When I started to implement [SoS Notebook](https://github.com/vatlab/sos-notebook) as a Jupyter kernel for a Python3-based workflow
 engine called [SoS](https://github.com/vatlab/SoS), it became obvious to me that I needed to expand the Jupyter frontend to provide
 a more comprehensive user interface for interactive multi-language data analysis. Although SoS Notebook is based on a
 workflow engine, you can use **SoS Notebook as a Python 3 kernel with multi-language support** because SoS is implemented as an
@@ -107,7 +107,7 @@ Note that SoS magics always expand expressions in braces, as show in the last ex
 ### Inter-language data exchange
 
 If you followed the animations in the first figure, you might have noticed another way to pass variables
-from one kernel to another, namely the use of the `%get` magic. This magic allows you to 
+from one kernel to another, namely the use of the [`%get`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_get) magic. This magic allows you to 
 transfer variables from one to another kernel, so whereas it is correct to think of a SoS notebook with multiple
 subkernels as multiple trains (cells belonging to each subkernel) running on their own tracks, 
 
@@ -133,7 +133,7 @@ or as side effect of kernel switch
 
 ![magic with](https://vatlab.github.io/sos-docs/doc/media/data_exchange_magic_with.png)
 
-The last method is pretty interesting because it allows you to execute a cell in another kernel with input and
+The last method that uses a [`%with`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_with) magic is pretty interesting because it allows you to execute a cell in another kernel with input and
 output variables, similar to calling a function.
 
 Exchanging data of different types between live kernels in different languages is a very challenging task and requires
@@ -173,7 +173,8 @@ side-panel automatically switch languages so you can step through your cells in 
 ### Preview of variables and files
 
 Instant feedback is crucial for smooth interactive data analysis so SoS Notebook went a long way in providing
-a really powerful magic called `%preview`. Basically, the `%preview` magic can
+a really powerful magic called [`%preview`](https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview_of_results).
+Basically, the `%preview` magic can
 
 1. Preview variables and expressions (quotation required if expressions contain spaces) in any kernel.
 2. Preview files in many different formats, including bioinformatic-specific formats such as fastq, vcf, and bam.
@@ -199,14 +200,14 @@ SoS Notebook was started as a Jupyter kernel for the SoS workflow engine but evo
 comprehensive environment for interactive data analysis using multiple languages. This post lists several of its key features and there are
 more interesting magics such as
 
-1. A `%render` magic to render output from any kernel as markdown, HTML, svg etc, which essentially allows inline
+1. A [`%render`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_render) magic to render output from any kernel as markdown, HTML, svg etc, which essentially allows inline
 string interpolation from any subkernel.
-2. A `%clear` magic to suppress output of cells to be executed, or clear output of selected or all cells after they are executed.
-3. A `%toc` magic to display dynamically updated table of contents in the side panel.
-4. A `%sessioninfo` magic to collect and display session information from all running kernels.
+2. A [`%clear`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_clear) magic to suppress output of cells to be executed, or clear output of selected or all cells after they are executed.
+3. A [`%toc`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_toc) magic to display dynamically updated table of contents in the side panel.
+4. A [`%sessioninfo`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_sessioninfo) magic to collect and display session information from all running kernels.
 
 More details of these magics and SoS Notebook in general can be found at the [SoS website](https://vatlab.github.io/sos-docs/) from which you can find
-documentation on [SoS Notebook](https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Preview-of-results-13),
+documentation on [SoS Notebook](https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html),
 on [SoS Magics](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html),
 on [Supported Languages](https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html),
 and videos from the [SoS Video Library](https://vatlab.github.io/sos-docs/index.html#documentation).
@@ -216,5 +217,6 @@ your feedback and/or bug reports to our [github issue tracker](https://github.co
 If you are interested in adding support for
 your favorite scripting language (remember that SoS supports all Jupyter kernels but can only exchange variables among supported
 languages), please check out our tutorial on [adding a new language](https://vatlab.github.io/sos-docs/doc/documentation/Language_Module.html) and
-discuss with us on github. If you find SoS Notebook useful, please support the project by starring the [SoS](https://github.com/vatlab/SoS) and [SoS Notebook](https://github.com/vatlab/sos-notebook)
+discuss with us on github. If you find SoS Notebook useful, please support the project by starring the [SoS](https://github.com/vatlab/SoS) and
+[SoS Notebook](https://github.com/vatlab/sos-notebook)
 github projects, or spreading the word with [twitter](https://twitter.com/ScriptOfScripts). 
