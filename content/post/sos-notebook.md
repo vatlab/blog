@@ -163,8 +163,10 @@ allows direct data exchange between subkernels.
 
 SoS Notebook provides a side panel that can be used to execute a variety of nonpermanent actions, namely actions that
 are temporary in nature and with results kept outside of the main notebook. Such actions include executing scratch commands,
-showing results of line-by-line execution, previewing variables and files (magic `%preview`), and showing the table of contents 
-of the notebook (magic `%toc`). The most important feature is the **`Ctrl-Shift-Enter` keyboard shortcut for executing
+showing results of line-by-line execution, previewing variables and files 
+(magic [`%preview`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_preview)), and showing the table of contents 
+of the notebook (magic [`%toc`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_toc)).
+The most important feature is the **keyboard shortcut `Ctrl-Shift-Enter` for executing
 selected code (or current line if no code is selected) in the side panel**. As you can see from the following figure, the
 side-panel automatically switch languages so you can step through your cells in any language.
 
