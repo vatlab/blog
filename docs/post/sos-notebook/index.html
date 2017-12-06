@@ -214,7 +214,7 @@ output variables, similar to calling a function.</p>
 coordination between sending and receiving kernels, either directly or by way of SoS. <strong>SoS currently
 supports data exchange of most native data types among SoS and nine supported languages</strong> and you are encouraged to
 check out the SoS manual on <a href="https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html" target="_blank">Supported Languages</a>
-for details. However, just to clarify a few questions you might already have,</p>
+for details. However, just to answer a few questions you might already have,</p>
 
 <ol>
 <li><p>SoS does not copy or transfer variables from one kernel to another. It <strong>creates independent homonymous
@@ -226,7 +226,7 @@ and <code>c(3, 5)</code> are both numeric arrays in <code>R</code>, they are con
 numpy <code>array([3, 5])</code> respectively. Similarly, a Python <code>DataFrame</code> is converted to <code>data.frame</code> in <code>R</code>, <code>dataset</code> in SAS,
 <code>table</code> in <code>Matlab</code>, <code>dataframe</code> in Octave, and nested dictionaries in JavaScript.</p></li>
 
-<li><p>Data exchange <strong>might loss information if destination language does not support features of the source kernel</strong>. For example,
+<li><p>Data exchange <strong>might lose information if destination language does not support features of the source kernel</strong>. For example,
 most variables passed to <code>Bash</code> will be converted to strings and dataframes passed to Octave will lose row labels because
 Octave <code>dataframe</code> does not support row label.</p></li>
 

@@ -140,7 +140,7 @@ Exchanging data of different types between live kernels in different languages i
 coordination between sending and receiving kernels, either directly or by way of SoS. **SoS currently
 supports data exchange of most native data types among SoS and nine supported languages** and you are encouraged to
 check out the SoS manual on [Supported Languages](https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html)
-for details. However, just to clarify a few questions you might already have,
+for details. However, just to answer a few questions you might already have,
 
 1. SoS does not copy or transfer variables from one kernel to another. It **creates independent homonymous
 variables in the destination kernel** so that changing variables in another kernel does not affect the variables
@@ -151,7 +151,7 @@ and `c(3, 5)` are both numeric arrays in `R`, they are converted to Python as in
 numpy `array([3, 5])` respectively. Similarly, a Python `DataFrame` is converted to `data.frame` in `R`, `dataset` in SAS,
 `table` in `Matlab`, `dataframe` in Octave, and nested dictionaries in JavaScript. 
 
-3. Data exchange **might loss information if destination language does not support features of the source kernel**. For example,
+3. Data exchange **might lose information if destination language does not support features of the source kernel**. For example,
 most variables passed to `Bash` will be converted to strings and dataframes passed to Octave will lose row labels because
 Octave `dataframe` does not support row label.
 
