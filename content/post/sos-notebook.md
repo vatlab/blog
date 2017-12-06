@@ -155,7 +155,7 @@ numpy `array([3, 5])` respectively. Similarly, a Python `DataFrame` is converted
 most variables passed to `Bash` will be converted to strings and dataframes passed to Octave will lose row labels because
 Octave `dataframe` does not support row label.
 
-4. Data exchange between subkernels are usually done by way of SoS (e.g. `kernel A` -> `SoS` -> `Kernel B`) but the protocol
+4. Data exchange between subkernels is usually done by way of SoS (e.g. `kernel A` -> `SoS` -> `Kernel B`) but the protocol
 allows direct data exchange between subkernels.
 
 
@@ -208,8 +208,8 @@ string interpolation from any subkernel.
 
 More details of these magics and SoS Notebook in general can be found at the [SoS website](https://vatlab.github.io/sos-docs/) from which you can find
 documentation on [SoS Notebook](https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html),
-on [SoS Magics](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html),
-on [Supported Languages](https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html),
+[SoS Magics](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html),
+[Supported Languages](https://vatlab.github.io/sos-docs/doc/documentation/Supported_Languages.html),
 and videos from the [SoS Video Library](https://vatlab.github.io/sos-docs/index.html#documentation).
 
 SoS Notebook is fairly stable for a new project but we would not want to make a 1.0 release without hearing from you. Please test SoS Notebook and send
