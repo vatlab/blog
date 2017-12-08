@@ -74,8 +74,7 @@ provides.
 
 ![Demo of SoS Notebook](https://vatlab.github.io/sos-docs/doc/media/SoS_Notebook.gif)
 
-SoS uses string interpolation ([Python f-string](https://www.python.org/dev/peps/pep-0498/)) to
-process scripts before sending them to subkernels. However, unlike the iPython `%%script` magic that always expand
+SoS interpolates scripts before sending them to subkernels. However, unlike the iPython `%%script` magic that always expand
 expressions in braces (e.g. `{variable}`), **SoS by default does not interpolate cell content** so that you can use
 subkernels freely without worrying about the inclusion of braces in the scripts.
 If there is a need to pass variables from SoS to the subkernels, you can use the
@@ -84,8 +83,10 @@ If there is a need to pass variables from SoS to the subkernels, you can use the
 %expand
 ```
 
-magic to expand expressions in braces with variables defined in the SoS kernel. This allows you, for example, to pass
-a filename to subkernels so that you do not have to repeat it multiple times.
+magic to expand expressions in braces with variables defined in the SoS kernel, essentially treating 
+cell contents as [f-strings](https://www.python.org/dev/peps/pep-0498/) of Python 3.6 (this is why SoS Notebook
+depends on Python 3.6). This allows you, for example, to pass
+a filename to subkernels so that you do not have to repeat it for each subkernel.
 
 Furthermore, if your script in the subkernel
 contains many braces, you can specify an alternative sigil so that you do not have to double the braces for string
@@ -149,7 +150,7 @@ in the sending kernel.
 2. SoS **creates variables of similar types that are native to the destination language**. For example, although `3` 
 and `c(3, 5)` are both numeric arrays in `R`, they are converted to Python as integer `3` and 
 numpy `array([3, 5])` respectively. Similarly, a Python `DataFrame` is converted to `data.frame` in `R`, `dataset` in SAS,
-`table` in `Matlab`, `dataframe` in Octave, and nested dictionaries in JavaScript. 
+`table` in `MATLAB`, `dataframe` in Octave, and nested dictionaries in JavaScript. 
 
 3. Data exchange **might lose information if destination language does not support features of the source kernel**. For example,
 most variables passed to `Bash` will be converted to strings and dataframes passed to Octave will lose row labels because
@@ -198,7 +199,7 @@ the style of preview results. Please refer to
 
 ### Summary
 
-SoS Notebook was started as a Jupyter kernel for the SoS workflow engine but evolved to a multi-language notebook to provide users a 
+SoS Notebook was started as a Jupyter kernel for the SoS workflow engine but evolved to a multi-language notebook to provide users with a 
 comprehensive environment for interactive data analysis using multiple languages. This post lists several of its key features and there are
 more interesting magics such as
 
