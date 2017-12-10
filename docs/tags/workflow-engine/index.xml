@@ -18,9 +18,9 @@
       <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</guid>
-      <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and reviews to our manuscript) the following question:
+      <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and in reviews to our manuscript) the following question:
  Why did not you use an existing multi-language notebooks (e.g. Apache Zeppelin and BeakerX) or contribute a multi-language feature to the core of Jupyter or JupyterLab?
- There were technical (e.g. architecture of the current Jupyter core not suitable for multi-language support), practical (e.</description>
+ There were several technical (e.g. architecture of the current Jupyter core not suitable for multi-language support) and practical (e.</description>
     </item>
     
   </channel>
