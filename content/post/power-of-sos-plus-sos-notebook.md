@@ -20,8 +20,8 @@ contribute a multi-language feature to the core of [Jupyter](http://jupyter.org/
 There were technical (e.g. architecture of the current
 Jupyter core not suitable for multi-language support), practical (e.g. Jupyter core was not active enough to accept
 major new feature, JupyterLab was too instable (in alpha) to work with) reasons for the decision, but the biggest reason 
-was **our vision to create a multi-language working environment backed by a workflow engine SoS**. This post
-explains the motivations for why we crated SoS Notebook as a frontend to the SoS workflow engine.
+was **our vision to create a multi-language working environment backed by a workflow engine**, which led to
+the development of SoS Notebook as a frontend to the SoS workflow engine.
 
 ### Why notebook environments are limited
 
@@ -39,7 +39,7 @@ assistance from pipeline systems.
 
 ### Why “pipelineitis is a nasty disease”?
 
-Everyone knows how powerful pipelines can be and [aswsome pipelines](https://github.com/pditommaso/awesome-pipeline) lists more than 100
+Everyone knows how powerful pipelines can be and [awsome pipelines](https://github.com/pditommaso/awesome-pipeline) lists more than 100
 scientific pipeline systems. However, allow me to quote [Loman and Watson, 2013, Nat Biotechnol](https://www.nature.com/articles/nbt.2740) 
 for this point:
 
