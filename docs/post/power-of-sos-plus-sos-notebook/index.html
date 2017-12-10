@@ -152,20 +152,25 @@ shows a DAG of a SoS workflow, the <a href="https://vatlab.github.io/sos-docs/do
 <strong>smooth transition from interactive data analysis to batch data processing workflow</strong>, with the following steps:</p>
 
 <ol>
-<li><strong>Analyze data interactively</strong> using multiple languages (with data exchange, line-by-line execution etc)</li>
+<li><strong>Analyze data interactively</strong> using multiple languages (with data exchange, line-by-line execution etc).</li>
 <li><strong>Convert scripts in subkernels to workflow steps</strong> in SoS Notebook with minimal syntax change (simply change the cell kernel to SoS and add an action name).</li>
 <li><strong>Annotate steps with execution control directives</strong> by adding <code>input</code>, <code>output</code>, <code>depends</code>, <code>task</code> directives and section headers)
 to create workflows to analyze big data on local or remote systems (e.g. a cluster).</li>
 </ol>
 
+<p>The entire process can be examplified by the following example where:</p>
+
+<ol>
+<li>A shell script and a R script are executed with variables defined in SoS (figure 1-3),</li>
+<li>The scipts are converted to SoS actions to be executed individually in SoS (figure 4-5),</li>
+<li>Section headers are added to convert the steps to a workflow (figure 6-7),</li>
+<li>The resulting workflow can be executed and displayed in SoS Notebook (figure 8-9)</li>
+</ol>
+
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" alt="SoS notebook with SoS" /></p>
 
-<p>The resulting workflows can be executed inside SoS Notebook
-using magics <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_run" target="_blank"><code>%run</code></a>
-and <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_sosrun" target="_blank"><code>%sosrun</code></a> or be
-executed from command line using commands such as <a href="https://vatlab.github.io/sos-docs/doc/documentation/User_Interface.html" target="_blank"><code>sos run</code></a>.
-I will describe features of the SoS workflow engine in another post but the fact
-that you can use SoS inside SoS Notebook already have many advantages:</p>
+<p>The SoS workflow engine has many features and deserves a separate post but the fact
+that you can use SoS inside SoS Notebook has already provided several advantages:</p>
 
 <ol>
 <li>SoS Notebook provides an interactive multi-language environment to develop and debug your workflow.</li>

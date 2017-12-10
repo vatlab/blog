@@ -71,20 +71,23 @@ showcases the multi-language features of SoS Notebook, the [third](https://vatla
 shows a DAG of a SoS workflow, the [second](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif) demonstrates
 **smooth transition from interactive data analysis to batch data processing workflow**, with the following steps:
 
-1. **Analyze data interactively** using multiple languages (with data exchange, line-by-line execution etc)
+1. **Analyze data interactively** using multiple languages (with data exchange, line-by-line execution etc). 
 2. **Convert scripts in subkernels to workflow steps** in SoS Notebook with minimal syntax change (simply change the cell kernel to SoS and add an action name).
 3. **Annotate steps with execution control directives** by adding `input`, `output`, `depends`, `task` directives and section headers)
  to create workflows to analyze big data on local or remote systems (e.g. a cluster).
 
 
+The entire process can be examplified by the following example where:
+
+1. A shell script and a R script are executed with variables defined in SoS (figure 1-3),
+2. The scipts are converted to SoS actions to be executed individually in SoS (figure 4-5),
+3. Section headers are added to convert the steps to a workflow (figure 6-7),
+4. The resulting workflow can be executed and displayed in SoS Notebook (figure 8-9)
+
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
 
-The resulting workflows can be executed inside SoS Notebook 
-using magics [`%run`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_run)
-and [`%sosrun`](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic_sosrun) or be
-executed from command line using commands such as [`sos run`](https://vatlab.github.io/sos-docs/doc/documentation/User_Interface.html).
-I will describe features of the SoS workflow engine in another post but the fact
-that you can use SoS inside SoS Notebook already have many advantages:
+The SoS workflow engine has many features and deserves a separate post but the fact
+that you can use SoS inside SoS Notebook has already provided several advantages:
 
 1. SoS Notebook provides an interactive multi-language environment to develop and debug your workflow.
 2. The Jupyter notebook format allows you to annotate workflows with markdown cells (tables, figures etc) and allows
