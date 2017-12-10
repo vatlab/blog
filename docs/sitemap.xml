@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vatlab.github.io/blog/tags/jupyter/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -33,6 +38,12 @@
   
   <url>
     <loc>https://vatlab.github.io/blog/tags/</loc>
+    <lastmod>2017-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vatlab.github.io/blog/tags/workflow-engine/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

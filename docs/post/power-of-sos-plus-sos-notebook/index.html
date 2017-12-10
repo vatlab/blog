@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
+<title>The combined power of SoS Notebook and SoS Workflow Engine | vatlab</title>
+
+<meta property='og:title' content='The combined power of SoS Notebook and SoS Workflow Engine - vatlab'>
+<meta property='og:description' content='After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and reviews to our manuscript) the following question:
+ Why did not you use an existing multi-language notebooks (e.g. Apache Zeppelin and BeakerX) or contribute a multi-language feature to the core of Jupyter or JupyterLab?
+ There were technical (e.g. architecture of the current Jupyter core not suitable for multi-language support), practical (e.'>
+<meta property='og:url' content='https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/'>
+<meta property='og:site_name' content='vatlab'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='Notebook'><meta property='article:tag' content='Workflow Engine'><meta property='article:published_time' content='2017-11-29T00:00:00Z'/><meta property='article:modified_time' content='2017-11-29T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
+<link rel="stylesheet" href="https://vatlab.github.io/blog//css/style.css"/><link rel='stylesheet' href='https://vatlab.github.io/blog/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://vatlab.github.io/blog/"><h1 class="title is-4">vatlab
+			   </h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:bpeng@mdanderson.org' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/vatlab' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/ScriptOfScripts' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="https://vatlab.github.io/blog/tags/notebook">#Notebook</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="https://vatlab.github.io/blog/tags/workflow-engine">#Workflow Engine</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">November 29, 2017</h2>
+    <h1 class="title">The combined power of SoS Notebook and SoS Workflow Engine</h1>
+      
+    <div class="content">
+      
+
+<p>After I announced the release of <a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a> as a third-party
+multi-language kernel for <a href="http://jupyter.org/" target="_blank">Jupyter</a>, I was asked repeatedly (e.g. On <a href="https://news.ycombinator.com/item?id=15852821" target="_blank">HackerNews</a>,
+<a href="https://github.com/Microsoft/AzureNotebooks/issues/254#issuecomment-349722523" target="_blank">AzureNotebooks</a>, and reviews to our manuscript) the following question:</p>
+
+<blockquote>
+<p><strong>Why did not you use an existing multi-language notebooks
+(e.g. <a href="https://zeppelin.apache.org/" target="_blank">Apache Zeppelin</a> and <a href="https://github.com/twosigma/beakerx" target="_blank">BeakerX</a>) or
+contribute a multi-language feature to the core of <a href="http://jupyter.org/" target="_blank">Jupyter</a> or
+<a href="https://github.com/jupyterlab/jupyterlab" target="_blank">JupyterLab</a>?</strong></p>
+</blockquote>
+
+<p>There were technical (e.g. architecture of the current
+Jupyter core not suitable for multi-language support), practical (e.g. Jupyter core was not active enough to accept
+major new feature, JupyterLab was too instable (in alpha) to work with) reasons for the decision, but the biggest reason
+was <strong>our vision to create a multi-language working environment backed by a workflow engine SoS</strong>. This post
+explains the motivations for why we crated SoS Notebook as a frontend to the SoS workflow engine.</p>
+
+<h3 id="why-notebook-environments-are-limited">Why notebook environments are limited</h3>
+
+<p>Jupyter Notebooks, or notebook environments in generally, or any data analysis IDEs are limited in their abilities to
+analyze big data. This is a difficult claim to make because there are many powerful IDEs, even big data IDEs, and there
+are many ways to explore even analyze big data interactively, but the basic facts are that</p>
+
+<ol>
+<li>It is intolerable to wait more than 5 minutes for a job to complete in interactive data analysis environment</li>
+<li>However powerful your machine is, an IDE environment is limited if it can only execute scripts on one machine</li>
+</ol>
+
+<p>So basically <strong>an interactive environment is good at prototyping and developing of data analysis steps, not
+at large-scale data processing</strong>. An IDE can be used to analyze small datasets or analyze data once if you are
+willing to wait, but analyzing a large amount of data should be performed on much larger (e.g. cluster) systems with
+assistance from pipeline systems.</p>
+
+<h3 id="why-pipelineitis-is-a-nasty-disease">Why “pipelineitis is a nasty disease”?</h3>
+
+<p>Everyone knows how powerful pipelines can be and <a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">aswsome pipelines</a> lists more than 100
+scientific pipeline systems. However, allow me to quote <a href="https://www.nature.com/articles/nbt.2740" target="_blank">Loman and Watson, 2013, Nat Biotechnol</a>
+for this point:</p>
+
+<blockquote>
+<h4 id="pipelineitis-is-a-nasty-disease">Pipelineitis is a nasty disease</h4>
+
+<p>A pipeline is a series of steps, or software tools, run in sequence according to a predefined plan. Pipelines are great for running exactly the same set of steps in a repetitive fashion, and for sharing protocols with others, but they force you into a rigid way of thinking and can decrease creativity.</p>
+
+<p>Warning: don&rsquo;t pipeline too early. Get a method working before you turn it into a pipeline. And even then, does it need to be a pipeline? Have you saved time? Is your pipeline really of use to others? If those steps are only ever going to be run by you, then a simple script will suffice and any attempts at pipelining will simply waste time. Similarly, if those steps will only ever be run once, just run them once, document the fact you did so and move on.</p>
+</blockquote>
+
+<p>The problem with all these pipeline systems is that they require you to leave your familiar data analysis environment
+to &ldquo;program&rdquo; pipeline using a <a href="https://academic.oup.com/bib/article/18/3/530/2562749" target="_blank">different environment, description language, or even a rigirous programming language</a>,
+so whereas they are powerful and friendly to workflow users, they are not friendly to workflow writers.
+The status quo is so confusing to users to a point that people are asking questions such as
+<a href="https://www.reddit.com/r/bioinformatics/comments/7gxsk0/does_anyone_use_cwl_does_it_actually_help_you_get/" target="_blank">Does anyone use CWL? Does it actually help you get work done?</a>.
+My answer to this question is <strong>workflows are counter-productive if they require you to use another environment even language</strong>.</p>
+
+<h3 id="a-thick-wall-between-notebook-and-workflow-systems">A thick wall between notebook and workflow systems</h3>
+
+<p>So we have two very nice sets of tools but there is a very thick wall between them.
+<strong>It is a big hurdle to apply scripts developed interactively to large datasets</strong> because
+we need re-engineer the entire data analysis to a workflow using another environment or language.</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/interactive-vs-workflow.jpg" alt="wall between notebook and workflow systems" /></p>
+
+<h3 id="how-sos-solves-the-transition-problem">How SoS solves the transition problem</h3>
+
+<p>There are three figures on the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS Homepage</a>, the <a href="https://vatlab.github.io/sos-docs/doc/media/SoS_Notebook.gif" target="_blank">first</a>
+showcases the multi-language features of SoS Notebook, the <a href="https://vatlab.github.io/sos-docs/doc/media/example_dag.png" target="_blank">third</a>
+shows a DAG of a SoS workflow, the <a href="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" target="_blank">second</a> demonstrates
+<strong>smooth transition from interactive data analysis to batch data processing workflow</strong>, with the following steps:</p>
+
+<ol>
+<li><strong>Analyze data interactively</strong> using multiple languages (with data exchange, line-by-line execution etc)</li>
+<li><strong>Isolate scripts</strong> (make them self-contained) and convert them to SoS functions with minimal syntax change
+(just move them from a subkernel to SoS kernel and add an action name).</li>
+<li><strong>Annotate the scripts</strong> with step headers and SoS directives to create workflows to analyze big data on local or remote systems (e.g. a cluster).</li>
+</ol>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" alt="SoS notebook with SoS" /></p>
+
+<p>The following video gives more details on how to use the SoS workflow engine within SoS Notebook:</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/H2Ca8QDIqQA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h3 id="summary">Summary</h3>
+
+<p><a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS</a> is a powerful workflow engine that supports both
+<a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html#Forward-style_workflows" target="_blank">forward-style (process-oriented)</a>
+and
+<a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html#Makefile-style_workflow" target="_blank">makefile-style (outcome oriented)</a>
+workflows and many advanced execution features (e.g.
+use <a href="https://vatlab.github.io/sos-docs/doc/tutorials/Execution_of_Workflow.html#Runtime-signature-14" target="_blank">runtime signature</a>
+to avoid re-execution of long commands, execute tasks on
+<a href="https://vatlab.github.io/sos-docs/doc/tutorials/Remote_Execution.html" target="_blank">remote workstation or cluster systems</a>), but the <strong>key feature
+of SOS is its simplicity, its easy transition from interactive to batch data processing, and from simple to advanced
+workflows</strong>. I will describe features of the SoS workflow engine in another post but the fact
+that you can use SoS inside SoS Notebook already have many advantages:</p>
+
+<ol>
+<li>SoS Notebook provides an interactive multi-language environment to develop and debug your workflow.</li>
+<li>The Jupyter notebook format allows you to annotate workflows with markdown cells (tables, figures etc) and allows
+you to keep (sample) results along with the workflow.</li>
+</ol>
+
+<p>The combination of SoS Notebook with the SoS workflow engine <strong>provides a smooth transition and a single environment
+for both interactive and batch data analysis</strong>, which allows you to
+<strong>grow your data analysis with more and more flexibility and ability to handle larger and larger datasets</strong>.
+Depending on the scale and complexity of your project, you can stop at any stage of &ldquo;pipelining&rdquo; your analysis.</p>
+
+<p><small>
+More details of SoS and SoS Notebook can be found at the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS website</a> where you can
+find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
+your feedback and/or bug reports to our <a href="https://github.com/vatlab/sos-notebook/issues" target="_blank">github issue tracker</a>.
+If you find SoS Notebook useful, please support the project by starring the <a href="https://github.com/vatlab/SoS" target="_blank">SoS</a> and
+<a href="https://github.com/vatlab/sos-notebook" target="_blank">SoS Notebook</a>
+github projects, or spreading the word with <a href="https://twitter.com/ScriptOfScripts" target="_blank">twitter</a>. </small></p>
+
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container">
+<div id="gh-comments">
+    <br/><br/>
+    <h5>COMMENTS</h5>
+    <div id="gh-comments-list"></div>
+    <a href="javascript:void(0)" id="gh-load-comments" class="btn" style="display:none">Load more comments</a>
+</div>
+
+<script type="text/javascript" src="https://vatlab.github.io/blog/js/github-comments.js"></script>
+<script type="text/javascript">
+    DoGithubComments( 7 );
+</script>
+      
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://faculty.mdanderson.org/profiles/bo_peng.html">Bo Peng, Ph.D. / MD Anderson Cancer Center</a> All rights reserved</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-107286198-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

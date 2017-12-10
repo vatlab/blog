@@ -22,5 +22,16 @@
  Line by line execution of scripts: The basic execution units of Jupyter are cells so there is no easy way to execute, tweak, and re-execute pieces of the code for debugging purposes (StackOverflow Question, Jupyter Issue 1094).</description>
     </item>
     
+    <item>
+      <title>The combined power of SoS Notebook and SoS Workflow Engine</title>
+      <link>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</guid>
+      <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and reviews to our manuscript) the following question:
+ Why did not you use an existing multi-language notebooks (e.g. Apache Zeppelin and BeakerX) or contribute a multi-language feature to the core of Jupyter or JupyterLab?
+ There were technical (e.g. architecture of the current Jupyter core not suitable for multi-language support), practical (e.</description>
+    </item>
+    
   </channel>
 </rss>
