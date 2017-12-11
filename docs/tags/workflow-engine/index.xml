@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://faculty.mdanderson.org/profiles/bo_peng.html&#34;&gt;Bo Peng, Ph.D. / MD Anderson Cancer Center&lt;/a&gt; All rights reserved</copyright>
-    <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vatlab.github.io/blog/tags/workflow-engine/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>The combined power of SoS Notebook and SoS Workflow Engine</title>
       <link>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</guid>
       <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and in reviews to our manuscript) the following question:

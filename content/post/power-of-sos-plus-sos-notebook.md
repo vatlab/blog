@@ -4,7 +4,7 @@ draft: false
 author: "Bo Peng"
 title: "The combined power of SoS Notebook and SoS Workflow Engine"
 ghcommentid: 7
-date: "2017-11-29"
+date: "2017-12-10"
 tags: ["Notebook", "Workflow Engine"]
 ---
 

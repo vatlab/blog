@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://faculty.mdanderson.org/profiles/bo_peng.html&#34;&gt;Bo Peng, Ph.D. / MD Anderson Cancer Center&lt;/a&gt; All rights reserved</copyright>
-    <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vatlab.github.io/blog/tags/notebook/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The combined power of SoS Notebook and SoS Workflow Engine</title>
+      <link>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</guid>
+      <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and in reviews to our manuscript) the following question:
+ Why did not you use an existing multi-language notebooks (e.g. Apache Zeppelin and BeakerX) or contribute a multi-language feature to the core of Jupyter or JupyterLab?
+ There were several technical (e.g. architecture of the current Jupyter core not suitable for multi-language support) and practical (e.</description>
+    </item>
     
     <item>
       <title>SoS Notebook: one notebook, multiple languages</title>
@@ -20,17 +31,6 @@
       <guid>https://vatlab.github.io/blog/post/sos-notebook/</guid>
       <description>I started to use IPython, and then Jupyter more than ten years ago but despite of all the nice features, there were always something missing, something that prevented me from using it as my main working environment. Notably, Jupyter lacks
  Line by line execution of scripts: The basic execution units of Jupyter are cells so there is no easy way to execute, tweak, and re-execute pieces of the code for debugging purposes (StackOverflow Question, Jupyter Issue 1094).</description>
-    </item>
-    
-    <item>
-      <title>The combined power of SoS Notebook and SoS Workflow Engine</title>
-      <link>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/</guid>
-      <description>After I announced the release of SoS Notebook as a third-party multi-language kernel for Jupyter, I was asked repeatedly (e.g. On HackerNews, AzureNotebooks, and in reviews to our manuscript) the following question:
- Why did not you use an existing multi-language notebooks (e.g. Apache Zeppelin and BeakerX) or contribute a multi-language feature to the core of Jupyter or JupyterLab?
- There were several technical (e.g. architecture of the current Jupyter core not suitable for multi-language support) and practical (e.</description>
     </item>
     
   </channel>
