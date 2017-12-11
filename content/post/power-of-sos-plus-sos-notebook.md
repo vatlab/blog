@@ -2,7 +2,7 @@
 type: "post"
 draft: false
 author: "Bo Peng"
-title: "The combined power of SoS Notebook and SoS Workflow Engine"
+title: "What's the big deal about backing SoS Notebook with a workflow engine?"
 ghcommentid: 7
 date: "2017-12-10"
 tags: ["Notebook", "Workflow Engine"]
