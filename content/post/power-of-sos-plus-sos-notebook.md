@@ -77,13 +77,6 @@ shows a DAG of a SoS workflow, the [second](https://vatlab.github.io/sos-docs/do
  to create workflows to analyze big data on local or remote systems (e.g. a cluster).
 
 
-The entire process can be examplified by the following example where:
-
-1. A shell script and a R script are executed with variables defined in SoS (figure 1-3),
-2. The scipts are converted to SoS actions to be executed individually in SoS (figure 4-5),
-3. Section headers are added to convert the steps to a workflow (figure 6-7),
-4. The resulting workflow can be executed and displayed in SoS Notebook (figure 8-9)
-
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
 
 The SoS workflow engine has many features and deserves a separate post but the fact
