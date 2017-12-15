@@ -75,6 +75,10 @@ computational research and increases your productivity.
 
 ## A single environment for both interactive and large-scale data processing
 
+As shown in [this post](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/), the SoS
+environment allows you to develop your scripts and workflow steps interactively before you convert
+them to formal workflows.
+
 ## Smooth transition from 
 
 ## A single environment for local and remote data processing
