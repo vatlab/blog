@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
+<title>SoS: a workflow system designed for daily computational research (still writing) | vatlab</title>
+
+<meta property='og:title' content='SoS: a workflow system designed for daily computational research (still writing) - vatlab'>
+<meta property='og:description' content='A phenomenon has puzzled me for quite some time when I started my career as a bioinformatician, that is to say, everyone knows the benefits of workflow systems, everyone has heard of and talks about the power and popularity of some workflow systems, but yet no one I know actually uses a workflow system for daily computational research. People programm in different scripting languages using their favoriate langauges and IDEs, execute them locally or submit them to cluster system with shell and other scripts, all without the use of a workflow system.'>
+<meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
+<meta property='og:site_name' content='vatlab'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='SoS'><meta property='article:tag' content='Workflow'><meta property='article:published_time' content='2017-12-15T00:00:00Z'/><meta property='article:modified_time' content='2017-12-15T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
+<link rel="stylesheet" href="https://vatlab.github.io/blog//css/style.css"/><link rel='stylesheet' href='https://vatlab.github.io/blog/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://vatlab.github.io/blog/"><h1 class="title is-4">vatlab
+			   </h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:bpeng@mdanderson.org' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/vatlab' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/ScriptOfScripts' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="https://vatlab.github.io/blog/tags/sos">#SoS</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="https://vatlab.github.io/blog/tags/workflow">#Workflow</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">December 15, 2017</h2>
+    <h1 class="title">SoS: a workflow system designed for daily computational research (still writing)</h1>
+      
+    <div class="content">
+      
+
+<p>A phenomenon has puzzled me for quite some time when I started my career as a bioinformatician, that is to say,
+<strong>everyone knows the benefits of workflow systems, everyone has heard of and talks about the power and popularity of
+some workflow systems, but yet no one I know actually uses a workflow system for daily computational research.</strong>
+People programm in different scripting languages using their favoriate langauges and IDEs, execute them locally or
+submit them to cluster system with shell and other scripts, all without the use of a workflow system.</p>
+
+<h2 id="why-workflow-systems-are-not-used-in-daily-computational-research">Why workflow systems are not used in daily computational research</h2>
+
+<p>When I started to analyze more and more bioinformatic datasets and wrote more and more scripts
+for different projects, I became increasingly annoyed by many problems with developing, running, managing,
+sharing, and reproduction of bioinformatic data analyses. Notably,</p>
+
+<ol>
+<li>It is tedious and error-prone to apply a multi-step workflow to a large amount of data, especially if you
+need to execute them on different systems.</li>
+<li>It becomes difficult to share your analysis with others and to reproduce it later on if it
+consists of multiple scripts in different languages.</li>
+</ol>
+
+<p>However, although workflow systems are designed to solve these kind of problems, after surveying all
+<a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">100+ workflow systems</a> and trying
+more than 10 of them, I ended up doing what other people are doing, writing more disposable scripts. The reason
+was simple, <strong>the overhead of applying a workflow system in daily data analysis is too high to help productivity</strong>.
+As a matter of fact, as pointed out by <a href="https://www.nature.com/articles/nbt.2740" target="_blank">Loman and Watson, 2013, Nat Biotechnol</a>,
+using a workflow system for analyses that will be run only once, or not meant to be shared with or repeated
+by others can decrease creativity and productivity.</p>
+
+<blockquote>
+<h4 id="pipelineitis-is-a-nasty-disease">Pipelineitis is a nasty disease</h4>
+
+<p>A pipeline is a series of steps, or software tools, run in sequence according to a predefined plan.
+Pipelines are great for running exactly the same set of steps in a repetitive fashion, and for
+sharing protocols with others, but they force you into a rigid way of thinking and can decrease creativity.</p>
+
+<p><strong>Warning</strong>: don’t pipeline too early. Get a method working before you turn it into a pipeline. And
+even then, does it need to be a pipeline? Have you saved time? Is your pipeline really of use to
+others? If those steps are only ever going to be run by you, then a simple script will suffice and
+any attempts at pipelining will simply waste time. Similarly, if those steps will only ever be run
+once, just run them once, document the fact you did so and move on.</p>
+</blockquote>
+
+<h2 id="pipelineitis-does-not-have-to-be-a-nasty-disease">Pipelineitis does not have to be a nasty disease</h2>
+
+<p>Looking over and over at the key obstacles that prevent the application of workflow systems in daily
+computational research, namely:</p>
+
+<ol>
+<li>A workflow system uses a different environment from interactive data analysis, thus require users
+to re-create cripts for a workflow system.</li>
+<li>Many workflow systems require the use of different workflow languages that are quite difficult
+to learn. Nice GUIs can alleviate the problem but on the other hand hide the details of workflows.</li>
+</ol>
+
+<p>We developed a <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a> as a workflow engine
+with a multi-language notebook frontend. This system solves the aforementioned problem as follows:</p>
+
+<ol>
+<li>It provides a single environment for both interactive data analysis and batch data processing so
+users do not have to re-create workflows in another environment.</li>
+<li>The workflow engine is designed to be as easy to use as possible with minimal change to scripts
+to be executed.</li>
+<li>The workflow engine is extended from the Python programming language so it is instantly familiar
+to a large number of users.</li>
+<li>The workflow engine does not force users to choose between forward-style (process-oriented)
+and makefile-style (outcome-oriented) workflows and support both styles.</li>
+<li>The workflows can be annotated with markdown cells and results.</li>
+</ol>
+
+<p>This post  demonstrates the key features of SoS and explains how it can be applied to daily
+computational research and increases your productivity.</p>
+
+<h2 id="a-single-environment-for-both-interactive-and-large-scale-data-processing">A single environment for both interactive and large-scale data processing</h2>
+
+<h2 id="smooth-transition-from">Smooth transition from</h2>
+
+<h2 id="a-single-environment-for-local-and-remote-data-processing">A single environment for local and remote data processing</h2>
+
+<h2 id="a-single-notebook-for-reproducibility">A single notebook for reproducibility</h2>
+
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container">
+<div id="gh-comments">
+    <br/><br/>
+    <h5>COMMENTS</h5>
+    <div id="gh-comments-list"></div>
+    <a href="javascript:void(0)" id="gh-load-comments" class="btn" style="display:none">Load more comments</a>
+</div>
+
+<script type="text/javascript" src="https://vatlab.github.io/blog/js/github-comments.js"></script>
+<script type="text/javascript">
+    DoGithubComments( 8 );
+</script>
+      
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://faculty.mdanderson.org/profiles/bo_peng.html">Bo Peng, Ph.D. / MD Anderson Cancer Center</a> All rights reserved</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-107286198-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>
