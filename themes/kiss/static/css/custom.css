@@ -30,3 +30,6 @@
 #gh-comment img.emoji {
 	margin: 0px;
 }
+a:hover {
+	text-decoration: none;
+}
