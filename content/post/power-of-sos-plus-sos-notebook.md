@@ -88,7 +88,7 @@ that you can use SoS inside SoS Notebook has already provided several advantages
 
 The following video gives more details on how to use the SoS workflow engine within SoS Notebook:
 
-{{< youtube H2Ca8QDIqQA >}} 
+{{< youtube _LSQr3DHBpU >}} 
 
 
 ### Summary
