@@ -11,9 +11,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     
-<title>SoS: a workflow system designed for daily computational research (still writing) | vatlab</title>
+<title>SoS: a cure to pipelineitis | vatlab</title>
 
-<meta property='og:title' content='SoS: a workflow system designed for daily computational research (still writing) - vatlab'>
+<meta property='og:title' content='SoS: a cure to pipelineitis - vatlab'>
 <meta property='og:description' content='A phenomenon has puzzled me for quite some time when I started my career as a bioinformatician, that is to say, everyone knows the benefits of workflow systems, everyone has heard of and talks about the power and popularity of some workflow systems, but yet no one I know actually uses a workflow system for daily computational research. People programm in different scripting languages using their favoriate langauges and IDEs, execute them locally or submit them to cluster system with shell and other scripts, all without the use of a workflow system.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
 <meta property='og:site_name' content='vatlab'>
@@ -76,7 +76,7 @@
       
     </div>
     <h2 class="subtitle is-6">December 15, 2017</h2>
-    <h1 class="title">SoS: a workflow system designed for daily computational research (still writing)</h1>
+    <h1 class="title">SoS: a cure to pipelineitis</h1>
       
     <div class="content">
       
@@ -91,17 +91,20 @@ submit them to cluster system with shell and other scripts, all without the use 
 
 <p>When I started to analyze more and more bioinformatic datasets and wrote more and more scripts
 for different projects, I became increasingly annoyed by many problems with developing, running, managing,
-sharing, and reproduction of bioinformatic data analyses. Notably,</p>
+sharing, and reproducing bioinformatic data analyses. Notably,</p>
 
 <ol>
-<li>It is tedious and error-prone to apply a multi-step workflow to a large amount of data, especially if you
-need to execute them on different systems.</li>
-<li>It becomes difficult to share your analysis with others and to reproduce it later on if it
-consists of multiple scripts in different languages.</li>
+<li><strong>Scale to large datasets:</strong> It is tedious and error-prone to write scripts to analyze larger and larger
+amount of data as more and more repetitive work is needed for the &ldquo;execution&rdquo; part of the analysis.</li>
+<li><strong>Ability to share and reproduce:</strong> With more code on the execution side, the analysis becomes
+less and less readable, and more and more difficult to share and reproduce.</li>
+<li><strong>Remote execution</strong>: Executing parts of the analysis on different systems (e.g. clusters)
+causes extra work (e.g. wrapper script to submit jobs) and leads to the fragmentation of analysis
+workflows, worsen the readability and reproducibility problem.</li>
 </ol>
 
-<p>However, although workflow systems are designed to solve these kind of problems, after surveying all
-<a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">100+ workflow systems</a> and trying
+<p>These problems are right in the domain of workflow systems so I set out to look for a suitable workflow system.
+However, after surveying all <a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">100+ workflow systems</a> and trying
 more than 10 of them, I ended up doing what other people are doing, writing more disposable scripts. The reason
 was simple, <strong>the overhead of applying a workflow system in daily data analysis is too high to help productivity</strong>.
 As a matter of fact, as pointed out by <a href="https://www.nature.com/articles/nbt.2740" target="_blank">Loman and Watson, 2013, Nat Biotechnol</a>,
@@ -113,43 +116,60 @@ by others can decrease creativity and productivity.</p>
 
 <p>A pipeline is a series of steps, or software tools, run in sequence according to a predefined plan.
 Pipelines are great for running exactly the same set of steps in a repetitive fashion, and for
-sharing protocols with others, but they force you into a rigid way of thinking and can decrease creativity.</p>
+sharing protocols with others, but <strong>they force you into a rigid way of thinking and can decrease creativity</strong>.</p>
 
-<p><strong>Warning</strong>: don’t pipeline too early. Get a method working before you turn it into a pipeline. And
+<p>Warning: <strong>don’t pipeline too early</strong>. Get a method working before you turn it into a pipeline. And
 even then, does it need to be a pipeline? Have you saved time? Is your pipeline really of use to
 others? If those steps are only ever going to be run by you, then a simple script will suffice and
-any attempts at pipelining will simply waste time. Similarly, if those steps will only ever be run
+<strong>any attempts at pipelining will simply waste time</strong>. Similarly, if those steps will only ever be run
 once, just run them once, document the fact you did so and move on.</p>
 </blockquote>
 
-<h2 id="pipelineitis-does-not-have-to-be-a-nasty-disease">Pipelineitis does not have to be a nasty disease</h2>
+<h2 id="pipelineitis-is-a-treatable">Pipelineitis is a treatable</h2>
 
-<p>Looking over and over at the key obstacles that prevent the application of workflow systems in daily
-computational research, namely:</p>
+<p>Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
+we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
+workflow systems in daily computational research, we developed <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a>,
+which is a workflow engine with a multi-language notebook frontend, to treat this nasty disease
+called pipelineitis:</p>
 
-<ol>
-<li>A workflow system uses a different environment from interactive data analysis, thus require users
-to re-create cripts for a workflow system.</li>
-<li>Many workflow systems require the use of different workflow languages that are quite difficult
-to learn. Nice GUIs can alleviate the problem but on the other hand hide the details of workflows.</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>Symptoms</th>
+<th>Cause</th>
+<th>Treatment</th>
+</tr>
+</thead>
 
-<p>We developed a <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a> as a workflow engine
-with a multi-language notebook frontend. This system solves the aforementioned problem as follows:</p>
+<tbody>
+<tr>
+<td>lower productivity</td>
+<td>re-create data analysis using another language or environment</td>
+<td><ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactrive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow.</li></ul></td>
+</tr>
 
-<ol>
-<li>It provides a single environment for both interactive data analysis and batch data processing so
-users do not have to re-create workflows in another environment.</li>
-<li>The workflow engine is designed to be as easy to use as possible with minimal change to scripts
-to be executed.</li>
-<li>The workflow engine is extended from the Python programming language so it is instantly familiar
-to a large number of users.</li>
-<li>The workflow engine does not force users to choose between forward-style (process-oriented)
-and makefile-style (outcome-oriented) workflows and support both styles.</li>
-<li>The workflows can be annotated with markdown cells and results.</li>
-</ol>
+<tr>
+<td>implementation hurdle</td>
+<td>workflow language difficult to learn and use</td>
+<td><ul><li>Workflow specified as &ldquo;annotations&rdquo; to existing scripts</li><li>Extends from a widely used language Python</li><li>Extremely simple to get started, stops at any complexity.</li></ul></td>
+</tr>
 
-<p>This post  demonstrates the key features of SoS and explains how it can be applied to daily
+<tr>
+<td>difficult to read and share</td>
+<td>data analysis logics (scripts)<ul><li>rewritten in foreign workflow language, or</li><li>hidden under workflow interface</li><li>diluted in execution logic</li></ul></td>
+<td><ul><li>(almost) verbatim inclusion of scripts</li><li>Minimum amount of workflow instructions</li><li>Single multi-language notebook</li></ul></td>
+</tr>
+
+<tr>
+<td>difficult to reproduce</td>
+<td>data analysis scattered in multiple scripts for multiple systems</td>
+<td><ul><li>Ability to execute workflow remotely</li><li>Ability to submit tasks to remote hosts</li><li>Keep local and remote tasks in one notebook for easy reproducibility</li></ul></td>
+</tr>
+</tbody>
+</table>
+
+<p>This post demonstrates the key features of SoS and explains how it can be applied to daily
 computational research and increases your productivity.</p>
 
 <h2 id="a-single-environment-for-both-interactive-and-large-scale-data-processing">A single environment for both interactive and large-scale data processing</h2>
