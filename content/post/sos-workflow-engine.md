@@ -57,12 +57,12 @@ workflow systems in daily computational research, we developed [SoS (Script of S
 which is a workflow engine with a multi-language notebook frontend, to treat this nasty disease
 called pipelineitis:
 
-Symptoms | Cause | Treatment
----|--- | ---|
-lower productivity | re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactrive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow.</li></ul>
-implementation hurdle | workflow language difficult to learn and use | <ul><li>Workflow specified as "annotations" to existing scripts</li><li>Extends from a widely used language Python</li><li>Extremely simple to get started, stops at any complexity.</li></ul>
-difficult to read and share | data analysis logics (scripts)<ul><li>rewritten in foreign workflow language, or</li><li>hidden under workflow interface</li><li>diluted in execution logic</li></ul>|<ul><li>(almost) verbatim inclusion of scripts</li><li>Minimum amount of workflow instructions</li><li>Single multi-language notebook</li></ul>
-difficult to reproduce | data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute workflow remotely</li><li>Ability to submit tasks to remote hosts</li><li>Keep local and remote tasks in one notebook for easy reproducibility</li></ul>
+Symptom | Cause | Treatment
+---|---| ---|
+**Lower productivity** | Re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactrive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul>
+**Steep learnin curve** | Workflow language difficult to learn and use, making it difficult to adopt | <ul><li>Workflow as "annotations" to Python scripts</li><li>Trivial to get started, grow as needed</li></ul>
+**Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
+**Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>
 
 This post demonstrates the key features of SoS and explains how it can be applied to daily
 computational research and increases your productivity.
@@ -72,8 +72,6 @@ computational research and increases your productivity.
 As shown in [this post](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/), the SoS
 environment allows you to develop your scripts and workflow steps interactively before you convert
 them to formal workflows.
-
-## Smooth transition from 
 
 ## A single environment for local and remote data processing
 
