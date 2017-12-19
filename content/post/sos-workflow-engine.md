@@ -2,7 +2,7 @@
 type: "post"
 draft: false
 author: "Bo Peng"
-title: "SoS: a cure to pipelineitis"
+title: "SoS: a cure to pipelineitis (under development)"
 ghcommentid: 8
 date: "2017-12-15"
 tags: ["SoS", "Workflow"]
@@ -54,8 +54,9 @@ by others can decrease creativity and productivity.
 Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
 workflow systems in daily computational research, we developed [SoS (Script of Scripts)](https://vatlab.github.io/sos-docs/),
-which is a workflow engine with a multi-language notebook frontend, to treat this nasty disease
-called pipelineitis:
+which is a workflow engine with a multi-language notebook frontend, to treat pipelineitis. 
+The following table summarizes the major features of SoS and how they can help the application of
+workflow systems in daily computational research:
 
 Symptom | Cause | Treatment
 ---|---| ---|
@@ -64,16 +65,48 @@ Symptom | Cause | Treatment
 **Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
 **Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>
 
-This post demonstrates the key features of SoS and explains how it can be applied to daily
-computational research and increases your productivity.
+## An IDE for both interactive and large-scale data processing
 
-## A single environment for both interactive and large-scale data processing
+A complex workflow inevitably involves scripts in multiple languages. Existing workflow systems generally
+do not provide an interactive environment for the development of these scripts. Even for workflow systems
+that provide nice GUIs, the graphical interfaces are used to construct workflows from mature scripts, not
+for the development of workflow steps. Consequently, users are required to develop workflow steps in
+other environments before wrapping them to a workflow system.
 
-As shown in [this post](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/), the SoS
-environment allows you to develop your scripts and workflow steps interactively before you convert
-them to formal workflows.
+**SoS Notebook is a multi-language IDE for the SoS workflow engine** that provides an interactive
+environment for different stages of workflow development. As shown in the following figure, SoS Notebook
 
-## A single environment for local and remote data processing
+* Allows development and execution of scripts in different languages in their own language kernels, as expalined in [this post](https://vatlab.github.io/blog/post/sos-notebook/)
 
-## A single notebook for reproducibility
+![step through](https://vatlab.github.io/sos-docs/doc/media/step_through.gif)
+
+* Allows the development of exeuction of scratch workflow steps in the SoS kernel, as explained in detail in [this post](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/)
+
+![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
+
+The key difference between these two modes is that scripts in subkernels are executed 
+in persistent subkernels and are execute as complete independent scripts in the SoS
+kernel, but features such as line-by-line execution and result preview are available
+for both use cases. More importantly, the **SoS environment makes it trivial to 
+transform scripts developed in interactive data analysis to a workflow**.
+
+## A workflow format with descriptions and results
+
+Show pure SoS format and workflow in notebook.
+
+SoS Notebook can be a media for interactive tutorials etc. 
+
+
+## Workflow syntax as "annotations" to Python scripts
+
+"Evolution" of a SoS scripts
+
+## Remote execution made easy
+
+Showing task list.
+
+Point to single notebook with local and remote scripts
+
+## Benefits for reproducible research
+
 

@@ -11,9 +11,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     
-<title>SoS: a cure to pipelineitis | vatlab</title>
+<title>SoS: a cure to pipelineitis (under development) | vatlab</title>
 
-<meta property='og:title' content='SoS: a cure to pipelineitis - vatlab'>
+<meta property='og:title' content='SoS: a cure to pipelineitis (under development) - vatlab'>
 <meta property='og:description' content='A phenomenon has puzzled me for quite some time when I started my career as a bioinformatician, that is to say, everyone knows the benefits of workflow systems, everyone has heard of and talks about the power and popularity of some workflow systems, but yet no one I know actually uses a workflow system for daily computational research. People programm in different scripting languages using their favoriate langauges and IDEs, execute them locally or submit them to cluster system with shell and other scripts, all without the use of a workflow system.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
 <meta property='og:site_name' content='vatlab'>
@@ -76,7 +76,7 @@
       
     </div>
     <h2 class="subtitle is-6">December 15, 2017</h2>
-    <h1 class="title">SoS: a cure to pipelineitis</h1>
+    <h1 class="title">SoS: a cure to pipelineitis (under development)</h1>
       
     <div class="content">
       
@@ -130,8 +130,9 @@ once, just run them once, document the fact you did so and move on.</p>
 <p>Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
 workflow systems in daily computational research, we developed <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a>,
-which is a workflow engine with a multi-language notebook frontend, to treat this nasty disease
-called pipelineitis:</p>
+which is a workflow engine with a multi-language notebook frontend, to treat pipelineitis.
+The following table summarizes the major features of SoS and how they can help the application of
+workflow systems in daily computational research:</p>
 
 <table>
 <thead>
@@ -169,18 +170,52 @@ called pipelineitis:</p>
 </tbody>
 </table>
 
-<p>This post demonstrates the key features of SoS and explains how it can be applied to daily
-computational research and increases your productivity.</p>
+<h2 id="an-ide-for-both-interactive-and-large-scale-data-processing">An IDE for both interactive and large-scale data processing</h2>
 
-<h2 id="a-single-environment-for-both-interactive-and-large-scale-data-processing">A single environment for both interactive and large-scale data processing</h2>
+<p>A complex workflow inevitably involves scripts in multiple languages. Existing workflow systems generally
+do not provide an interactive environment for the development of these scripts. Even for workflow systems
+that provide nice GUIs, the graphical interfaces are used to construct workflows from mature scripts, not
+for the development of workflow steps. Consequently, users are required to develop workflow steps in
+other environments before wrapping them to a workflow system.</p>
 
-<p>As shown in <a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/" target="_blank">this post</a>, the SoS
-environment allows you to develop your scripts and workflow steps interactively before you convert
-them to formal workflows.</p>
+<p><strong>SoS Notebook is a multi-language IDE for the SoS workflow engine</strong> that provides an interactive
+environment for different stages of workflow development. As shown in the following figure, SoS Notebook</p>
 
-<h2 id="a-single-environment-for-local-and-remote-data-processing">A single environment for local and remote data processing</h2>
+<ul>
+<li>Allows development and execution of scripts in different languages in their own language kernels, as expalined in <a href="https://vatlab.github.io/blog/post/sos-notebook/" target="_blank">this post</a></li>
+</ul>
 
-<h2 id="a-single-notebook-for-reproducibility">A single notebook for reproducibility</h2>
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/step_through.gif" alt="step through" /></p>
+
+<ul>
+<li>Allows the development of exeuction of scratch workflow steps in the SoS kernel, as explained in detail in <a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/" target="_blank">this post</a></li>
+</ul>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" alt="SoS notebook with SoS" /></p>
+
+<p>The key difference between these two modes is that scripts in subkernels are executed
+in persistent subkernels and are execute as complete independent scripts in the SoS
+kernel, but features such as line-by-line execution and result preview are available
+for both use cases. More importantly, the <strong>SoS environment makes it trivial to
+transform scripts developed in interactive data analysis to a workflow</strong>.</p>
+
+<h2 id="a-workflow-format-with-descriptions-and-results">A workflow format with descriptions and results</h2>
+
+<p>Show pure SoS format and workflow in notebook.</p>
+
+<p>SoS Notebook can be a media for interactive tutorials etc.</p>
+
+<h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
+
+<p>&ldquo;Evolution&rdquo; of a SoS scripts</p>
+
+<h2 id="remote-execution-made-easy">Remote execution made easy</h2>
+
+<p>Showing task list.</p>
+
+<p>Point to single notebook with local and remote scripts</p>
+
+<h2 id="benefits-for-reproducible-research">Benefits for reproducible research</h2>
 
     </div>
     
