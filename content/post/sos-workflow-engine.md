@@ -74,13 +74,17 @@ for the development of workflow steps. Consequently, users are required to devel
 other environments before wrapping them to a workflow system.
 
 **SoS Notebook is a multi-language IDE for the SoS workflow engine** that provides an interactive
-environment for different stages of workflow development. As shown in the following figure, SoS Notebook
+environment for different stages of workflow development. I have demonstrated features of the SoS Notebook environment
+in other blog posts ([SoS Notebook: One Notebook, Multiple Kernels](https://vatlab.github.io/blog/post/sos-notebook/),
+[Combined power of SoS and SoS Notebook](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/).
+Briefly speaking, SoS Notebook
 
-* Allows development and execution of scripts in different languages in their own language kernels, as expalined in [this post](https://vatlab.github.io/blog/post/sos-notebook/)
+* Allows the development and execution of scripts in different languages in their own language kernels. E.g.
+  line by line execution of scripts in multiple languages as shown below:
 
 ![step through](https://vatlab.github.io/sos-docs/doc/media/step_through.gif)
 
-* Allows the development of exeuction of scratch workflow steps in the SoS kernel, as explained in detail in [this post](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/)
+* Allows the development and exeuction of scratch workflow steps in the SoS kernel. 
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
 
