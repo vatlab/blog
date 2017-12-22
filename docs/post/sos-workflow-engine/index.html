@@ -170,7 +170,7 @@ workflow systems in daily computational research:</p>
 </tbody>
 </table>
 
-<h2 id="an-ide-for-both-interactive-and-large-scale-data-processing">An IDE for both interactive and large-scale data processing</h2>
+<h2 id="an-ide-for-both-interactive-data-analysis-and-workflow-development">An IDE for both interactive data analysis and workflow development</h2>
 
 <p>A complex workflow inevitably involves scripts in multiple languages. Existing workflow systems generally
 do not provide an interactive environment for the development of these scripts. Even for workflow systems
@@ -179,39 +179,45 @@ for the development of workflow steps. Consequently, users are required to devel
 other environments before wrapping them to a workflow system.</p>
 
 <p><strong>SoS Notebook is a multi-language IDE for the SoS workflow engine</strong> that provides an interactive
-environment for different stages of workflow development. I have demonstrated features of the SoS Notebook environment
-in other blog posts (<a href="https://vatlab.github.io/blog/post/sos-notebook/" target="_blank">SoS Notebook: One Notebook, Multiple Kernels</a>,
-<a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/" target="_blank">Combined power of SoS and SoS Notebook</a>.
-Briefly speaking, SoS Notebook</p>
+environment for all stages of workflow development. As demonstrated in blog
+posts <a href="https://vatlab.github.io/blog/post/sos-notebook/" target="_blank">SoS Notebook: One Notebook, Multiple Kernels</a> and
+<a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/" target="_blank">Combined power of SoS and SoS Notebook</a>,
+SoS Notebook allows you to:</p>
 
 <ul>
-<li>Allows the development and execution of scripts in different languages in their own language kernels. E.g.
-line by line execution of scripts in multiple languages as shown below:</li>
+<li>Develop scripts in different languages using multiple kernels,
+with added features such as string interpolation
+(magic <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic-expand" target="_blank">%expand</a>)
+and line-by-line execution.</li>
 </ul>
 
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/step_through.gif" alt="step through" /></p>
 
 <ul>
-<li>Allows the development and exeuction of scratch workflow steps in the SoS kernel.</li>
+<li><p>Convert scripts to SoS &ldquo;actions&rdquo; to be executed as (scratch) workflow steps. The &ldquo;actions&rdquo;
+are Python functions and can be debugged in the SoS kernell</p></li>
+
+<li><p>&ldquo;Chain&rdquo; the scratch workflow steps into SoS workflows by adding <code>input</code>, <code>output</code>, <code>depends</code>
+statements and section headers.</p></li>
 </ul>
 
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" alt="SoS notebook with SoS" /></p>
 
-<p>The key difference between these two modes is that scripts in subkernels are executed
-in persistent subkernels and are execute as complete independent scripts in the SoS
-kernel, but features such as line-by-line execution and result preview are available
-for both use cases. More importantly, the <strong>SoS environment makes it trivial to
-transform scripts developed in interactive data analysis to a workflow</strong>.</p>
+<p><strong>The SoS environment makes it easy to convert scripts developed in interactive
+data analysis to a workflow</strong> which removes the biggest obstacle in the utilization
+of workflows in daily computational reserach.</p>
+
+<h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
+
+<p>&ldquo;Evolution&rdquo; of a SoS scripts</p>
+
+<h2 id="flexible-workflow-specification">Flexible workflow specification</h2>
 
 <h2 id="a-workflow-format-with-descriptions-and-results">A workflow format with descriptions and results</h2>
 
 <p>Show pure SoS format and workflow in notebook.</p>
 
 <p>SoS Notebook can be a media for interactive tutorials etc.</p>
-
-<h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
-
-<p>&ldquo;Evolution&rdquo; of a SoS scripts</p>
 
 <h2 id="remote-execution-made-easy">Remote execution made easy</h2>
 

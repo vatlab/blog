@@ -65,7 +65,7 @@ Symptom | Cause | Treatment
 **Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
 **Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>
 
-## An IDE for both interactive and large-scale data processing
+## An IDE for both interactive data analysis and workflow development
 
 A complex workflow inevitably involves scripts in multiple languages. Existing workflow systems generally
 do not provide an interactive environment for the development of these scripts. Even for workflow systems
@@ -74,25 +74,35 @@ for the development of workflow steps. Consequently, users are required to devel
 other environments before wrapping them to a workflow system.
 
 **SoS Notebook is a multi-language IDE for the SoS workflow engine** that provides an interactive
-environment for different stages of workflow development. I have demonstrated features of the SoS Notebook environment
-in other blog posts ([SoS Notebook: One Notebook, Multiple Kernels](https://vatlab.github.io/blog/post/sos-notebook/),
-[Combined power of SoS and SoS Notebook](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/).
-Briefly speaking, SoS Notebook
+environment for all stages of workflow development. As demonstrated in blog
+posts [SoS Notebook: One Notebook, Multiple Kernels](https://vatlab.github.io/blog/post/sos-notebook/) and
+[Combined power of SoS and SoS Notebook](https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/),
+SoS Notebook allows you to:
 
-* Allows the development and execution of scripts in different languages in their own language kernels. E.g.
-  line by line execution of scripts in multiple languages as shown below:
+* Develop scripts in different languages using multiple kernels,
+  with added features such as string interpolation 
+  (magic [%expand](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic-expand))
+  and line-by-line execution. 
 
 ![step through](https://vatlab.github.io/sos-docs/doc/media/step_through.gif)
 
-* Allows the development and exeuction of scratch workflow steps in the SoS kernel. 
+* Convert scripts to SoS "actions" to be executed as (scratch) workflow steps. The "actions"
+  are Python functions and can be debugged in the SoS kernell
+
+* "Chain" the scratch workflow steps into SoS workflows by adding `input`, `output`, `depends`
+  statements and section headers.
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
 
-The key difference between these two modes is that scripts in subkernels are executed 
-in persistent subkernels and are execute as complete independent scripts in the SoS
-kernel, but features such as line-by-line execution and result preview are available
-for both use cases. More importantly, the **SoS environment makes it trivial to 
-transform scripts developed in interactive data analysis to a workflow**.
+**The SoS environment makes it easy to convert scripts developed in interactive
+data analysis to a workflow** which removes the biggest obstacle in the utilization 
+of workflows in daily computational reserach.
+
+## Workflow syntax as "annotations" to Python scripts
+
+"Evolution" of a SoS scripts
+
+## Flexible workflow specification
 
 ## A workflow format with descriptions and results
 
@@ -100,10 +110,6 @@ Show pure SoS format and workflow in notebook.
 
 SoS Notebook can be a media for interactive tutorials etc. 
 
-
-## Workflow syntax as "annotations" to Python scripts
-
-"Evolution" of a SoS scripts
 
 ## Remote execution made easy
 
