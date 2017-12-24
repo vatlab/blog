@@ -105,12 +105,14 @@ for both interactive and batch data analysis**. The transition is designed to be
 This powerful marriage between a multi-language notebook and a workflow engine allows you to 
 **grow your data analysis with more and more flexibility and ability to handle larger and larger datasets**.
 Depending on the scale and complexity of your project, you can stop at any stage of "pipelining" your analysis
-and there is no need to start from scratch if you ever need to apply your analysis to larger datasets. SoS Notebook
-is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
-([JupyterLab/2815](https://github.com/jupyterlab/jupyterlab/issues/2815)).
-
+and there is no need to start from scratch if you ever need to apply your analysis to larger datasets.
+The ability to include the entire data anlysis with descriptions and results in a single notebook
+makes it easy to share data analysis with others and to reproduce prior data analysis, making SoS
+Notebook a powerful environment for reproducible data analysis.
 
 <small>
+SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
+([JupyterLab/2815](https://github.com/jupyterlab/jupyterlab/issues/2815)).
 More details of SoS and SoS Notebook can be found at the [SoS website](https://vatlab.github.io/sos-docs/) where you can
 find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
 your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues). 

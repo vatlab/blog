@@ -100,16 +100,31 @@ of workflows in daily computational reserach.
 
 ## Workflow syntax as "annotations" to Python scripts
 
-"Evolution" of a SoS scripts
+SoS is extended from Python 3.6 so **a SoS script is essentially a Python script with
+additional workflow specifications**. The SoS syntax is very simple and can be summarized
+as follows:
 
-## Flexible workflow specification
+Syntax | Example | Usage |
+---|---| ---|
+Script format of function call | <pre>sh:<br>  echo "I am sh"</pre> | Calling a Python function with multi-line script as first parameter |  
+Section header | <pre>[step_10]</pre> | Define workflow steps |
+Parameter definition | <pre>parameter: cutoff=5</pre> | Define command line argument |
+Step input, output, and depends | <pre>input: "a.txt"</pre> | Define input, output, and dependent targets of steps |
+Task | <pre>task: walltime='24h'</pre> | Define external tasks | 
 
-## A workflow format with descriptions and results
+As shown in the following figure, a SoS workflow can be created as verbatim inclusion of
+scripts in different languages. The script can be annotated with additional workflow 
+syntax to make use of more and more workflow features such as runtime signature and
+external execution of tasks, but the workflow remains readable because the key parts
+of the workflow, namely the included scripts, remain largely untouched.
 
-Show pure SoS format and workflow in notebook.
+![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/sos_syntax.gif)
 
-SoS Notebook can be a media for interactive tutorials etc. 
-
+It worth mentioning that SoS supports both forward-style procedure-oriented and
+makefile-style outcome-oriented workflows. The forward-style workflows are specified
+as numerically ordered steps that will be executed sequentially (logically speaking),
+and makefile-style workflows are specified as steps that provides targets that are
+used by others. 
 
 ## Remote execution made easy
 
@@ -117,6 +132,12 @@ Showing task list.
 
 Point to single notebook with local and remote scripts
 
-## Benefits for reproducible research
-
-
+<small>
+SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
+([JupyterLab/2815](https://github.com/jupyterlab/jupyterlab/issues/2815)).
+More details of SoS and SoS Notebook can be found at the [SoS website](https://vatlab.github.io/sos-docs/) where you can
+find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
+your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues). 
+If you find SoS Notebook useful, please support the project by starring the [SoS](https://github.com/vatlab/SoS) and
+[SoS Notebook](https://github.com/vatlab/sos-notebook)
+github projects, or spreading the word with [twitter](https://twitter.com/ScriptOfScripts). </small>
