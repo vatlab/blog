@@ -120,6 +120,12 @@ of the workflow, namely the included scripts, remain largely untouched.
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/sos_syntax.gif)
 
+The following videos explains these steps in detail
+
+{{< youtube E5Eh7BVbbTM >}} 
+
+{{< youtube roTDvSXSPgU >}} 
+
 It worth mentioning that SoS supports both forward-style procedure-oriented and
 makefile-style outcome-oriented workflows. The forward-style workflows are specified
 as numerically ordered steps that will be executed sequentially (logically speaking),
