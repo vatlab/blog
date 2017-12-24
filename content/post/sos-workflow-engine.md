@@ -124,9 +124,9 @@ The following videos describes these steps in detail:
 
 <table style="border:0px">
 <tr>
-<td style="border:0px"><iframe width="263" height="148" src="https://www.youtube.com/embed/E5Eh7BVbbTM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<td style="border:0px"><iframe width="373" height="210" src="https://www.youtube.com/embed/E5Eh7BVbbTM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </td>
-<td style="border:0px"><iframe width="263" height="148" src="https://www.youtube.com/embed/roTDvSXSPgU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></td>
+<td style="border:0px"><iframe width="373" height="210" src="https://www.youtube.com/embed/roTDvSXSPgU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></td>
 </tr>
 </table>
 
