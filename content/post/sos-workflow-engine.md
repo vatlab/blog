@@ -8,31 +8,27 @@ date: "2017-12-15"
 tags: ["SoS", "Workflow"]
 ---
 
+Because of the needs to use libraries and tools in different languages and to execute them on
+different systems such as clusters, bioinformaticians write a lot of scripts in different languages
+and face many chanllenges in developing, running, managing, sharing, and reproducing bioinformatic
+data analyses. Notably, 
 
-A phenomenon has puzzled me for quite some time when I started my career as a bioinformatician, that is to say,
-**everyone knows the benefits of workflow systems, everyone has heard of and talks about the power and popularity of
-some workflow systems, but yet no one I know actually uses a workflow system for daily computational research.**
-People programm in different scripting languages using their favoriate langauges and IDEs, execute them locally or
-submit them to cluster system with shell and other scripts, all without the use of a workflow system.
+1. **Management of scripts**: With increasing number of scripts, some in multiple versions, some shared
+  among projects, some written for and executed on remote systems, it can be difficult to share data
+  analysis with others, and reproduce prior data analyses later on.
+2. **Analyze large datasets**: It is tedious and error-prone to write scripts to analyze larger and larger
+  amount of data as more and more work is needed for the "execution" part of the analysis, such as
+  submit and monitor jobs, and collect results.
 
 ## Why workflow systems are not used in daily computational research
 
-When I started to analyze more and more bioinformatic datasets and wrote more and more scripts
-for different projects, I became increasingly annoyed by many problems with developing, running, managing,
-sharing, and reproducing bioinformatic data analyses. Notably,
-
-1. **Scale to large datasets:** It is tedious and error-prone to write scripts to analyze larger and larger
-  amount of data as more and more repetitive work is needed for the "execution" part of the analysis.
-2. **Ability to share and reproduce:** With more code on the execution side, the analysis becomes
-  less and less readable, and more and more difficult to share and reproduce.
-3. **Remote execution**: Executing parts of the analysis on different systems (e.g. clusters)
-  causes extra work (e.g. wrapper script to submit jobs) and leads to the fragmentation of analysis
-  workflows, worsen the readability and reproducibility problem.
-
-These problems are right in the domain of workflow systems so I set out to look for a suitable workflow system.
-However, after surveying all [100+ workflow systems](https://github.com/pditommaso/awesome-pipeline) and trying
-more than 10 of them, I ended up doing what other people are doing, writing more disposable scripts. The reason
-was simple, **the overhead of applying a workflow system in daily data analysis is too high to help productivity**.
+Scientific pipeline systems are designed to streamline and execute workflows so they are supposed to
+help alleviate these problems. However, **although everyone knows the benefits of workflow systems,
+everyone has heard of and talks about the power and popularity of some workflow systems, no one I 
+know actually uses a workflow system for daily computational research.** I was puzzled by this
+phenomina but, after surveying all [100+ workflow systems](https://github.com/pditommaso/awesome-pipeline) and trying
+more than 10 of them, I realized that **the overhead of applying a workflow system in daily data
+analysis is too high to help productivity**.
 As a matter of fact, as pointed out by [Loman and Watson, 2013, Nat Biotechnol](https://www.nature.com/articles/nbt.2740),
 using a workflow system for analyses that will be run only once, or not meant to be shared with or repeated
 by others can decrease creativity and productivity.
