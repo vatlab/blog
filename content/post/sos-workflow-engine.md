@@ -138,24 +138,62 @@ The following videos describes these steps in detail:
 
 ## Benefits of using SoS for daily data analysis
 
-As you have seen above, the monent you convert a script to a SoS workflow step, you have a working SoS workflow 
-and can benefit from many of SoS' features. 
+The monent you convert a script to a SoS workflow step, you have a working SoS workflow 
+that can benefit from many of SoS' execution features.
 
 ### Runtime signature
 
-### Remote execution made easy
+SoS keeps track of runtime signatures so it will ignore a step if it has been executed
+before. The signatures consist of input, output, dependent targets, statements and their
+environments (e.g. used global variables) so a step would be re-executed if any of these
+items has changed. The signatures are indepedent of step names and workflows so a step
+would be ignored even if it belongs to multiple workflows.
 
-Showing task list.
+What this means is that you can continuously revise and execute a workflow without worrying
+about the re-execution of time-consuming steps, and without worrying about the execution
+of relevant steps of the workflow with changing input or parameter.  
 
-Point to single notebook with local and remote scripts
+### Remote execution
+
+SoS allows the creation of  **tasks** from part of a workflow step. The tasks
+are execution units that are independent of workflows and even file systems so they
+can be executed locally or remotely in parallel (subject to number of concurrent running
+tasks). With properly configured remote hosts, the same tasks could be executed locally
+or on a remote host as separate processes, or be submitted to a PBS (Moab/torque, Slurm,
+IBM LSF) system, or a task queue systems such as [RQ](http://python-rq.org/). The
+remote system does not have to share the same file system as the local host because
+SoS automatically synchronizes input files, updates scripts, submits and monitors jobs,
+and collects results. It even provides a job monitor system that is independent of
+the underlying job systems.
+
+The remote execution feature gives users easy access to all available computing
+resources. It frees users from writing platform-specific codes for the submission
+and monitoring of jobs and to synchronize input and result files across systems.
+It also helps the readability and reproducibility of analysis because both local
+and remote scripts are kept in the same notebook, without platform-specific job
+management code.
 
 ### Powerful workflow systems
 
-It worth mentioning that SoS supports both forward-style procedure-oriented and
+SoS supports both forward-style procedure-oriented and
 makefile-style outcome-oriented workflows. The forward-style workflows are specified
 as numerically ordered steps that will be executed sequentially (logically speaking),
 and makefile-style workflows are specified as steps that provides targets that are
-used by others. 
+used by others. SoS also supports mixed style workflows (forward-style workflow
+with dependencies satified by makefile-style steps) and nested workflows (execution
+of subworkflows as function calls) which allows the creation of very complex
+workflows that consists of hundreds of steps.
+
+In summary, SoS provides an environment for both interactive data analysis and batch
+data crunching. It has a smooth learning curve because it is based on a widely used
+scripting language (Python) with few additional syntaxes. It cures pipelineitis by
+providing an easy transition from interactive to batch data analysis so users can
+enjoy features such as runtime signature and remote execution with minimal effort.
+At the same time, SoS provides a powerful workflow engine for the creation of complex
+workflows so whereas you can complete most of your projects use SoS Notebook
+and simple workflow features, your analysis can grow as your project grows, all without
+leaving your familiar SoS environment.
+
 
 <small>
 SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
