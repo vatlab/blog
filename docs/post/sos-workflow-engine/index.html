@@ -92,17 +92,16 @@ data analyses. Notably,</p>
 among projects, some written for and executed on remote systems, it can be difficult to share data
 analysis with others, and reproduce prior data analyses later on.</li>
 <li><strong>Analyze large datasets</strong>: It is tedious and error-prone to write scripts to analyze larger and larger
-amount of data as more and more work is needed for the &ldquo;execution&rdquo; part of the analysis, such as
-submit and monitor jobs, and collect results.</li>
+amount of data as more and more work is needed for the &ldquo;execution&rdquo; part of the analysis. Additional
+work includes but not limited to refactoring scripts for batch execution, creation and submittion
+of jobs, monitoring and fault recovery, and synchronization of data and results across system.</li>
 </ol>
 
 <h2 id="why-workflow-systems-are-not-used-in-daily-computational-research">Why workflow systems are not used in daily computational research</h2>
 
-<p>Scientific pipeline systems are designed to streamline and execute workflows so they are supposed to
-help alleviate these problems. However, <strong>although everyone knows the benefits of workflow systems,
-everyone has heard of and talks about the power and popularity of some workflow systems, no one I
-know actually uses a workflow system for daily computational research.</strong> I was puzzled by this
-phenomina but, after surveying all <a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">100+ workflow systems</a> and trying
+<p>Scientific pipeline systems are supposed to alleviate these problems by streamlining the creation
+and execution of data analysis workflows. However, after surveying all
+<a href="https://github.com/pditommaso/awesome-pipeline" target="_blank">100+ workflow systems</a> and trying
 more than 10 of them, I realized that <strong>the overhead of applying a workflow system in daily data
 analysis is too high to help productivity</strong>.
 As a matter of fact, as pointed out by <a href="https://www.nature.com/articles/nbt.2740" target="_blank">Loman and Watson, 2013, Nat Biotechnol</a>,
@@ -123,14 +122,21 @@ others? If those steps are only ever going to be run by you, then a simple scrip
 once, just run them once, document the fact you did so and move on.</p>
 </blockquote>
 
+<p>In another word, workflow systems are designed for the repeated execution of mature workflows for
+which a good deal of work is invested to help the users of workflows. They are not designed for daily
+computational research where workflows are written for particular projects and are almost disposable.</p>
+
 <h2 id="pipelineitis-is-a-treatable">Pipelineitis is a treatable</h2>
 
 <p>Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
-workflow systems in daily computational research, we developed <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a>,
-which is a workflow engine with a multi-language notebook frontend, to treat pipelineitis.
-The following table summarizes the major features of SoS and how they can help the application of
-workflow systems in daily computational research:</p>
+workflow systems in daily computational research, we realized that <strong>narrowing the gap between environments
+for interactive data analysis and workflow systems for batch data crunching would cure pipelineitis and
+allow the use of workflow systems in daily computational research</strong>. With this idea in mind,
+we developed <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS (Script of Scripts)</a>,
+which is a workflow engine with a multi-language notebook frontend.
+The following table summarizes the major features of SoS and how they help alleviate the symptoms
+of pipelineitis:</p>
 
 <table>
 <thead>
@@ -208,8 +214,11 @@ of workflows in daily computational reserach.</p>
 <h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
 
 <p>SoS is extended from Python 3.6 so <strong>a SoS script is essentially a Python script with
-additional workflow specifications</strong>. The SoS syntax is very simple and can be summarized
-as follows:</p>
+additional workflow specifications</strong>. With Python being <a href="https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/" target="_blank">one of the easiest scripting
+language to learn</a>
+and <a href="https://www.tiobe.com/tiobe-index/" target="_blank">one of the most widely used scripting languages</a>,
+SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntax
+to Python and the follow table summarizes them all:</p>
 
 <table>
 <thead>
@@ -271,17 +280,26 @@ of the workflow, namely the included scripts, remain largely untouched.</p>
 </tr>
 </table>
 
+<h2 id="benefits-of-using-sos-for-daily-data-analysis">Benefits of using SoS for daily data analysis</h2>
+
+<p>As you have seen above, the monent you convert a script to a SoS workflow step, you have a working SoS workflow
+and can benefit from many of SoS&rsquo; features.</p>
+
+<h3 id="runtime-signature">Runtime signature</h3>
+
+<h3 id="remote-execution-made-easy">Remote execution made easy</h3>
+
+<p>Showing task list.</p>
+
+<p>Point to single notebook with local and remote scripts</p>
+
+<h3 id="powerful-workflow-systems">Powerful workflow systems</h3>
+
 <p>It worth mentioning that SoS supports both forward-style procedure-oriented and
 makefile-style outcome-oriented workflows. The forward-style workflows are specified
 as numerically ordered steps that will be executed sequentially (logically speaking),
 and makefile-style workflows are specified as steps that provides targets that are
 used by others.</p>
-
-<h2 id="remote-execution-made-easy">Remote execution made easy</h2>
-
-<p>Showing task list.</p>
-
-<p>Point to single notebook with local and remote scripts</p>
 
 <p><small>
 SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures

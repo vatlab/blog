@@ -17,18 +17,17 @@ data analyses. Notably,
   among projects, some written for and executed on remote systems, it can be difficult to share data
   analysis with others, and reproduce prior data analyses later on.
 2. **Analyze large datasets**: It is tedious and error-prone to write scripts to analyze larger and larger
-  amount of data as more and more work is needed for the "execution" part of the analysis, such as
-  submit and monitor jobs, and collect results.
+  amount of data as more and more work is needed for the "execution" part of the analysis. Additional
+  work includes but not limited to refactoring scripts for batch execution, creation and submittion
+  of jobs, monitoring and fault recovery, and synchronization of data and results across system.
 
 ## Why workflow systems are not used in daily computational research
 
-Scientific pipeline systems are designed to streamline and execute workflows so they are supposed to
-help alleviate these problems. However, **although everyone knows the benefits of workflow systems,
-everyone has heard of and talks about the power and popularity of some workflow systems, no one I 
-know actually uses a workflow system for daily computational research.** I was puzzled by this
-phenomina but, after surveying all [100+ workflow systems](https://github.com/pditommaso/awesome-pipeline) and trying
+Scientific pipeline systems are supposed to alleviate these problems by streamlining the creation
+and execution of data analysis workflows. However, after surveying all
+[100+ workflow systems](https://github.com/pditommaso/awesome-pipeline) and trying
 more than 10 of them, I realized that **the overhead of applying a workflow system in daily data
-analysis is too high to help productivity**.
+analysis is too high to help productivity**. 
 As a matter of fact, as pointed out by [Loman and Watson, 2013, Nat Biotechnol](https://www.nature.com/articles/nbt.2740),
 using a workflow system for analyses that will be run only once, or not meant to be shared with or repeated
 by others can decrease creativity and productivity.
@@ -45,14 +44,21 @@ by others can decrease creativity and productivity.
 > **any attempts at pipelining will simply waste time**. Similarly, if those steps will only ever be run
 > once, just run them once, document the fact you did so and move on.
 
+In another word, workflow systems are designed for the repeated execution of mature workflows for
+which a good deal of work is invested to help the users of workflows. They are not designed for daily
+computational research where workflows are written for particular projects and are almost disposable.
+
 ## Pipelineitis is a treatable
 
 Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
-workflow systems in daily computational research, we developed [SoS (Script of Scripts)](https://vatlab.github.io/sos-docs/),
-which is a workflow engine with a multi-language notebook frontend, to treat pipelineitis. 
-The following table summarizes the major features of SoS and how they can help the application of
-workflow systems in daily computational research:
+workflow systems in daily computational research, we realized that **narrowing the gap between environments
+for interactive data analysis and workflow systems for batch data crunching would cure pipelineitis and
+allow the use of workflow systems in daily computational research**. With this idea in mind, 
+we developed [SoS (Script of Scripts)](https://vatlab.github.io/sos-docs/),
+which is a workflow engine with a multi-language notebook frontend. 
+The following table summarizes the major features of SoS and how they help alleviate the symptoms 
+of pipelineitis:
 
 Symptom | Cause | Treatment
 ---|---| ---|
@@ -97,8 +103,11 @@ of workflows in daily computational reserach.
 ## Workflow syntax as "annotations" to Python scripts
 
 SoS is extended from Python 3.6 so **a SoS script is essentially a Python script with
-additional workflow specifications**. The SoS syntax is very simple and can be summarized
-as follows:
+additional workflow specifications**. With Python being [one of the easiest scripting
+language to learn](https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/) 
+and [one of the most widely used scripting languages](https://www.tiobe.com/tiobe-index/),
+SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntax
+to Python and the follow table summarizes them all: 
 
 Syntax | Example | Usage |
 ---|---| ---|
@@ -126,17 +135,27 @@ The following videos describes these steps in detail:
 </tr>
 </table>
 
+
+## Benefits of using SoS for daily data analysis
+
+As you have seen above, the monent you convert a script to a SoS workflow step, you have a working SoS workflow 
+and can benefit from many of SoS' features. 
+
+### Runtime signature
+
+### Remote execution made easy
+
+Showing task list.
+
+Point to single notebook with local and remote scripts
+
+### Powerful workflow systems
+
 It worth mentioning that SoS supports both forward-style procedure-oriented and
 makefile-style outcome-oriented workflows. The forward-style workflows are specified
 as numerically ordered steps that will be executed sequentially (logically speaking),
 and makefile-style workflows are specified as steps that provides targets that are
 used by others. 
-
-## Remote execution made easy
-
-Showing task list.
-
-Point to single notebook with local and remote scripts
 
 <small>
 SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
