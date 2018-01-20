@@ -18,8 +18,8 @@
       <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://vatlab.github.io/blog/post/sos-workflow-engine/</guid>
-      <description>Because of the needs to use libraries and tools in different languages and to execute them on different systems such as clusters, bioinformaticians write a lot of scripts in different languages and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
- Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analysis with others, and reproduce prior data analyses later on.</description>
+      <description>Because of the needs to use libraries and tools in different languages and to execute them on different systems such as computer clusters, bioinformaticians write a lot of scripts in different languages and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
+ Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analyses with others, and reproduce prior data analyses at a later time.</description>
     </item>
     
   </channel>

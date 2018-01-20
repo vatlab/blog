@@ -9,13 +9,13 @@ tags: ["SoS", "Workflow"]
 ---
 
 Because of the needs to use libraries and tools in different languages and to execute them on
-different systems such as clusters, bioinformaticians write a lot of scripts in different languages
+different systems such as computer clusters, bioinformaticians write a lot of scripts in different languages
 and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic
 data analyses. Notably, 
 
 1. **Management of scripts**: With increasing number of scripts, some in multiple versions, some shared
   among projects, some written for and executed on remote systems, it can be difficult to share data
-  analysis with others, and reproduce prior data analyses later on.
+  analyses with others, and reproduce prior data analyses at a later time.
 2. **Analyze large datasets**: It is tedious and error-prone to write scripts to analyze larger and larger
   amount of data as more and more work is needed for the "execution" part of the analysis. Additional
   work includes but not limited to refactoring scripts for batch execution, creation and submission 
@@ -44,9 +44,9 @@ by others can decrease creativity and productivity.
 > **any attempts at pipelining will simply waste time**. Similarly, if those steps will only ever be run
 > once, just run them once, document the fact you did so and move on.
 
-In another word, workflow systems are designed for the repeated execution of mature workflows for
+In another word, workflow systems are designed for repeated execution of mature workflows for
 which a good deal of work is invested to help the users of workflows. They are not designed for daily
-computational research where workflows are written for particular projects and are almost disposable.
+computational research where scripts are written for particular projects and are almost disposable.
 
 ## Pipelineitis is a treatable
 
@@ -62,7 +62,7 @@ of pipelineitis:
 
 Symptom | Cause | Treatment
 ---|---| ---|
-**Lower productivity** | Re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul>
+**Lower productivity** | Re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from interactive scripts to workflows</li></ul>
 **Steep learnin curve** | Workflow language difficult to learn and use, making it difficult to adopt | <ul><li>Workflow as "annotations" to Python scripts</li><li>Trivial to get started, grow as needed</li></ul>
 **Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
 **Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>

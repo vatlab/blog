@@ -14,8 +14,8 @@
 <title>SoS: a cure to pipelineitis | vatlab</title>
 
 <meta property='og:title' content='SoS: a cure to pipelineitis - vatlab'>
-<meta property='og:description' content='Because of the needs to use libraries and tools in different languages and to execute them on different systems such as clusters, bioinformaticians write a lot of scripts in different languages and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
- Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analysis with others, and reproduce prior data analyses later on.'>
+<meta property='og:description' content='Because of the needs to use libraries and tools in different languages and to execute them on different systems such as computer clusters, bioinformaticians write a lot of scripts in different languages and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
+ Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analyses with others, and reproduce prior data analyses at a later time.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
 <meta property='og:site_name' content='vatlab'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='SoS'><meta property='article:tag' content='Workflow'><meta property='article:published_time' content='2017-12-15T00:00:00Z'/><meta property='article:modified_time' content='2017-12-15T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
@@ -83,14 +83,14 @@
       
 
 <p>Because of the needs to use libraries and tools in different languages and to execute them on
-different systems such as clusters, bioinformaticians write a lot of scripts in different languages
+different systems such as computer clusters, bioinformaticians write a lot of scripts in different languages
 and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic
 data analyses. Notably,</p>
 
 <ol>
 <li><strong>Management of scripts</strong>: With increasing number of scripts, some in multiple versions, some shared
 among projects, some written for and executed on remote systems, it can be difficult to share data
-analysis with others, and reproduce prior data analyses later on.</li>
+analyses with others, and reproduce prior data analyses at a later time.</li>
 <li><strong>Analyze large datasets</strong>: It is tedious and error-prone to write scripts to analyze larger and larger
 amount of data as more and more work is needed for the &ldquo;execution&rdquo; part of the analysis. Additional
 work includes but not limited to refactoring scripts for batch execution, creation and submission
@@ -122,9 +122,9 @@ others? If those steps are only ever going to be run by you, then a simple scrip
 once, just run them once, document the fact you did so and move on.</p>
 </blockquote>
 
-<p>In another word, workflow systems are designed for the repeated execution of mature workflows for
+<p>In another word, workflow systems are designed for repeated execution of mature workflows for
 which a good deal of work is invested to help the users of workflows. They are not designed for daily
-computational research where workflows are written for particular projects and are almost disposable.</p>
+computational research where scripts are written for particular projects and are almost disposable.</p>
 
 <h2 id="pipelineitis-is-a-treatable">Pipelineitis is a treatable</h2>
 
@@ -151,7 +151,7 @@ of pipelineitis:</p>
 <tr>
 <td><strong>Lower productivity</strong></td>
 <td>Re-create data analysis using another language or environment</td>
-<td><ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul></td>
+<td><ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from interactive scripts to workflows</li></ul></td>
 </tr>
 
 <tr>
