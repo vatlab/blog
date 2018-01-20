@@ -111,8 +111,6 @@ makes it easy to share data analysis with others and to reproduce prior data ana
 Notebook a powerful environment for reproducible data analysis.
 
 <small>
-SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
-([JupyterLab/2815](https://github.com/jupyterlab/jupyterlab/issues/2815)).
 More details of SoS and SoS Notebook can be found at the [SoS website](https://vatlab.github.io/sos-docs/) where you can
 find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
 your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues). 

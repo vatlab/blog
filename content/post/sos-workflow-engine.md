@@ -10,7 +10,7 @@ tags: ["SoS", "Workflow"]
 
 Because of the needs to use libraries and tools in different languages and to execute them on
 different systems such as clusters, bioinformaticians write a lot of scripts in different languages
-and face many chanllenges in developing, running, managing, sharing, and reproducing bioinformatic
+and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic
 data analyses. Notably, 
 
 1. **Management of scripts**: With increasing number of scripts, some in multiple versions, some shared
@@ -18,7 +18,7 @@ data analyses. Notably,
   analysis with others, and reproduce prior data analyses later on.
 2. **Analyze large datasets**: It is tedious and error-prone to write scripts to analyze larger and larger
   amount of data as more and more work is needed for the "execution" part of the analysis. Additional
-  work includes but not limited to refactoring scripts for batch execution, creation and submittion
+  work includes but not limited to refactoring scripts for batch execution, creation and submission 
   of jobs, monitoring and fault recovery, and synchronization of data and results across system.
 
 ## Why workflow systems are not used in daily computational research
@@ -50,7 +50,7 @@ computational research where workflows are written for particular projects and a
 
 ## Pipelineitis is a treatable
 
-Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
+Pipelineitis is a nasty disease but admitting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
 workflow systems in daily computational research, we realized that **narrowing the gap between environments
 for interactive data analysis and workflow systems for batch data crunching would cure pipelineitis and
@@ -62,7 +62,7 @@ of pipelineitis:
 
 Symptom | Cause | Treatment
 ---|---| ---|
-**Lower productivity** | Re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactrive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul>
+**Lower productivity** | Re-create data analysis using another language or environment | <ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul>
 **Steep learnin curve** | Workflow language difficult to learn and use, making it difficult to adopt | <ul><li>Workflow as "annotations" to Python scripts</li><li>Trivial to get started, grow as needed</li></ul>
 **Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
 **Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>
@@ -87,14 +87,14 @@ SoS Notebook allows you to:
   and line-by-line execution. 
 
 * Convert scripts to SoS "actions" to be executed as (scratch) workflow steps. The "actions"
-  are Python functions and can be debugged in the SoS kernell
+  are Python functions and can be debugged in the SoS kernel
 
 * "Chain" the scratch workflow steps into SoS workflows by adding `input`, `output`, `depends`
   statements and section headers.
 
 The SoS environment makes it easy to convert scripts developed in interactive
 data analysis to a workflow which removes the biggest obstacle in the utilization 
-of workflows in daily computational reserach.
+of workflows in daily computational researach.
 
 ## Workflow syntax as "annotations" to Python scripts
 
@@ -102,7 +102,7 @@ SoS is extended from Python 3.6 so **a SoS script is essentially a Python script
 additional workflow specifications**. With Python being [one of the easiest scripting
 language to learn](https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/) 
 and [one of the most widely used scripting languages](https://www.tiobe.com/tiobe-index/),
-SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntax
+SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntaxes
 to Python and the follow table summarizes them all: 
 
 Syntax | Example | Usage |
@@ -134,7 +134,7 @@ The following videos describes these steps in detail:
 
 ## Benefits of using SoS for daily computational research
 
-The monent you convert a script to a SoS workflow step, you have a working SoS workflow 
+The moment you convert a script to a SoS workflow step, you have a working SoS workflow 
 that can benefit from many of SoS' execution features.
 
 ### Runtime signature
@@ -142,7 +142,7 @@ that can benefit from many of SoS' execution features.
 SoS keeps track of runtime signatures so it will ignore a step if it has been executed
 before. The signatures consist of input, output, dependent targets, statements and their
 environments (e.g. used global variables) so a step would be re-executed if any of these
-items has changed. The signatures are indepedent of step names and workflows so a step
+items has changed. The signatures are independent of step names and workflows so a step
 would be ignored even if it belongs to multiple workflows.
 
 What this means is that you can continuously revise and execute a workflow without worrying
@@ -158,7 +158,7 @@ are execution units that are independent of workflows and even file systems so t
 can be executed locally or remotely in parallel (subject to number of concurrent running
 tasks). With properly configured remote hosts, the same tasks could be executed locally
 or on a remote host as separate processes, or be submitted to a PBS (Moab/torque, Slurm,
-IBM LSF) system, or a task queue systems such as [RQ](http://python-rq.org/). The
+IBM LSF) system, or task queue systems such as [RQ](http://python-rq.org/). The
 remote system does not have to share the same file system as the local host because
 SoS automatically synchronizes input files, updates scripts, submits and monitors jobs,
 and collects results. It even provides a job monitor system that is independent of
@@ -181,7 +181,7 @@ makefile-style outcome-oriented workflows. The forward-style workflows are speci
 as numerically ordered steps that will be executed sequentially (logically speaking),
 and makefile-style workflows are specified as steps that provides targets that are
 used by others. SoS also supports mixed style workflows (forward-style workflow
-with dependencies satified by makefile-style steps) and nested workflows (execution
+with dependencies satisfied by makefile-style steps) and nested workflows (execution
 of subworkflows as function calls) which allows the creation of very complex
 workflows that consists of hundreds of steps. The following figure illustrates the
 DAG of a RNA Seq data analysis workflow.
@@ -201,8 +201,6 @@ leaving your familiar SoS environment.
 
 
 <small>
-SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
-([JupyterLab/2815](https://github.com/jupyterlab/jupyterlab/issues/2815)).
 More details of SoS and SoS Notebook can be found at the [SoS website](https://vatlab.github.io/sos-docs/) where you can
 find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
 your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues). 

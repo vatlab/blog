@@ -14,7 +14,7 @@
 <title>SoS: a cure to pipelineitis | vatlab</title>
 
 <meta property='og:title' content='SoS: a cure to pipelineitis - vatlab'>
-<meta property='og:description' content='Because of the needs to use libraries and tools in different languages and to execute them on different systems such as clusters, bioinformaticians write a lot of scripts in different languages and face many chanllenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
+<meta property='og:description' content='Because of the needs to use libraries and tools in different languages and to execute them on different systems such as clusters, bioinformaticians write a lot of scripts in different languages and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
  Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analysis with others, and reproduce prior data analyses later on.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
 <meta property='og:site_name' content='vatlab'>
@@ -84,7 +84,7 @@
 
 <p>Because of the needs to use libraries and tools in different languages and to execute them on
 different systems such as clusters, bioinformaticians write a lot of scripts in different languages
-and face many chanllenges in developing, running, managing, sharing, and reproducing bioinformatic
+and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic
 data analyses. Notably,</p>
 
 <ol>
@@ -93,7 +93,7 @@ among projects, some written for and executed on remote systems, it can be diffi
 analysis with others, and reproduce prior data analyses later on.</li>
 <li><strong>Analyze large datasets</strong>: It is tedious and error-prone to write scripts to analyze larger and larger
 amount of data as more and more work is needed for the &ldquo;execution&rdquo; part of the analysis. Additional
-work includes but not limited to refactoring scripts for batch execution, creation and submittion
+work includes but not limited to refactoring scripts for batch execution, creation and submission
 of jobs, monitoring and fault recovery, and synchronization of data and results across system.</li>
 </ol>
 
@@ -128,7 +128,7 @@ computational research where workflows are written for particular projects and a
 
 <h2 id="pipelineitis-is-a-treatable">Pipelineitis is a treatable</h2>
 
-<p>Pipelineitis is a nasty disease but admiting the facts does not save us from all the aforementioned problems
+<p>Pipelineitis is a nasty disease but admitting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
 workflow systems in daily computational research, we realized that <strong>narrowing the gap between environments
 for interactive data analysis and workflow systems for batch data crunching would cure pipelineitis and
@@ -151,7 +151,7 @@ of pipelineitis:</p>
 <tr>
 <td><strong>Lower productivity</strong></td>
 <td>Re-create data analysis using another language or environment</td>
-<td><ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactrive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul></td>
+<td><ul><li>A <a href="https://vatlab.github.io/blog/post/sos-notebook/">single environment</a> for both interactive data analysis and batch data processing</li><li><a href="https://vatlab.github.io/blog/post/power-of-sos-plus-sos-notebook/">Easy transition</a> from notebook to workflow</li></ul></td>
 </tr>
 
 <tr>
@@ -195,7 +195,7 @@ with added features such as string interpolation
 and line-by-line execution.</p></li>
 
 <li><p>Convert scripts to SoS &ldquo;actions&rdquo; to be executed as (scratch) workflow steps. The &ldquo;actions&rdquo;
-are Python functions and can be debugged in the SoS kernell</p></li>
+are Python functions and can be debugged in the SoS kernel</p></li>
 
 <li><p>&ldquo;Chain&rdquo; the scratch workflow steps into SoS workflows by adding <code>input</code>, <code>output</code>, <code>depends</code>
 statements and section headers.</p></li>
@@ -203,7 +203,7 @@ statements and section headers.</p></li>
 
 <p>The SoS environment makes it easy to convert scripts developed in interactive
 data analysis to a workflow which removes the biggest obstacle in the utilization
-of workflows in daily computational reserach.</p>
+of workflows in daily computational researach.</p>
 
 <h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
 
@@ -211,7 +211,7 @@ of workflows in daily computational reserach.</p>
 additional workflow specifications</strong>. With Python being <a href="https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/" target="_blank">one of the easiest scripting
 language to learn</a>
 and <a href="https://www.tiobe.com/tiobe-index/" target="_blank">one of the most widely used scripting languages</a>,
-SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntax
+SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntaxes
 to Python and the follow table summarizes them all:</p>
 
 <table>
@@ -276,7 +276,7 @@ of the workflow, namely the included scripts, remain largely untouched.</p>
 
 <h2 id="benefits-of-using-sos-for-daily-computational-research">Benefits of using SoS for daily computational research</h2>
 
-<p>The monent you convert a script to a SoS workflow step, you have a working SoS workflow
+<p>The moment you convert a script to a SoS workflow step, you have a working SoS workflow
 that can benefit from many of SoS&rsquo; execution features.</p>
 
 <h3 id="runtime-signature">Runtime signature</h3>
@@ -284,7 +284,7 @@ that can benefit from many of SoS&rsquo; execution features.</p>
 <p>SoS keeps track of runtime signatures so it will ignore a step if it has been executed
 before. The signatures consist of input, output, dependent targets, statements and their
 environments (e.g. used global variables) so a step would be re-executed if any of these
-items has changed. The signatures are indepedent of step names and workflows so a step
+items has changed. The signatures are independent of step names and workflows so a step
 would be ignored even if it belongs to multiple workflows.</p>
 
 <p>What this means is that you can continuously revise and execute a workflow without worrying
@@ -300,7 +300,7 @@ are execution units that are independent of workflows and even file systems so t
 can be executed locally or remotely in parallel (subject to number of concurrent running
 tasks). With properly configured remote hosts, the same tasks could be executed locally
 or on a remote host as separate processes, or be submitted to a PBS (Moab/torque, Slurm,
-IBM LSF) system, or a task queue systems such as <a href="http://python-rq.org/" target="_blank">RQ</a>. The
+IBM LSF) system, or task queue systems such as <a href="http://python-rq.org/" target="_blank">RQ</a>. The
 remote system does not have to share the same file system as the local host because
 SoS automatically synchronizes input files, updates scripts, submits and monitors jobs,
 and collects results. It even provides a job monitor system that is independent of
@@ -322,7 +322,7 @@ makefile-style outcome-oriented workflows. The forward-style workflows are speci
 as numerically ordered steps that will be executed sequentially (logically speaking),
 and makefile-style workflows are specified as steps that provides targets that are
 used by others. SoS also supports mixed style workflows (forward-style workflow
-with dependencies satified by makefile-style steps) and nested workflows (execution
+with dependencies satisfied by makefile-style steps) and nested workflows (execution
 of subworkflows as function calls) which allows the creation of very complex
 workflows that consists of hundreds of steps. The following figure illustrates the
 DAG of a RNA Seq data analysis workflow.</p>
@@ -340,8 +340,6 @@ and simple workflow features, your analysis can grow as your project grows, all 
 leaving your familiar SoS environment.</p>
 
 <p><small>
-SoS Notebook is currently implemented as a Jupyter kernel but we will certainly port it to JupyterLab after JupyterLab matures
-(<a href="https://github.com/jupyterlab/jupyterlab/issues/2815" target="_blank">JupyterLab/2815</a>).
 More details of SoS and SoS Notebook can be found at the <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS website</a> where you can
 find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
 your feedback and/or bug reports to our <a href="https://github.com/vatlab/sos-notebook/issues" target="_blank">github issue tracker</a>.
