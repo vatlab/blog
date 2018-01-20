@@ -2,7 +2,7 @@
 type: "post"
 draft: false
 author: "Bo Peng"
-title: "SoS: a cure to pipelineitis (under development)"
+title: "SoS: a cure to pipelineitis"
 ghcommentid: 8
 date: "2017-12-15"
 tags: ["SoS", "Workflow"]
@@ -86,18 +86,14 @@ SoS Notebook allows you to:
   (magic [%expand](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic-expand))
   and line-by-line execution. 
 
-![step through](https://vatlab.github.io/sos-docs/doc/media/step_through.gif)
-
 * Convert scripts to SoS "actions" to be executed as (scratch) workflow steps. The "actions"
   are Python functions and can be debugged in the SoS kernell
 
 * "Chain" the scratch workflow steps into SoS workflows by adding `input`, `output`, `depends`
   statements and section headers.
 
-![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif)
-
-**The SoS environment makes it easy to convert scripts developed in interactive
-data analysis to a workflow** which removes the biggest obstacle in the utilization 
+The SoS environment makes it easy to convert scripts developed in interactive
+data analysis to a workflow which removes the biggest obstacle in the utilization 
 of workflows in daily computational reserach.
 
 ## Workflow syntax as "annotations" to Python scripts
@@ -136,7 +132,7 @@ The following videos describes these steps in detail:
 </table>
 
 
-## Benefits of using SoS for daily data analysis
+## Benefits of using SoS for daily computational research
 
 The monent you convert a script to a SoS workflow step, you have a working SoS workflow 
 that can benefit from many of SoS' execution features.
@@ -152,6 +148,8 @@ would be ignored even if it belongs to multiple workflows.
 What this means is that you can continuously revise and execute a workflow without worrying
 about the re-execution of time-consuming steps, and without worrying about the execution
 of relevant steps of the workflow with changing input or parameter.  
+
+![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/signature.gif)
 
 ### Remote execution
 
@@ -173,6 +171,9 @@ It also helps the readability and reproducibility of analysis because both local
 and remote scripts are kept in the same notebook, without platform-specific job
 management code.
 
+![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/task.gif)
+
+
 ### Powerful workflow systems
 
 SoS supports both forward-style procedure-oriented and
@@ -182,7 +183,11 @@ and makefile-style workflows are specified as steps that provides targets that a
 used by others. SoS also supports mixed style workflows (forward-style workflow
 with dependencies satified by makefile-style steps) and nested workflows (execution
 of subworkflows as function calls) which allows the creation of very complex
-workflows that consists of hundreds of steps.
+workflows that consists of hundreds of steps. The following figure illustrates the
+DAG of a RNA Seq data analysis workflow.
+
+![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/sample_dag.svg)
+
 
 In summary, SoS provides an environment for both interactive data analysis and batch
 data crunching. It has a smooth learning curve because it is based on a widely used

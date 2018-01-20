@@ -11,9 +11,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     
-<title>SoS: a cure to pipelineitis (under development) | vatlab</title>
+<title>SoS: a cure to pipelineitis | vatlab</title>
 
-<meta property='og:title' content='SoS: a cure to pipelineitis (under development) - vatlab'>
+<meta property='og:title' content='SoS: a cure to pipelineitis - vatlab'>
 <meta property='og:description' content='Because of the needs to use libraries and tools in different languages and to execute them on different systems such as clusters, bioinformaticians write a lot of scripts in different languages and face many chanllenges in developing, running, managing, sharing, and reproducing bioinformatic data analyses. Notably,
  Management of scripts: With increasing number of scripts, some in multiple versions, some shared among projects, some written for and executed on remote systems, it can be difficult to share data analysis with others, and reproduce prior data analyses later on.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/sos-workflow-engine/'>
@@ -77,7 +77,7 @@
       
     </div>
     <h2 class="subtitle is-6">December 15, 2017</h2>
-    <h1 class="title">SoS: a cure to pipelineitis (under development)</h1>
+    <h1 class="title">SoS: a cure to pipelineitis</h1>
       
     <div class="content">
       
@@ -189,15 +189,11 @@ posts <a href="https://vatlab.github.io/blog/post/sos-notebook/" target="_blank"
 SoS Notebook allows you to:</p>
 
 <ul>
-<li>Develop scripts in different languages using multiple kernels,
+<li><p>Develop scripts in different languages using multiple kernels,
 with added features such as string interpolation
 (magic <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic-expand" target="_blank">%expand</a>)
-and line-by-line execution.</li>
-</ul>
+and line-by-line execution.</p></li>
 
-<p><img src="https://vatlab.github.io/sos-docs/doc/media/step_through.gif" alt="step through" /></p>
-
-<ul>
 <li><p>Convert scripts to SoS &ldquo;actions&rdquo; to be executed as (scratch) workflow steps. The &ldquo;actions&rdquo;
 are Python functions and can be debugged in the SoS kernell</p></li>
 
@@ -205,10 +201,8 @@ are Python functions and can be debugged in the SoS kernell</p></li>
 statements and section headers.</p></li>
 </ul>
 
-<p><img src="https://vatlab.github.io/sos-docs/doc/media/SoS_Workflow.gif" alt="SoS notebook with SoS" /></p>
-
-<p><strong>The SoS environment makes it easy to convert scripts developed in interactive
-data analysis to a workflow</strong> which removes the biggest obstacle in the utilization
+<p>The SoS environment makes it easy to convert scripts developed in interactive
+data analysis to a workflow which removes the biggest obstacle in the utilization
 of workflows in daily computational reserach.</p>
 
 <h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
@@ -280,7 +274,7 @@ of the workflow, namely the included scripts, remain largely untouched.</p>
 </tr>
 </table>
 
-<h2 id="benefits-of-using-sos-for-daily-data-analysis">Benefits of using SoS for daily data analysis</h2>
+<h2 id="benefits-of-using-sos-for-daily-computational-research">Benefits of using SoS for daily computational research</h2>
 
 <p>The monent you convert a script to a SoS workflow step, you have a working SoS workflow
 that can benefit from many of SoS&rsquo; execution features.</p>
@@ -296,6 +290,8 @@ would be ignored even if it belongs to multiple workflows.</p>
 <p>What this means is that you can continuously revise and execute a workflow without worrying
 about the re-execution of time-consuming steps, and without worrying about the execution
 of relevant steps of the workflow with changing input or parameter.</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/signature.gif" alt="SoS notebook with SoS" /></p>
 
 <h3 id="remote-execution">Remote execution</h3>
 
@@ -317,6 +313,8 @@ It also helps the readability and reproducibility of analysis because both local
 and remote scripts are kept in the same notebook, without platform-specific job
 management code.</p>
 
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/task.gif" alt="SoS notebook with SoS" /></p>
+
 <h3 id="powerful-workflow-systems">Powerful workflow systems</h3>
 
 <p>SoS supports both forward-style procedure-oriented and
@@ -326,7 +324,10 @@ and makefile-style workflows are specified as steps that provides targets that a
 used by others. SoS also supports mixed style workflows (forward-style workflow
 with dependencies satified by makefile-style steps) and nested workflows (execution
 of subworkflows as function calls) which allows the creation of very complex
-workflows that consists of hundreds of steps.</p>
+workflows that consists of hundreds of steps. The following figure illustrates the
+DAG of a RNA Seq data analysis workflow.</p>
+
+<p><img src="https://vatlab.github.io/sos-docs/doc/media/sample_dag.svg" alt="SoS notebook with SoS" /></p>
 
 <p>In summary, SoS provides an environment for both interactive data analysis and batch
 data crunching. It has a smooth learning curve because it is based on a widely used
