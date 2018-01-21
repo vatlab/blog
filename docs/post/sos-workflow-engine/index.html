@@ -97,7 +97,7 @@ work includes but not limited to refactoring scripts for batch execution, creati
 of jobs, monitoring and fault recovery, and synchronization of data and results across system.</li>
 </ol>
 
-<h2 id="why-workflow-systems-are-not-used-in-daily-computational-research">Why workflow systems are not used in daily computational research</h2>
+<h2 id="why-workflow-systems-are-not-suitable-for-daily-computational-research">Why workflow systems are not suitable for daily computational research</h2>
 
 <p>Scientific pipeline systems are supposed to alleviate these problems by streamlining the creation
 and execution of data analysis workflows. However, after surveying all
@@ -126,7 +126,7 @@ once, just run them once, document the fact you did so and move on.</p>
 which a good deal of work is invested to help the users of workflows. They are not designed for daily
 computational research where scripts are written for particular projects and are almost disposable.</p>
 
-<h2 id="pipelineitis-is-a-treatable">Pipelineitis is a treatable</h2>
+<h2 id="pipelineitis-is-treatable">Pipelineitis is treatable</h2>
 
 <p>Pipelineitis is a nasty disease but admitting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
@@ -205,7 +205,7 @@ statements and section headers.</p></li>
 data analysis to a workflow which removes the biggest obstacle in the utilization
 of workflows in daily computational researach.</p>
 
-<h2 id="workflow-syntax-as-annotations-to-python-scripts">Workflow syntax as &ldquo;annotations&rdquo; to Python scripts</h2>
+<h2 id="workflow-system-that-you-can-embark-in-minutes">Workflow system that you can embark in minutes</h2>
 
 <p>SoS is extended from Python 3.6 so <strong>a SoS script is essentially a Python script with
 additional workflow specifications</strong>. With Python being <a href="https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/" target="_blank">one of the easiest scripting
@@ -283,13 +283,14 @@ that can benefit from many of SoS&rsquo; execution features.</p>
 
 <p>SoS keeps track of runtime signatures so it will ignore a step if it has been executed
 before. The signatures consist of input, output, dependent targets, statements and their
-environments (e.g. used global variables) so a step would be re-executed if any of these
+environments (e.g. used global variables) and a step would be re-executed if any of these
 items has changed. The signatures are independent of step names and workflows so a step
 would be ignored even if it belongs to multiple workflows.</p>
 
-<p>What this means is that you can continuously revise and execute a workflow without worrying
-about the re-execution of time-consuming steps, and without worrying about the execution
-of relevant steps of the workflow with changing input or parameter.</p>
+<p>What this means is that you can continuously revise and execute a workflow without
+wasting time on the execution of steps that have been executed before, and without
+worrying about the re-execution of steps that should be re-executed because of changed
+input or parameters.</p>
 
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/signature.gif" alt="SoS notebook with SoS" /></p>
 
@@ -328,6 +329,25 @@ workflows that consists of hundreds of steps. The following figure illustrates t
 DAG of a RNA Seq data analysis workflow.</p>
 
 <p><img src="https://vatlab.github.io/sos-docs/doc/media/sample_dag.svg" alt="SoS notebook with SoS" /></p>
+
+<h3 id="readable-workflows-that-are-easy-to-report-share-and-reproduce">Readable workflows that are easy to report, share and reproduce</h3>
+
+<p>SoS Notebook provides <strong>an ideal format for the distribution of SoS workflows and the
+reporting and sharing of bioinformatic data analysis</strong> because a SoS notebook can
+include all details of a data analytic workflow, including
+descriptions of data and analytic steps (in rich text format with tables and figures),
+scripts in multiple languages, workflows, and outputs of analysis. The all-in-one nature
+of the notebook format also makes it easy to reproduce prior analyses if needed.</p>
+
+<p>The following is an example workflow with steps in Python, R, and bash. It looks
+just like other online tutorials you have seen but <a href="https://vatlab.github.io/sos-docs/doc/examples/RNASeqGTEx.ipynb" target="_blank">its notebook version</a>
+contains a complete workflow and is readily applicable to your data. The readability
+of SoS workflows distinguishes SoS from other workflow systems and makes it a great
+tool for the sharing of data processing expertise among bioinformaticians.</p>
+
+<iframe src="https://vatlab.github.io/sos-docs/doc/examples/RNASeqGTEx.html" width="90%" height="300px"></iframe>
+
+<h2 id="summary">Summary</h2>
 
 <p>In summary, SoS provides an environment for both interactive data analysis and batch
 data crunching. It has a smooth learning curve because it is based on a widely used

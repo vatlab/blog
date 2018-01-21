@@ -21,7 +21,7 @@ data analyses. Notably,
   work includes but not limited to refactoring scripts for batch execution, creation and submission 
   of jobs, monitoring and fault recovery, and synchronization of data and results across system.
 
-## Why workflow systems are not used in daily computational research
+## Why workflow systems are not suitable for daily computational research
 
 Scientific pipeline systems are supposed to alleviate these problems by streamlining the creation
 and execution of data analysis workflows. However, after surveying all
@@ -48,7 +48,7 @@ In another word, workflow systems are designed for repeated execution of mature 
 which a good deal of work is invested to help the users of workflows. They are not designed for daily
 computational research where scripts are written for particular projects and are almost disposable.
 
-## Pipelineitis is a treatable
+## Pipelineitis is treatable
 
 Pipelineitis is a nasty disease but admitting the facts does not save us from all the aforementioned problems
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
@@ -96,7 +96,7 @@ The SoS environment makes it easy to convert scripts developed in interactive
 data analysis to a workflow which removes the biggest obstacle in the utilization 
 of workflows in daily computational researach.
 
-## Workflow syntax as "annotations" to Python scripts
+## Workflow system that you can embark in minutes
 
 SoS is extended from Python 3.6 so **a SoS script is essentially a Python script with
 additional workflow specifications**. With Python being [one of the easiest scripting
@@ -141,13 +141,14 @@ that can benefit from many of SoS' execution features.
 
 SoS keeps track of runtime signatures so it will ignore a step if it has been executed
 before. The signatures consist of input, output, dependent targets, statements and their
-environments (e.g. used global variables) so a step would be re-executed if any of these
+environments (e.g. used global variables) and a step would be re-executed if any of these
 items has changed. The signatures are independent of step names and workflows so a step
 would be ignored even if it belongs to multiple workflows.
 
-What this means is that you can continuously revise and execute a workflow without worrying
-about the re-execution of time-consuming steps, and without worrying about the execution
-of relevant steps of the workflow with changing input or parameter.  
+What this means is that you can continuously revise and execute a workflow without 
+wasting time on the execution of steps that have been executed before, and without
+worrying about the re-execution of steps that should be re-executed because of changed
+input or parameters.
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/signature.gif)
 
@@ -188,6 +189,25 @@ DAG of a RNA Seq data analysis workflow.
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/sample_dag.svg)
 
+### Readable workflows that are easy to report, share and reproduce 
+
+SoS Notebook provides **an ideal format for the distribution of SoS workflows and the
+reporting and sharing of bioinformatic data analysis** because a SoS notebook can
+include all details of a data analytic workflow, including
+descriptions of data and analytic steps (in rich text format with tables and figures),
+scripts in multiple languages, workflows, and outputs of analysis. The all-in-one nature
+of the notebook format also makes it easy to reproduce prior analyses if needed.
+
+The following is an example workflow with steps in Python, R, and bash. It looks
+just like other online tutorials you have seen but [its notebook version](https://vatlab.github.io/sos-docs/doc/examples/RNASeqGTEx.ipynb)
+contains a complete workflow and is readily applicable to your data. The readability
+of SoS workflows distinguishes SoS from other workflow systems and makes it a great
+tool for the sharing of data processing expertise among bioinformaticians.
+
+<iframe src="https://vatlab.github.io/sos-docs/doc/examples/RNASeqGTEx.html" width="90%" height="300px"></iframe>
+
+
+## Summary
 
 In summary, SoS provides an environment for both interactive data analysis and batch
 data crunching. It has a smooth learning curve because it is based on a widely used
