@@ -96,7 +96,7 @@ The SoS environment makes it easy to convert scripts developed in interactive
 data analysis to a workflow which removes the biggest obstacle in the utilization 
 of workflows in daily computational researach.
 
-## Workflow system that you can embark in minutes
+## Workflow system that can be comprehended in minutes
 
 SoS is extended from Python 3.6 so **a SoS script is essentially a Python script with
 additional workflow specifications**. With Python being [one of the easiest scripting
