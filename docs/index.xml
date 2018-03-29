@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://faculty.mdanderson.org/profiles/bo_peng.html&#34;&gt;Bo Peng, Ph.D. / MD Anderson Cancer Center&lt;/a&gt; All rights reserved</copyright>
-    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vatlab.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How does SoS compare with other workflow engines</title>
+      <link>https://vatlab.github.io/blog/post/comparison/</link>
+      <pubDate>Thu, 29 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vatlab.github.io/blog/post/comparison/</guid>
+      <description>There are about 200 workflow systems &amp;hellip; All workflow systems are evolving with new features added from time to time. Please let us know if our comparison is incorrect.
+SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workflow SoS NextFlow Snakemake Bpipe Galaxy     Language interface Python flavored Groovy flavored GNU Make style, Python flavored Groovy flavored JSON flavored   User interface CLI + Notebook (Jupyter) CLI CLI CLI CLI + GUI   File format .</description>
+    </item>
     
     <item>
       <title>SoS: a cure to pipelineitis</title>
