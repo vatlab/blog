@@ -301,6 +301,16 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <h4 id="language-interface">Language interface</h4>
 
+<p>Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer <code>SoS</code> or other Python-based workflow systems such as <a href="https://github.com/spotify/luigi" target="_blank">Luigi</a>, and people who are familiar with Groovy might prefer <code>Nextflow</code> or <code>Bpipe</code>.</p>
+
+<ul>
+<li>SoS extends Python 3.6 with <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html" target="_blank">a number of SoS-specific syntax extensions</a> and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html" target="_blank">pre-defined functions</a>. The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.</li>
+<li>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The <code>nextflow</code> command is used to execute Nextflow workflows.</li>
+<li>Snakemake?</li>
+<li>Bpipe?</li>
+<li>Galaxy</li>
+</ul>
+
 <h4 id="user-interface">User interface</h4>
 
 <h4 id="file-format">FIle format</h4>
@@ -357,11 +367,36 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <p>Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.</p>
 
+<h3 id="what-about-cwl">What about CWL?</h3>
+
+<p>We exclude <a href="https://github.com/common-workflow-language/common-workflow-language" target="_blank">CWL</a> from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.</p>
+
+<h3 id="why-xxx-is-not-in-the-list">Why XXX is not in the list?</h3>
+
+<p>There are more than 200 workflow systems and we cannot possible compare them all here. Here are however a few sources that provides meaningful comparison between some of the more popular systems.</p>
+
+<ul>
+<li>[The return of workflows](<a href="https://stackstorm.com/2015/04/10/the-return-of-workflows/）compares:" target="_blank">https://stackstorm.com/2015/04/10/the-return-of-workflows/）compares:</a> Pinball, Spiff, Luigi, Ansible, Dray, Score, ActionChain, Mistral</li>
+<li></li>
+</ul>
+
+<p>Please feel free to send us links to similar resources that comparison workflow systems and we will be happy to add them here. We can even add your favoriate workflow engine to the big table if you can provide us enough details.</p>
+
 <h4 id="cloud-storage">Cloud storage</h4>
 
 <p>Ability to make use of cloud storage (AWS).</p>
 
 <h2 id="is-sos-for-you">Is SoS for you?</h2>
+
+<p>SoS is not for everyone.</p>
+
+<ul>
+<li><strong>If you are looking for a robust workflow system for huge projects</strong>, the anser is likely no, at least for now.</li>
+<li><strong>If you are looking for a script-less GUI-based workflow system</strong>, the answer is no.</li>
+<li><strong>If you are a RStudio user</strong>, the anser is likely no.</li>
+<li><strong>If you are a Jupyter user</strong>, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
+<li><strong>If you use Python for daily data analysis</strong>, the answer is most likely yes.</li>
+</ul>
 
     </div>
     
