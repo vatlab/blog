@@ -11,14 +11,14 @@ tags: ["SoS", "Workflow"]
 Because of the needs to use libraries and tools in different languages and to execute them on
 different systems such as computer clusters, bioinformaticians write a lot of scripts in different languages
 and face many challenges in developing, running, managing, sharing, and reproducing bioinformatic
-data analyses. Notably, 
+data analyses. Notably,
 
 1. **Management of scripts**: With increasing number of scripts, some in multiple versions, some shared
   among projects, some written for and executed on remote systems, it can be difficult to share data
   analyses with others, and reproduce prior data analyses at a later time.
 2. **Analyze large datasets**: It is tedious and error-prone to write scripts to analyze larger and larger
   amount of data as more and more work is needed for the "execution" part of the analysis. Additional
-  work includes but not limited to refactoring scripts for batch execution, creation and submission 
+  work includes but not limited to refactoring scripts for batch execution, creation and submission
   of jobs, monitoring and fault recovery, and synchronization of data and results across system.
 
 ## Why workflow systems are not suitable for daily computational research
@@ -27,7 +27,7 @@ Scientific pipeline systems are supposed to alleviate these problems by streamli
 and execution of data analysis workflows. However, after surveying all
 [100+ workflow systems](https://github.com/pditommaso/awesome-pipeline) and trying
 more than 10 of them, I realized that **the overhead of applying a workflow system in daily data
-analysis is too high to help productivity**. 
+analysis is too high to help productivity**.
 As a matter of fact, as pointed out by [Loman and Watson, 2013, Nat Biotechnol](https://www.nature.com/articles/nbt.2740),
 using a workflow system for analyses that will be run only once, or not meant to be shared with or repeated
 by others can decrease creativity and productivity.
@@ -35,12 +35,12 @@ by others can decrease creativity and productivity.
 > #### Pipelineitis is a nasty disease
 >
 > A pipeline is a series of steps, or software tools, run in sequence according to a predefined plan.
-> Pipelines are great for running exactly the same set of steps in a repetitive fashion, and for 
+> Pipelines are great for running exactly the same set of steps in a repetitive fashion, and for
 > sharing protocols with others, but **they force you into a rigid way of thinking and can decrease creativity**.
 >
 > Warning: **don’t pipeline too early**. Get a method working before you turn it into a pipeline. And
 > even then, does it need to be a pipeline? Have you saved time? Is your pipeline really of use to
-> others? If those steps are only ever going to be run by you, then a simple script will suffice and 
+> others? If those steps are only ever going to be run by you, then a simple script will suffice and
 > **any attempts at pipelining will simply waste time**. Similarly, if those steps will only ever be run
 > once, just run them once, document the fact you did so and move on.
 
@@ -54,11 +54,14 @@ Pipelineitis is a nasty disease but admitting the facts does not save us from al
 we have in daily data analysis. Looking over and over at the key obstacles that prevent the application of
 workflow systems in daily computational research, we realized that **narrowing the gap between environments
 for interactive data analysis and workflow systems for batch data crunching would cure pipelineitis and
-allow the use of workflow systems in daily computational research**. With this idea in mind, 
+allow the use of workflow systems in daily computational research**. With this idea in mind,
 we developed [SoS (Script of Scripts)](https://vatlab.github.io/sos-docs/),
-which is a workflow engine with a multi-language notebook frontend. 
-The following table summarizes the major features of SoS and how they help alleviate the symptoms 
+which is a workflow engine with a multi-language notebook frontend.
+The following table summarizes the major features of SoS and how they help alleviate the symptoms
 of pipelineitis:
+
+<div class="table table-hover">
+<div></div>
 
 Symptom | Cause | Treatment
 ---|---| ---|
@@ -66,6 +69,8 @@ Symptom | Cause | Treatment
 **Steep learnin curve** | Workflow language difficult to learn and use, making it difficult to adopt | <ul><li>Workflow as "annotations" to Python scripts</li><li>Trivial to get started, grow as needed</li></ul>
 **Difficult to read and share** | Data analysis logics (core steps)<ul><li>buried in execution logics</li><li>or written in foreign workflow language</li><li>or hidden behind workflow GUI</li></ul>|<ul><li>Almost verbatim inclusion of scripts</li><li>Simple workflow directives</li><li>Single multi-language notebook with annotated workflow</li></ul>
 **Difficult to reproduce** | Data analysis scattered in multiple scripts for multiple systems | <ul><li>Ability to execute entire or parts of workflows remotely</li><li>Keep local and remote tasks in one notebook</li></ul>
+
+</div>
 
 ## An IDE for both interactive data analysis and workflow development
 
@@ -82,9 +87,9 @@ posts [SoS Notebook: One Notebook, Multiple Kernels](https://vatlab.github.io/bl
 SoS Notebook allows you to:
 
 * Develop scripts in different languages using multiple kernels,
-  with added features such as string interpolation 
+  with added features such as string interpolation
   (magic [%expand](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Magics.html#magic-expand))
-  and line-by-line execution. 
+  and line-by-line execution.
 
 * Convert scripts to SoS "actions" to be executed as (scratch) workflow steps. The "actions"
   are Python functions and can be debugged in the SoS kernel
@@ -93,17 +98,17 @@ SoS Notebook allows you to:
   statements and section headers.
 
 The SoS environment makes it easy to convert scripts developed in interactive
-data analysis to a workflow which removes the biggest obstacle in the utilization 
+data analysis to a workflow which removes the biggest obstacle in the utilization
 of workflows in daily computational researach.
 
 ## Workflow system that can be comprehended in minutes
 
 SoS is extended from Python 3.6 so **a SoS script is essentially a Python script with
 additional workflow specifications**. With Python being [one of the easiest scripting
-language to learn](https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/) 
+language to learn](https://coderdojo.com/news/2015/03/20/top-5-programming-languages-for-beginners/)
 and [one of the most widely used scripting languages](https://www.tiobe.com/tiobe-index/),
 SoS has a very smooth learning curve. As a matter of fact, SoS adds very few additional syntaxes
-to Python and the follow table summarizes them all: 
+to Python and the follow table summarizes them all:
 
 Syntax | Example | Usage |
 ---|---| ---|
@@ -111,10 +116,10 @@ Script format of function call | <pre>sh:<br>  echo "I am sh"</pre> | Calling a 
 Section header | <pre>[step_10]</pre> | Define workflow steps |
 Parameter definition | <pre>parameter: cutoff=5</pre> | Define command line argument |
 Step input, output, and depends | <pre>input: "a.txt"</pre> | Define input, output, and dependent targets of steps |
-Task | <pre>task: walltime='24h'</pre> | Define external tasks | 
+Task | <pre>task: walltime='24h'</pre> | Define external tasks |
 
 As shown in the following figure, a SoS workflow can be created as verbatim inclusion of
-scripts in different languages. The script can be annotated with additional workflow 
+scripts in different languages. The script can be annotated with additional workflow
 syntax to make use of more and more workflow features such as runtime signature and
 external execution of tasks, but the workflow remains readable because the key parts
 of the workflow, namely the included scripts, remain largely untouched.
@@ -134,7 +139,7 @@ The following videos describes these steps in detail:
 
 ## Benefits of using SoS for daily computational research
 
-The moment you convert a script to a SoS workflow step, you have a working SoS workflow 
+The moment you convert a script to a SoS workflow step, you have a working SoS workflow
 that can benefit from many of SoS' execution features.
 
 ### Runtime signature
@@ -145,7 +150,7 @@ environments (e.g. used global variables) and a step would be re-executed if any
 items has changed. The signatures are independent of step names and workflows so a step
 would be ignored even if it belongs to multiple workflows.
 
-What this means is that you can continuously revise and execute a workflow without 
+What this means is that you can continuously revise and execute a workflow without
 wasting time on the execution of steps that have been executed before, and without
 worrying about the re-execution of steps that should be re-executed because of changed
 input or parameters.
@@ -189,7 +194,7 @@ DAG of a RNA Seq data analysis workflow.
 
 ![SoS notebook with SoS](https://vatlab.github.io/sos-docs/doc/media/sample_dag.svg)
 
-### Readable workflows that are easy to report, share and reproduce 
+### Readable workflows that are easy to report, share and reproduce
 
 SoS Notebook provides **an ideal format for the distribution of SoS workflows and the
 reporting and sharing of bioinformatic data analysis** because a SoS notebook can
@@ -223,7 +228,7 @@ leaving your familiar SoS environment.
 <small>
 More details of SoS and SoS Notebook can be found at the [SoS website](https://vatlab.github.io/sos-docs/) where you can
 find tons of documentations, tutorials, examples, and youtube videos. Please test SoS Notebook and send
-your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues). 
+your feedback and/or bug reports to our [github issue tracker](https://github.com/vatlab/sos-notebook/issues).
 If you find SoS Notebook useful, please support the project by starring the [SoS](https://github.com/vatlab/SoS) and
 [SoS Notebook](https://github.com/vatlab/sos-notebook)
 github projects, or spreading the word with [twitter](https://twitter.com/ScriptOfScripts). </small>
