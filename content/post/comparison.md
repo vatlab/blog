@@ -47,7 +47,7 @@ As a cross-language data analysis tool (`sos-notebook`):
 | [Process-oriented workflow](#process-oriented-workflow)  | Yes                                    | Yes                            | No                              | Yes                        | Yes                                       |
 | [Output-oriented workflow](#output-oriented-workflow) | Yes                                    | No                             | Yes                             | No                         | No                                        |
 | **Built-in support**                |      |         |         |              |             |  
-| [Docker](#docker)                   | Yes                                    | Yes                            | Partial                      | No                         | Yes                                       |
+| [Docker](#docker)                   | Yes                                    | Yes                            | No                           | No                         | Yes                                       |
 | [Singularity](#singularity)         | No                                     | Yes                            | Yes                             | No                         | No                                        |
 | [Multi-scale containers](#multi-scale-containers)  | No                                     | Yes                            | No                              | No                         | Yes                                       |
 | [PBS/Torque/LSF/SLURM](#pbs-torque-lsf-slurm)      | Partial             | Yes                            | Partial                         | Yes                        | Yes                                       |
