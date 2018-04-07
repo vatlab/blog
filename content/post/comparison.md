@@ -57,7 +57,7 @@ distinguishes SoS from all workflow systems that will be compared here.
 
 Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.
 
-<div class="table table-hover">
+<div class="table ">
 <table>
 <thead>
 <tr>
@@ -72,8 +72,27 @@ Comparison of basic features, workflow features, and built-in support for extern
 
 <tbody>
 <tr>
-<td align="left"><a href="#language-interface">Language interface</a></td>
-<td align="left">Python flavored</td>
+<td align="left"><p class='withtip' data-tip='tip-lan'>Language interface</p>
+
+<div id="tip-lan" style='display:none'>
+Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as [Luigi](https://github.com/spotify/luigi), and people who are familiar with Groovy might prefer `Nextflow` or `Bpipe`.
+
+</td>
+</div>
+
+
+<td align="left">
+
+<p class='withtip' data-tip='tip-sos-lan'>Python based</p>
+<div id="tip-sos-lan" style='display:none'>
+	SoS extends Python 3.6 with
+  <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
+  <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
+  The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.
+</div>
+
+
+</td>
 <td align="left">Groovy flavored</td>
 <td align="left">GNU Make style, Python flavored</td>
 <td align="left">Groovy flavored</td>
@@ -267,9 +286,7 @@ Comparison of basic features, workflow features, and built-in support for extern
 
 #### Language interface
 
-Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as [Luigi](https://github.com/spotify/luigi), and people who are familiar with Groovy might prefer `Nextflow` or `Bpipe`.
-
-* SoS extends Python 3.6 with [a number of SoS-specific syntax extensions](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html) and [pre-defined functions](https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html). The `sos` command can run most Python scripts but you can not run sos workflow with Python.
+*
 * Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The `nextflow` command is used to execute Nextflow workflows.
 * Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified.
 * Bpipe?

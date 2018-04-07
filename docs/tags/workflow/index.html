@@ -116,5 +116,18 @@ ga('send', 'pageview');
 
 
 </body>
+<script>
+
+$('.withtip').each(function () {
+	$(this).popover(
+	{
+		html: true,
+		content: $('#' + $(this).data('tip')).html(),
+    trigger: 'click',
+    container: 'body'
+	});
+});
+
+</script>
 </html>
 

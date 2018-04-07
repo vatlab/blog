@@ -126,7 +126,7 @@ distinguishes SoS from all workflow systems that will be compared here.</p>
 
 <p>Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.</p>
 
-<div class="table table-hover">
+<div class="table ">
 <table>
 <thead>
 <tr>
@@ -141,187 +141,204 @@ distinguishes SoS from all workflow systems that will be compared here.</p>
 
 <tbody>
 <tr>
-<td align="left"><a href="#language-interface">Language interface</a></td>
-<td align="left">Python flavored</td>
+<td align="left"><p class='withtip' data-tip='tip-lan'>Language interface</p>
+
+<div id="tip-lan" style='display:none'>
+Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as [Luigi](https://github.com/spotify/luigi), and people who are familiar with Groovy might prefer `Nextflow` or `Bpipe`.
+
+</td>
+</div>
+
+<p><td align="left"></p>
+
+<p><p class='withtip' data-tip='tip-sos-lan'>Python based</p>
+<div id="tip-sos-lan" style='display:none'>
+    SoS extends Python 3.6 with
+  <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
+  <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
+  The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.
+</div></p>
+
+<p></td>
 <td align="left">Groovy flavored</td>
 <td align="left">GNU Make style, Python flavored</td>
 <td align="left">Groovy flavored</td>
 <td align="left">JSON flavored</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#user-interface">User interface</a></td>
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
 <td align="left">CLI + GUI</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#file-format">File format</a></td>
 <td align="left">.sos (plain text) and Jupyter notebook</td>
 <td align="left">.nf (plain text)</td>
 <td align="left">Snakefile (plain text)</td>
 <td align="left">.pipe (groovy, plain text)</td>
 <td align="left">XML</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#ide">IDE</a></td>
 <td align="left">SoS Notebook (Jupyter)</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">Yes (only for building DAG)</td>
-</tr>
+</tr></p>
 
-<tr>
-<th colspan=6 align="left"><strong>Workflow features</strong></th>
+<p><tr>
+<th colspan=6 align="left"><strong>Workflow features</strong></th></p>
 
-</tr>
+<p></tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#dag-building">DAG Building</a></td>
 <td align="left">Explicit, implicit and dynamic</td>
 <td align="left">Explicit</td>
 <td align="left">Implicit and dynamic</td>
 <td align="left">Explicit</td>
 <td align="left">Explicit</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#streaming-processing">Streaming processing</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#subworkflow">Subworkflow</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#remote-task-submission">Remote task submission</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#task-monitoring">Task monitoring</a></td>
 <td align="left">Command line and GUI (Notebook)</td>
 <td align="left">Report traces and performances</td>
 <td align="left">Report traces and performance</td>
 <td align="left">Event notification</td>
 <td align="left">GUI to explore, share and reuse histories</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#heterogeneous-executor">Heterogeneous executor</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#process-oriented-workflow">Process-oriented workflow</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#output-oriented-workflow">Output-oriented workflow</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
-<th colspan=6 align="left"><strong>Built-in support</strong></th>
+<p><tr>
+<th colspan=6 align="left"><strong>Built-in support</strong></th></p>
 
-</tr>
+<p></tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#docker">Docker</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#singularity">Singularity</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#multi-scale-containers">Multi-scale containers</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#pbs-torque-lsf-slurm">PBS/Torque/LSF/SLURM</a></td>
 <td align="left">Partial</td>
 <td align="left">Yes</td>
 <td align="left">Partial</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#htcondor">HTCondor</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Require template</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#task-queue">Task Queue</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#distributed-systems">Distributed systems</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-</tr>
+</tr></p>
 
-<tr>
+<p><tr>
 <td align="left"><a href="#cloud-storage">Cloud Storage</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
@@ -331,19 +348,15 @@ distinguishes SoS from all workflow systems that will be compared here.</p>
 </tr>
 </tbody>
 </table>
-</div>
+</div></p>
 
 <h4 id="language-interface">Language interface</h4>
 
-<p>Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer <code>SoS</code> or other Python-based workflow systems such as <a href="https://github.com/spotify/luigi" target="_blank">Luigi</a>, and people who are familiar with Groovy might prefer <code>Nextflow</code> or <code>Bpipe</code>.</p>
-
-<ul>
-<li>SoS extends Python 3.6 with <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html" target="_blank">a number of SoS-specific syntax extensions</a> and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html" target="_blank">pre-defined functions</a>. The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.</li>
-<li>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The <code>nextflow</code> command is used to execute Nextflow workflows.</li>
-<li>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution. By default <code>snakemake</code> command is used to execute workflow in a <code>Snakefile</code> under the same directory though other script filenames can be specified.</li>
-<li>Bpipe?</li>
-<li>Galaxy</li>
-</ul>
+<p>*
+* Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The <code>nextflow</code> command is used to execute Nextflow workflows.
+* Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution. By default <code>snakemake</code> command is used to execute workflow in a <code>Snakefile</code> under the same directory though other script filenames can be specified.
+* Bpipe?
+* Galaxy</p>
 
 <h4 id="user-interface">User interface</h4>
 
@@ -481,4 +494,17 @@ ga('send', 'pageview');
 
 
 </body>
+<script>
+
+$('.withtip').each(function () {
+	$(this).popover(
+	{
+		html: true,
+		content: $('#' + $(this).data('tip')).html(),
+    trigger: 'click',
+    container: 'body'
+	});
+});
+
+</script>
 </html>

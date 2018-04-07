@@ -10,4 +10,17 @@
 {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
 </body>
+<script>
+// Tooltips
+$('.withtip').each(function () {
+	$(this).popover(
+	{
+		html: true,
+		content: $('#' + $(this).data('tip')).html(),
+    trigger: 'click',
+    container: 'body'
+	});
+});
+
+</script>
 </html>
