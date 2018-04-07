@@ -116,11 +116,11 @@ to Python and the follow table summarizes them all:
 
 Syntax | Example | Usage |
 ---|---| ---|
-Script format of function call | <pre>sh:<br>  echo "I am sh"</pre> | Calling a Python function with multi-line script as first parameter |  
-Section header | <pre>[step_10]</pre> | Define workflow steps |
-Parameter definition | <pre>parameter: cutoff=5</pre> | Define command line argument |
-Step input, output, and depends | <pre>input: "a.txt"</pre> | Define input, output, and dependent targets of steps |
-Task | <pre>task: walltime='24h'</pre> | Define external tasks |
+**Script format of function call** | <pre>sh:<br>  echo "I am sh"</pre> | Calling a Python function with multi-line script as first parameter |  
+**Section header** | <pre>[step_10]</pre> | Define workflow steps |
+**Parameter definition** | <pre>parameter: cutoff=5</pre> | Define command line argument |
+**Step input**, output, and depends | <pre>input: "a.txt"</pre> | Define input, output, and dependent targets of steps |
+**Task** | <pre>task: walltime='24h'</pre> | Define external tasks |
 
 </div>
 
