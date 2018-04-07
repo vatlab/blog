@@ -2,7 +2,7 @@
 type: "post"
 draft: false
 author: "Bo Peng"
-title: "How does SoS compare with other workflow engines"
+title: "How does SoS compare with other workflow engines (Under development)"
 ghcommentid: 10
 date: "2018-03-29"
 tags: ["SoS"]
@@ -10,27 +10,52 @@ tags: ["SoS"]
 
 Over [200 workflow systems](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) have been developed to date.
 Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
-comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system.
-It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
-Still, we would very much appreciate your pointer in the comment section
-at the end of this page if you believe more features should be compared, or point to us if some comparisons are wrong or obsolete.
+comparison to some of the most popular workflow systems similar to SoS, **features and limitations of SoS as a conventional workflow system**.
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below. Still, we would very much appreciate it if you could [send us your comments](https://github.com/vatlab/blog/issues/10) if you believe more features should be compared, or if some comparisons are wrong or obsolete.
 
 ## SoS is unique
 
-SoS was designed with a clear aim: to bridge the gap between interactive analysis and workflow executions. As a workflow engine (`sos`):
+SoS was designed with a clear aim: to **bridge the gap between interactive analysis and workflow executions**. The SoS suite
+of tools consist of the [**SoS Polyglot Notebook**](https://github.com/vatlab/sos-notebook)
+ and the [**SoS Workflow Engine**](https://github.com/vatlab/SoS).
 
-* It features a Jupyter Notebook interface that consolidates various scripts and narratives in one document
-* It allows executing interactive analysis and batch jobs under the same user interface
-* It provides multiple workflow styles that smooths the process of converting sequentially executed scripts to robust workflows on dependency graphs
+ <div class="table">
+ <table>
+ <thead>
+ <tr>
+ <th style="width:50%; align:left">SoS Notebook: </th>
+ <th style="width:50%; align:left">SoS Workflow Engine</th>
+</tr>
+</thead>
+<tr>
+<td>
 
-As a cross-language data analysis tool (`sos-notebook`):
+<ul>
+<li>[One notebook, multiple kernels](https://vatlab.github.io/blog/post/sos-notebook/)</li>
+<li>Enhances Jupyter Notebook GUI</li>
+<li>Data communications between live kernels</li>
+<li>Magics tailored for interactive analysis</li>
+</ul>
+</td>
+<td>
 
-* It allows data communications between codes written in different languages
-* It enhances Jupyter Notebook GUI with cell-level language switcher and a scratch pad
-* It implements new magics tailored for interactive analysis in bioinformatics
+<ul>
+<li> Simple syntax that extends from Python 3.  </li>
+<li> Edit, debug, and execute in Jupyter</li>
+<li> Multiple workflow styles</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+
+[Working back to back](http://localhost:1313/blog/post/power-of-sos-plus-sos-notebook/), SoS Polyglot Notebook
+and Workflow Engine provide users an environment for both interactive data analysis and batch data processing. This
+distinguishes SoS from all workflow systems that will be compared here.
 
 ## How does SoS compare with SnakeMake, Nextflow, and Galaxy
 
+Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.
 
 <div class="table table-hover">
 <table>
@@ -83,12 +108,8 @@ As a cross-language data analysis tool (`sos-notebook`):
 </tr>
 
 <tr>
-<td align="left"><strong>Workflow features</strong></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<th colspan=6 align="left"><strong>Workflow features</strong></th>
+
 </tr>
 
 <tr>
@@ -164,12 +185,8 @@ As a cross-language data analysis tool (`sos-notebook`):
 </tr>
 
 <tr>
-<td align="left"><strong>Built-in support</strong></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<th colspan=6 align="left"><strong>Built-in support</strong></th>
+
 </tr>
 
 <tr>
@@ -247,7 +264,6 @@ As a cross-language data analysis tool (`sos-notebook`):
 </table>
 </div>
 
-Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.
 
 #### Language interface
 
@@ -311,6 +327,9 @@ Ability to send tasks to RQ task queues.
 Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.
 
 
+#### Cloud storage
+Ability to make use of cloud storage (AWS).
+
 ### What about CWL?
 
 We exclude [CWL](https://github.com/common-workflow-language/common-workflow-language) from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.
@@ -324,8 +343,6 @@ There are more than 200 workflow systems and we cannot possible compare them all
 
 Please feel free to send us links to similar resources that comparison workflow systems and we will be happy to add them here. We can even add your favoriate workflow engine to the big table if you can provide us enough details.
 
-#### Cloud storage
-Ability to make use of cloud storage (AWS).
 
 ## Is SoS for you?
 
