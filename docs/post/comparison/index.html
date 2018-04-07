@@ -14,8 +14,7 @@
 <title>How does SoS compare with other workflow engines | vatlab</title>
 
 <meta property='og:title' content='How does SoS compare with other workflow engines - vatlab'>
-<meta property='og:description' content='There are about 200 workflow systems &hellip; All workflow systems are evolving with new features added from time to time. Please let us know if our comparison is incorrect.
-SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workflow SoS NextFlow Snakemake Bpipe Galaxy     Language interface Python flavored Groovy flavored GNU Make style, Python flavored Groovy flavored JSON flavored   User interface CLI &#43; Notebook (Jupyter) CLI CLI CLI CLI &#43; GUI   File format .'>
+<meta property='og:description' content='Over 200 workflow systems have been developed to date. Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system. It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/comparison/'>
 <meta property='og:site_name' content='vatlab'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='SoS'><meta property='article:published_time' content='2018-03-29T00:00:00Z'/><meta property='article:modified_time' content='2018-03-29T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
@@ -78,9 +77,30 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
     <div class="content">
       
 
-<p>There are about 200 workflow systems &hellip; All workflow systems are evolving with new features added from time to time. Please let us know if our comparison is incorrect.</p>
+<p>Over <a href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems" target="_blank">200 workflow systems</a> have been developed to date.
+Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
+comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system.
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+Still, we would very much appreciate your pointer in the comment section
+at the end of this page if you believe more features should be compared, or point to us if some comparisons are wrong or obsolete.</p>
 
 <h2 id="sos-is-unique">SoS is unique</h2>
+
+<p>SoS was designed with a clear aim: to bridge the gap between interactive analysis and workflow executions. As a workflow engine (<code>sos</code>):</p>
+
+<ul>
+<li>It features a Jupyter Notebook interface that consolidates various scripts and narratives in one document</li>
+<li>It allows executing interactive analysis and batch jobs under the same user interface</li>
+<li>It provides multiple workflow styles that smooths the process of converting sequentially executed scripts to robust workflows on dependency graphs</li>
+</ul>
+
+<p>As a cross-language data analysis tool (<code>sos-notebook</code>):</p>
+
+<ul>
+<li>It allows data communications between codes written in different languages</li>
+<li>It enhances Jupyter Notebook GUI with cell-level language switcher and a scratch pad</li>
+<li>It implements new magics tailored for interactive analysis in bioinformatics</li>
+</ul>
 
 <h2 id="how-does-sos-compare-with-snakemake-nextflow-and-galaxy">How does SoS compare with SnakeMake, Nextflow, and Galaxy</h2>
 
@@ -180,9 +200,9 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <tr>
 <td align="left"><a href="#task-monitoring">Task monitoring</a></td>
-<td align="left">Comand line and GUI (Notebook)</td>
+<td align="left">Command line and GUI (Notebook)</td>
 <td align="left">Report traces and performances</td>
-<td align="left">Report traces</td>
+<td align="left">Report traces and performance</td>
 <td align="left">Event notification</td>
 <td align="left">GUI to explore, share and reuse histories</td>
 </tr>
@@ -227,7 +247,7 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 <td align="left"><a href="#docker">Docker</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-<td align="left">Yes</td>
+<td align="left">Partial</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 </tr>
@@ -251,10 +271,10 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 </tr>
 
 <tr>
-<td align="left"><a href="pbs-torque-lsf-slurm" target="_blank">PBS/Torque/LSF/SLURM</a></td>
-<td align="left">Require template</td>
+<td align="left"><a href="#pbs-torque-lsf-slurm">PBS/Torque/LSF/SLURM</a></td>
+<td align="left">Partial</td>
 <td align="left">Yes</td>
-<td align="left">Require template</td>
+<td align="left">Partial</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 </tr>
@@ -290,7 +310,7 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 <td align="left"><a href="#cloud-storage">Cloud Storage</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 </tr>
@@ -306,7 +326,7 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 <ul>
 <li>SoS extends Python 3.6 with <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html" target="_blank">a number of SoS-specific syntax extensions</a> and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html" target="_blank">pre-defined functions</a>. The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.</li>
 <li>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The <code>nextflow</code> command is used to execute Nextflow workflows.</li>
-<li>Snakemake?</li>
+<li>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution. By default <code>snakemake</code> command is used to execute workflow in a <code>Snakefile</code> under the same directory though other script filenames can be specified.</li>
 <li>Bpipe?</li>
 <li>Galaxy</li>
 </ul>
@@ -335,7 +355,9 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <h4 id="task-monitoring">Task monitoring</h4>
 
-<p>Ability to send tasks to multiple isolated computing environment and manage them from local host.</p>
+<p>Ability to send tasks to multiple isolated computing environment and manage them from local host.
+&ldquo;Report traces and performance&rdquo; means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours
+and memory consumption.</p>
 
 <h4 id="heterogeneous-executor">Heterogeneous executor</h4>
 
@@ -353,7 +375,7 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <h4 id="pbs-torque-lsf-slurm">PBS/Torque/LSF/SLURM</h4>
 
-<p>Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud.</p>
+<p>Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. &ldquo;Partial&rdquo; means that users need to provide templates for some of these systems.</p>
 
 <h4 id="htcondor">HTCondor</h4>
 
@@ -388,11 +410,16 @@ SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workf
 
 <h2 id="is-sos-for-you">Is SoS for you?</h2>
 
-<p>SoS is not for everyone.</p>
+<p>SoS is not for everyone. As a workflow system:</p>
 
 <ul>
 <li><strong>If you are looking for a robust workflow system for huge projects</strong>, the anser is likely no, at least for now.</li>
 <li><strong>If you are looking for a script-less GUI-based workflow system</strong>, the answer is no.</li>
+</ul>
+
+<p>As an interactive analysis platform:</p>
+
+<ul>
 <li><strong>If you are a RStudio user</strong>, the anser is likely no.</li>
 <li><strong>If you are a Jupyter user</strong>, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
 <li><strong>If you use Python for daily data analysis</strong>, the answer is most likely yes.</li>

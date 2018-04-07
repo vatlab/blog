@@ -18,8 +18,7 @@
       <pubDate>Thu, 29 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://vatlab.github.io/blog/post/comparison/</guid>
-      <description>There are about 200 workflow systems &amp;hellip; All workflow systems are evolving with new features added from time to time. Please let us know if our comparison is incorrect.
-SoS is unique How does SoS compare with SnakeMake, Nextflow, and Galaxy    Workflow SoS NextFlow Snakemake Bpipe Galaxy     Language interface Python flavored Groovy flavored GNU Make style, Python flavored Groovy flavored JSON flavored   User interface CLI + Notebook (Jupyter) CLI CLI CLI CLI + GUI   File format .</description>
+      <description>Over 200 workflow systems have been developed to date. Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system. It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.</description>
     </item>
     
     <item>

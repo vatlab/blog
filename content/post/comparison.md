@@ -10,8 +10,10 @@ tags: ["SoS"]
 
 Over [200 workflow systems](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) have been developed to date. 
 Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of 
-comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS. It should be seen as a check-list of basic workflow features, in addition to
-the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system. 
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below. 
+Still, we would very much appreciate your pointer in the comment section
+at the end of this page if you believe more features should be compared, or point to us if some comparisons are wrong or obsolete.
 
 ## SoS is unique
 
@@ -40,19 +42,19 @@ As a cross-language data analysis tool (`sos-notebook`):
 | [Streaming processing](#streaming-processing)           | No                                     | Yes                            | No                              | No                         | No                                        |
 | [Subworkflow](#subworkflow)         | Yes                                    | No                             | Yes                             | Yes                        | Yes                                       |
 | [Remote task submission](#remote-task-submission) | Yes                                    | No                             | No                              | No                         | No                                        |
-| [Task monitoring](#task-monitoring) | Command line and GUI (Notebook)        | Report traces and performances | Report traces                   | Event notification         | GUI to explore, share and reuse histories |
+| [Task monitoring](#task-monitoring) | Command line and GUI (Notebook)        | Report traces and performances | Report traces and performance   | Event notification         | GUI to explore, share and reuse histories |
 | [Heterogeneous executor](#heterogeneous-executor)   | Yes                                    | No                             | No                              | No                         | No                                        |
 | [Process-oriented workflow](#process-oriented-workflow)  | Yes                                    | Yes                            | No                              | Yes                        | Yes                                       |
 | [Output-oriented workflow](#output-oriented-workflow) | Yes                                    | No                             | Yes                             | No                         | No                                        |
 | **Built-in support**                |      |         |         |              |             |  
-| [Docker](#docker)                   | Yes                                    | Yes                            | Yes                             | No                         | Yes                                       |
+| [Docker](#docker)                   | Yes                                    | Yes                            | Partial                      | No                         | Yes                                       |
 | [Singularity](#singularity)         | No                                     | Yes                            | Yes                             | No                         | No                                        |
 | [Multi-scale containers](#multi-scale-containers)  | No                                     | Yes                            | No                              | No                         | Yes                                       |
-| [PBS/Torque/LSF/SLURM](pbs-torque-lsf-slurm)       | Require template                       | Yes                            | Require template                | Yes                        | Yes                                       |
+| [PBS/Torque/LSF/SLURM](#pbs-torque-lsf-slurm)      | Partial             | Yes                            | Partial                         | Yes                        | Yes                                       |
 | [HTCondor](#htcondor)               | No                                     | Yes                            | Require template                | No                         | Yes                                       |
 | [Task Queue](#task-queue)           | Yes                                    | No                             | No                              | No                         | No                                        |
-| [Distributed systems](#distributed-systems)            | No                                     | Yes                            | No                              | No                         | No                                        |
-| [Cloud Storage](#cloud-storage)      | No                                     | Yes                            | No                              | No                         | Yes                                       |
+| [Distributed systems](#distributed-systems)            | No                                     | Yes                            | No                          | No                         | No                                        |
+| [Cloud Storage](#cloud-storage)      | No                                     | Yes                            | Yes                           | No                         | Yes                                       |
 
 Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy. 
 
@@ -62,7 +64,7 @@ Language interface refers to the scripting language for workflow specification. 
 
 * SoS extends Python 3.6 with [a number of SoS-specific syntax extensions](https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html) and [pre-defined functions](https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html). The `sos` command can run most Python scripts but you can not run sos workflow with Python.
 * Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The `nextflow` command is used to execute Nextflow workflows.
-* Snakemake?
+* Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified. 
 * Bpipe?
 * Galaxy
 
@@ -89,6 +91,8 @@ mapping paths and synchronize files isolated file systems so executing tasks on 
 
 #### Task monitoring
 Ability to send tasks to multiple isolated computing environment and manage them from local host. 
+"Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours
+and memory consumption. 
 
 #### Heterogeneous executor
 DAG creation logics, see section 2.2. g) Integrated support for Docker/Singularity containers technology.
@@ -104,7 +108,7 @@ DAG creation logics, see section 2.2. g) Integrated support for Docker/Singulari
 #### Multi-scale containers
 
 #### PBS/Torque/LSF/SLURM
-Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. 
+Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. "Partial" means that users need to provide templates for some of these systems. 
 
 #### HTCondor
 Ability to spawn the executions of pipeline tasks through a cluster batch scheduler without the need of custom scripts or commands. 
