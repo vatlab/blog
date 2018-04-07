@@ -8,11 +8,24 @@ date: "2018-03-29"
 tags: ["SoS"]
 ---
 
-There are about 200 workflow systems ... All workflow systems are evolving with new features added from time to time. Please let us know if our comparison is incorrect.
-
+Over [200 workflow systems](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) have been developed to date. 
+Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of 
+comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS. It should be seen as a check-list of basic workflow features, in addition to
+the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
 
 ## SoS is unique
 
+SoS was designed with a clear aim: to bridge the gap between interactive analysis and workflow executions. As a workflow engine (`sos`):
+
+* It features a Jupyter Notebook interface that consolidates various scripts and narratives in one document
+* It allows executing interactive analysis and batch jobs under the same user interface
+* It provides multiple workflow styles that smooths the process of converting sequentially executed scripts to robust workflows on dependency graphs
+
+As a cross-language data analysis tool (`sos-notebook`):
+
+* It allows data communications between codes written in different languages
+* It enhances Jupyter Notebook GUI with cell-level language switcher and a scratch pad
+* It implements new magics tailored for interactive analysis in bioinformatics
 
 ## How does SoS compare with SnakeMake, Nextflow, and Galaxy
 
@@ -121,11 +134,13 @@ Ability to make use of cloud storage (AWS).
 
 ## Is SoS for you?
 
-SoS is not for everyone.
+SoS is not for everyone. As a workflow system:
 
 * **If you are looking for a robust workflow system for huge projects**, the anser is likely no, at least for now.
 * **If you are looking for a script-less GUI-based workflow system**, the answer is no.
+
+As an interactive analysis platform:
+
 * **If you are a RStudio user**, the anser is likely no.
 * **If you are a Jupyter user**, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
 * **If you use Python for daily data analysis**, the answer is most likely yes. 
-
