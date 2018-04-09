@@ -57,6 +57,9 @@ distinguishes SoS from all workflow systems that will be compared here.
 
 Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.
 
+
+### Basic information
+
 <div class="table ">
 <table>
 <thead>
@@ -73,7 +76,7 @@ Comparison of basic features, workflow features, and built-in support for extern
 <tbody>
 <tr>
 <td align="left">
-Language interface <a href="#" class="toggle-detail" data-detail="lan-detail"><i class="fa fa-info-circle"></i></a>
+<a href="#" class="toggle-detail" data-detail="lan-detail">Language interface</a>
 <td align="left">Python based</td>
 <td align="left">Groovy flavored</td>
 <td align="left">GNU Make style, Python flavored</td>
@@ -95,13 +98,14 @@ Language interface refers to the scripting language for workflow specification. 
 
 </td>
 <td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The `nextflow` command is used to execute Nextflow workflows.</td>
-<td></td>
+<td>Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified.
+</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td align="left"><a href="#user-interface">User interface</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -109,8 +113,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">CLI + GUI</td>
 </tr>
 
+<tr class="detail ui-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#file-format">File format</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="ff-detail">File format</a></td>
 <td align="left">.sos (plain text) and Jupyter notebook</td>
 <td align="left">.nf (plain text)</td>
 <td align="left">Snakefile (plain text)</td>
@@ -118,8 +131,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">XML</td>
 </tr>
 
+<tr class="detail ff-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#ide">IDE</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="ide-detail">IDE</a></td>
 <td align="left">SoS Notebook (Jupyter)</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -127,13 +149,37 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes (only for building DAG)</td>
 </tr>
 
-<tr>
-<th colspan=6 align="left"><strong>Workflow features</strong></th>
-
+<tr class="detail ide-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
+</tbody>
+</table>
+</div>
+
+### Workflow features
+
+<div class="table ">
+<table>
+<thead>
+<tr>
+<th align="left">Workflow</th>
+<th align="left">SoS</th>
+<th align="left">NextFlow</th>
+<th align="left">Snakemake</th>
+<th align="left">Bpipe</th>
+<th align="left">Galaxy</th>
+</tr>
+</thead>
+<tbody>
+
 
 <tr>
-<td align="left"><a href="#dag-building">DAG Building</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="dag-detail">DAG Building</a></td>
 <td align="left">Explicit, implicit and dynamic</td>
 <td align="left">Explicit</td>
 <td align="left">Implicit and dynamic</td>
@@ -141,8 +187,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Explicit</td>
 </tr>
 
+<tr class="detail dag-detail">
+<td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#streaming-processing">Streaming processing</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="sp-detail">Streaming processing</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
@@ -150,8 +206,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail sp-detail">
+<td>Ability to process tasks inputs/outputs as a stream of data.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#subworkflow">Subworkflow</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="sw-detail">Subworkflow</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
@@ -159,8 +225,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes</td>
 </tr>
 
+<tr class="detail sw-detail">
+<td>Support for executing subworkflows, potentially loaded from another pipeline file.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#remote-task-submission">Remote task submission</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Remote task submission</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -168,8 +244,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail rt-detail">
+<td>mapping paths and synchronize files isolated file systems so executing tasks on remote hosts with distinct file systems.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#task-monitoring">Task monitoring</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="tm-detail">Task monitoring</a></td>
 <td align="left">Command line and GUI (Notebook)</td>
 <td align="left">Report traces and performances</td>
 <td align="left">Report traces and performance</td>
@@ -177,8 +262,19 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">GUI to explore, share and reuse histories</td>
 </tr>
 
+<tr class="detail tm-detail">
+<td>Ability to send tasks to multiple isolated computing environment and manage them from local host.
+"Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours
+and memory consumption.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#heterogeneous-executor">Heterogeneous executor</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="het-detail">Heterogeneous executor</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -186,8 +282,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail het-detail">
+<td>DAG creation logics, see section 2.2. g) Integrated support for Docker/Singularity containers technology.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#process-oriented-workflow">Process-oriented workflow</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="pow-detail">Process-oriented workflow</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
@@ -195,8 +301,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes</td>
 </tr>
 
+<tr class="detail pow-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#output-oriented-workflow">Output-oriented workflow</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="oow-detail">Output-oriented workflow</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
@@ -204,22 +319,56 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
-<tr>
-<th colspan=6 align="left"><strong>Built-in support</strong></th>
+<tr class="detail oow-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 
+
+### Built-in support
+
+<div class="table ">
+<table>
+<thead>
+<tr>
+<th align="left">Workflow</th>
+<th align="left">SoS</th>
+<th align="left">NextFlow</th>
+<th align="left">Snakemake</th>
+<th align="left">Bpipe</th>
+<th align="left">Galaxy</th>
+</tr>
+</thead>
+<tbody>
+
+
+<tr>
+<td align="left"><a href="#" class="toggle-detail" data-detail="do-detail">Docker</a></td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+<td align="left">No</td>
+<td align="left">Yes</td>
+</tr>
+
+<tr class="detail do-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 
 <tr>
-<td align="left"><a href="#docker">Docker</a></td>
-<td align="left">Yes</td>
-<td align="left">Yes</td>
-<td align="left">No</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-</tr>
-
-<tr>
-<td align="left"><a href="#singularity">Singularity</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="si-detail">Singularity</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -227,8 +376,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail si-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
 <tr>
-<td align="left"><a href="#multi-scale-containers">Multi-scale containers</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="msc-detail">Multi-scale containers</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
@@ -236,8 +395,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes</td>
 </tr>
 
+<tr class="detail msc-detail">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#pbs-torque-lsf-slurm">PBS/Torque/LSF/SLURM</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="pbs-detail">PBS/Torque/LSF/SLURM</a></td>
 <td align="left">Partial</td>
 <td align="left">Yes</td>
 <td align="left">Partial</td>
@@ -245,8 +413,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes</td>
 </tr>
 
+<tr class="detail pbs-detail">
+<td>Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. "Partial" means that users need to provide templates for some of these systems.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#htcondor">HTCondor</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="ht-detail">HTCondor</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Require template</td>
@@ -254,8 +432,17 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">Yes</td>
 </tr>
 
+<tr class="detail ht-detail">
+<td>Ability to spawn the executions of pipeline tasks through a cluster batch scheduler without the need of custom scripts or commands.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#task-queue">Task Queue</a></td>
+<td align="left"><a  href="#" class="toggle-detail" data-detail="tq-detail">Task Queue</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -263,8 +450,18 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail tq-detail">
+<td>Ability to send tasks to RQ task queues.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#distributed-systems">Distributed systems</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="ds-detail">Distributed systems</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
@@ -272,81 +469,38 @@ Language interface refers to the scripting language for workflow specification. 
 <td align="left">No</td>
 </tr>
 
+<tr class="detail ds-detail">
+<td>Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <tr>
-<td align="left"><a href="#cloud-storage">Cloud Storage</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="cs-detail">Cloud Storage</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 </tr>
+
+<tr class="detail cs-detail">
+<td>Ability to make use of cloud storage (AWS).
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 </tbody>
 </table>
 </div>
 
-
-#### Language interface
-
-*
-*
-* Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified.
-* Bpipe?
-* Galaxy
-
-
-#### User interface
-
-#### FIle format
-
-#### IDE
-
-#### DAG Building
-Methods and logic to construct dependency graphs connecting tasks in a workflow.
-
-#### Streaming processing
-Ability to process tasks inputs/outputs as a stream of data.
-
-#### Subworkflow
-
-Support for executing subworkflows, potentially loaded from another pipeline file.
-
-#### Remote task submission
-
-mapping paths and synchronize files isolated file systems so executing tasks on remote hosts with distinct file systems.
-
-#### Task monitoring
-Ability to send tasks to multiple isolated computing environment and manage them from local host.
-"Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours
-and memory consumption.
-
-#### Heterogeneous executor
-DAG creation logics, see section 2.2. g) Integrated support for Docker/Singularity containers technology.
-
-#### Process-oriented workflow
-
-#### Output-oriented workflow
-
-#### Docker
-
-#### Singularity
-
-#### Multi-scale containers
-
-#### PBS/Torque/LSF/SLURM
-Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. "Partial" means that users need to provide templates for some of these systems.
-
-#### HTCondor
-Ability to spawn the executions of pipeline tasks through a cluster batch scheduler without the need of custom scripts or commands.
-
-#### Task queue
-Ability to send tasks to RQ task queues.
-
-#### Distributed systems
-Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.
-
-
-#### Cloud storage
-Ability to make use of cloud storage (AWS).
 
 ### What about CWL?
 
