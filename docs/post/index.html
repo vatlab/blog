@@ -169,14 +169,11 @@ ga('send', 'pageview');
 </body>
 <script>
 
-$('.withtip').each(function () {
-	$(this).popover(
-	{
-		html: true,
-		content: $('#' + $(this).data('tip')).html(),
-    trigger: 'focus',
-    container: 'body'
-	});
+$(document).ready(function(){
+    $(".toggle-detail").click(function(e){
+        e.preventDefault();
+        $('.'+$(this).attr('data-detail')).addClass('text-info').toggle();
+    });
 });
 
 </script>

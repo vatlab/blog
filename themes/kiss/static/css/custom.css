@@ -60,13 +60,11 @@ div iframe {
   background-color: darkgray;
 }
 
-.withtip {
-  /* display: inline-block; */
-	cursor: pointer;
-  /* color: purple; */
+.content a:not(.button) {
+    border-bottom: 0px;
 }
 
-
-.content a:not(.button) {
-    border-bottom: 0px; 
+.detail {
+  display: none;
+  font-size: smaller;
 }
