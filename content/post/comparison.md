@@ -72,25 +72,25 @@ Comparison of basic features, workflow features, and built-in support for extern
 
 <tbody>
 <tr>
-<td align="left"><p class='withtip' data-tip='tip-lan'>Language interface</p>
+<td align="left">
 
+<a href="#" onClick="return false;" class='withtip' data-tip='tip-lan'>Language interface</a>
 <div id="tip-lan" style='display:none'>
-Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as [Luigi](https://github.com/spotify/luigi), and people who are familiar with Groovy might prefer `Nextflow` or `Bpipe`.
+Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as
+<a href="https://github.com/spotify/luigi">Luigi</a>, and people who are familiar with Groovy might prefer
+<code>Nextflow</code> or <code>Bpipe</code>.
 
 </td>
 </div>
-
-
 <td align="left">
 
-<p class='withtip' data-tip='tip-sos-lan'>Python based</p>
+<a href='#' onClick="return false;" class='withtip' data-tip='tip-sos-lan'>Python based</a>
 <div id="tip-sos-lan" style='display:none'>
 	SoS extends Python 3.6 with
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
   The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.
 </div>
-
 
 </td>
 <td align="left">Groovy flavored</td>

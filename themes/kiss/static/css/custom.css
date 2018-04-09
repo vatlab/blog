@@ -61,7 +61,12 @@ div iframe {
 }
 
 .withtip {
-  display: inline-block;
+  /* display: inline-block; */
 	cursor: pointer;
-  color: purple;
+  /* color: purple; */
+}
+
+
+.content a:not(.button) {
+    border-bottom: 0px; 
 }
