@@ -11,52 +11,16 @@ tags: ["SoS"]
 Over [200 workflow systems](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) have been developed to date.
 Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
 comparison to some of the most popular workflow systems similar to SoS, **features and limitations of SoS as a conventional workflow system**.
-It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below. Still, we would very much appreciate it if you could [send us your comments](https://github.com/vatlab/blog/issues/10) if you believe more features should be compared, or if some comparisons are wrong or obsolete.
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+We would very much appreciate it if you could [send us your comments](https://github.com/vatlab/blog/issues/10) if you believe more workflow engines or features should be compared, or if some comparisons are wrong or obsolete.
 
-## SoS is unique
-
-SoS was designed with a clear aim: to **bridge the gap between interactive analysis and workflow executions**. The SoS suite
-of tools consist of the [**SoS Polyglot Notebook**](https://github.com/vatlab/sos-notebook)
- and the [**SoS Workflow Engine**](https://github.com/vatlab/SoS).
-
- <div class="table">
- <table>
- <thead>
- <tr>
- <th style="width:50%; align:left">SoS Notebook: </th>
- <th style="width:50%; align:left">SoS Workflow Engine</th>
-</tr>
-</thead>
-<tr>
-<td>
-
-<ul>
-<li>[One notebook, multiple kernels](https://vatlab.github.io/blog/post/sos-notebook/)</li>
-<li>Enhances Jupyter Notebook GUI</li>
-<li>Data communications between live kernels</li>
-<li>Magics tailored for interactive analysis</li>
-</ul>
-</td>
-<td>
-
-<ul>
-<li> Simple syntax that extends from Python 3.  </li>
-<li> Edit, debug, and execute in Jupyter</li>
-<li> Multiple workflow styles</li>
-</ul>
-</td>
-</tr>
-</table>
-</div>
-
-[Working back to back](http://localhost:1313/blog/post/power-of-sos-plus-sos-notebook/), SoS Polyglot Notebook
-and Workflow Engine provide users an environment for both interactive data analysis and batch data processing. This
-distinguishes SoS from all workflow systems that will be compared here.
 
 ## How does SoS compare with SnakeMake, Nextflow, and Galaxy
 
-Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.
-
+In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
+**SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
+The following tables compare basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy,
+**with references to corresponding documentation** (click the header of each column for details).
 
 ### Basic information
 
