@@ -80,51 +80,15 @@
 <p>Over <a href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems" target="_blank">200 workflow systems</a> have been developed to date.
 Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
 comparison to some of the most popular workflow systems similar to SoS, <strong>features and limitations of SoS as a conventional workflow system</strong>.
-It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below. Still, we would very much appreciate it if you could <a href="https://github.com/vatlab/blog/issues/10" target="_blank">send us your comments</a> if you believe more features should be compared, or if some comparisons are wrong or obsolete.</p>
-
-<h2 id="sos-is-unique">SoS is unique</h2>
-
-<p>SoS was designed with a clear aim: to <strong>bridge the gap between interactive analysis and workflow executions</strong>. The SoS suite
-of tools consist of the <a href="https://github.com/vatlab/sos-notebook" target="_blank"><strong>SoS Polyglot Notebook</strong></a>
- and the <a href="https://github.com/vatlab/SoS" target="_blank"><strong>SoS Workflow Engine</strong></a>.</p>
-
-<p><div class="table">
- <table>
- <thead>
- <tr>
- <th style="width:50%; align:left">SoS Notebook: </th>
- <th style="width:50%; align:left">SoS Workflow Engine</th>
-</tr>
-</thead>
-<tr>
-<td></p>
-
-<p><ul>
-<li><a href="https://vatlab.github.io/blog/post/sos-notebook/" target="_blank">One notebook, multiple kernels</a></li>
-<li>Enhances Jupyter Notebook GUI</li>
-<li>Data communications between live kernels</li>
-<li>Magics tailored for interactive analysis</li>
-</ul>
-</td>
-<td></p>
-
-<p><ul>
-<li> Simple syntax that extends from Python 3.  </li>
-<li> Edit, debug, and execute in Jupyter</li>
-<li> Multiple workflow styles</li>
-</ul>
-</td>
-</tr>
-</table>
-</div></p>
-
-<p><a href="http://localhost:1313/blog/post/power-of-sos-plus-sos-notebook/" target="_blank">Working back to back</a>, SoS Polyglot Notebook
-and Workflow Engine provide users an environment for both interactive data analysis and batch data processing. This
-distinguishes SoS from all workflow systems that will be compared here.</p>
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+We would very much appreciate it if you could <a href="https://github.com/vatlab/blog/issues/10" target="_blank">send us your comments</a> if you believe more workflow engines or features should be compared, or if some comparisons are wrong or obsolete.</p>
 
 <h2 id="how-does-sos-compare-with-snakemake-nextflow-and-galaxy">How does SoS compare with SnakeMake, Nextflow, and Galaxy</h2>
 
-<p>Comparison of basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy.</p>
+<p>In comparison to most workflow systems that are designed for &ldquo;consumers&rdquo; of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
+<strong>SoS is designed for &ldquo;developers&rdquo; of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research</strong>.
+The following tables compare basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy,
+<strong>with references to corresponding documentation</strong> (click the header of each column for details).</p>
 
 <h3 id="basic-information">Basic information</h3>
 
@@ -174,6 +138,17 @@ Language interface refers to the scripting language for workflow specification. 
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
+
+<tr class="detail ui-detail">
+<td>Command line interface (CLI), graphical user interface (GUI) or others.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -260,7 +235,7 @@ Language interface refers to the scripting language for workflow specification. 
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td></td>
 <td></td>
 </tr>
@@ -336,7 +311,7 @@ Language interface refers to the scripting language for workflow specification. 
 and memory consumption.</td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -355,7 +330,7 @@ and memory consumption.</td>
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href='http://snakemake.readthedocs.io/en/stable/executable.html#cloud-support'>Experimental cloud support</a> which can be used to schedule and run Docker containers with Kybernetes.</td>
 <td></td>
 <td></td>
 </tr>
@@ -555,11 +530,11 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail cs-detail">
-<td>Ability to make use of cloud storage (AWS).
+<td>Ability to make use of cloud storage (such as AWS).
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>Link to relevant Snakemake documentation</a></td>
 <td></td>
 <td></td>
 </tr>

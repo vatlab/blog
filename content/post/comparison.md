@@ -70,6 +70,17 @@ Language interface refers to the scripting language for workflow specification. 
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
+
+<tr class="detail ui-detail">
+<td>Command line interface (CLI), graphical user interface (GUI) or others.
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -156,7 +167,7 @@ Language interface refers to the scripting language for workflow specification. 
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td></td>
 <td></td>
 </tr>
@@ -232,7 +243,7 @@ Language interface refers to the scripting language for workflow specification. 
 and memory consumption.</td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -251,7 +262,7 @@ and memory consumption.</td>
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href='http://snakemake.readthedocs.io/en/stable/executable.html#cloud-support'>Experimental cloud support</a> which can be used to schedule and run Docker containers with Kybernetes.</td>
 <td></td>
 <td></td>
 </tr>
@@ -452,11 +463,11 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail cs-detail">
-<td>Ability to make use of cloud storage (AWS).
+<td>Ability to make use of cloud storage (such as AWS).
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td><a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>Link to relevant Snakemake documentation</a></td>
 <td></td>
 <td></td>
 </tr>
