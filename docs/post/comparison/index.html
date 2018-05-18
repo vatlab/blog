@@ -125,7 +125,7 @@ The scripting language for workflow specification</td>
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
 </td>
-<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects.</td>
+<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. See <a href="https://www.nextflow.io/docs/latest/script.html">here</a> for details.</td>
 <td>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution.</td>
 <td></td>
 <td></td>
@@ -141,10 +141,10 @@ The scripting language for workflow specification</td>
 </tr>
 
 <tr class="detail ui-detail">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Primary methods for users to interact with the workflow engine</td>
+<td>SoS provides two sets of user interface: <a href="https://vatlab.github.io/sos-docs/doc/documentation/User_Interface.html">command line</a> (<code>sos</code> command) and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Execution-of-Workflows--15">Jupyter magics</a> (<code>%run</code>, <code>%sorun</code> etc)</td>
+<td>Nextflow workflows are executed with a <code>nextflow</code> command.</td>
+<td>Snakemake workflows are executed with a <code>snakemake</code> command.</td>
 <td></td>
 <td></td>
 </tr>
@@ -159,9 +159,9 @@ The scripting language for workflow specification</td>
 </tr>
 
 <tr class="detail ff-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Format(s) to save workflows</td>
+<td>SoS workflows can be saved in a plain text <code>.sos</code> format, or be embedded in a Jupyter Notebook with SoS kernel.</td>
+<td>Plain text file with <code>.nf</code> extension.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -177,9 +177,9 @@ The scripting language for workflow specification</td>
 </tr>
 
 <tr class="detail ide-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Integrated Development Environment</td>
+<td>SoS uses SoS Notebook, a companion Polyglot notebook environmnet based on Jupyter, as its IDE.</td>
+<td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -217,8 +217,8 @@ The scripting language for workflow specification</td>
 <tr class="detail dag-detail">
 <td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
 </td>
-<td></td>
-<td></td>
+<td>SoS supports several ways to build its DAG, including explicit forward-style (sequential numbered steps), makefile-style (dependency), and dynamic creation of subworkflows (<code>sos_run</code> function)</td>
+<td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
 <td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td></td>
 <td></td>
@@ -236,8 +236,8 @@ The scripting language for workflow specification</td>
 <tr class="detail sp-detail">
 <td>Ability to process tasks inputs/outputs as a stream of data.
 </td>
-<td></td>
-<td></td>
+<td>SoS "data" are passed around as files</td>
+<td>Processes in nextflow can communicate via asynchronous FIFO queues, called channels in the Nextflow lingo. </td>
 <td></td>
 <td></td>
 <td></td>
@@ -255,15 +255,34 @@ The scripting language for workflow specification</td>
 <tr class="detail sw-detail">
 <td>Support for executing subworkflows, potentially loaded from another pipeline file.
 </td>
-<td></td>
-<td></td>
+<td>SoS provides a <code>sos_run(name)</code> function to dynamically execute a subworkflow.</td>
+<td>Nextflow does not seem to support the dynamic creation of subworkflows</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Remote task submission</a></td>
+<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Modify and resume</a></td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left">?</td>
+</tr>
+
+<tr class="detail rt-detail">
+<td>Able to resume interrupted or modified workflow and ignore parts of the workflow that have been successfully executed</td>
+<td>SoS automatically keeps signatures of steps and tasks and can ignore steps and tasks that have already
+been executed, even if they were executed by a different workflow.</td>
+<td>Nextflow keeps track of all the processes executed in your pipeline. If you modify some parts of your script, only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Remote execution</a></td>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -272,9 +291,10 @@ The scripting language for workflow specification</td>
 </tr>
 
 <tr class="detail rt-detail">
-<td>mapping paths and synchronize files isolated file systems so executing tasks on remote hosts with distinct file systems.</td>
-<td></td>
-<td></td>
+<td>Send tasks to remote hosts for execution.</td>
+<td>SoS can execute entire workflows or individual tasks on multiple remote hosts, with file synchronization between
+heterogeneous file systems.</td>
+<td>Nextflow can be executed on a variety of environments but it has to be started within the environments</td>
 <td></td>
 <td></td>
 <td></td>
@@ -291,30 +311,10 @@ The scripting language for workflow specification</td>
 
 <tr class="detail tm-detail">
 <td>Ability to send tasks to multiple isolated computing environment and manage them from local host.
-"Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours
-and memory consumption.</td>
-<td></td>
-<td></td>
+"Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours and memory consumption.</td>
+<td>SoS can monitor tasks through the Jupyter Notebook interface with magics (e.g <code>%taskinfo</code>) to retrieve details about the tasks. It can also monitor status of tasks through a command line interface (e.g. <code>sos status</code>)</td>
+<td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#">complete reports</a> with details on CPU/task usage etc.</td>
 <td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="het-detail">Heterogeneous executor</a></td>
-<td align="left">Yes</td>
-<td align="left">No</td>
-<td align="left">No</td>
-<td align="left">No</td>
-<td align="left">No</td>
-</tr>
-
-<tr class="detail het-detail">
-<td>DAG creation logics, see section 2.2. g) Integrated support for Docker/Singularity containers technology.
-</td>
-<td></td>
-<td></td>
-<td><a href='http://snakemake.readthedocs.io/en/stable/executable.html#cloud-support'>Experimental cloud support</a> which can be used to schedule and run Docker containers with Kybernetes.</td>
 <td></td>
 <td></td>
 </tr>
@@ -329,9 +329,9 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail pow-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Workflows that are constructed and executed by steps to execute.</td>
+<td>SoS' "forward-style" workflow specifies steps of workflows through sequencial numbering although a DAG could be constructed with target dependencies.</td>
+<td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -347,9 +347,9 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail oow-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Workflows that are constructed and executed by the "outcome" of the workflow.</td>
+<td>SoS' auxiliary steps specifies outcomes of steps and will be called when the target is needed.</td>
+<td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -385,9 +385,10 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail do-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Support for docker</td>
+<td>A <code>docker_image</code> option can execute scripts inside specified docker images.</td>
+<td>Nextflow support <a href="https://www.nextflow.io/docs/latest/docker.html">docker containers. You can
+run all scripts in the specified docker image, or specify a docker image for each step.</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -403,28 +404,10 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail si-detail">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
-
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="msc-detail">Multi-scale containers</a></td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-<td align="left">No</td>
-<td align="left">No</td>
-<td align="left">Yes</td>
-</tr>
-
-<tr class="detail msc-detail">
-<td></td>
-<td></td>
-<td></td>
+<td>Support for singularity</td>
+<td>Pending</td>
+<td>Nextflow <a href="https://www.nextflow.io/docs/latest/singularity.html">supports singularity containers</a>.
+It works similar to docker but with options such as <code>singularty.enabled=true</code>.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -432,26 +415,27 @@ and memory consumption.</td>
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="pbs-detail">PBS/Torque/LSF/SLURM</a></td>
-<td align="left">Partial</td>
+<td align="left">Needs template</td>
 <td align="left">Yes</td>
-<td align="left">Partial</td>
+<td align="left">Direct or via template</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 </tr>
 
 <tr class="detail pbs-detail">
-<td>Ability to manage the execution of multiple container instances in a distributed/HPC cluster or cloud. "Partial" means that users need to provide templates for some of these systems.
+<td>Ability to execute workflows on a PBS-style computer cluster
 </td>
-<td></td>
-<td></td>
-<td></td>
+<td>SoS interact with clusters through pre-configured templates and commands. It has been tested to work on
+Torque, LSF, SLURM, PBS, and Torque</td>
+<td>Nextflow supports Open grid, Univa grid, LSF, SLURM, PBS Works, Torque</td>
+<td>Snakemake can interact with clusters through templates, or directly if the cluster supports <a href="http://www.drmaa.org/http://www.drmaa.org/">DRMAA</a>.</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ht-detail">HTCondor</a></td>
-<td align="left">No</td>
+<td align="left">Require template (?)</td>
 <td align="left">Yes</td>
 <td align="left">Require template</td>
 <td align="left">No</td>
@@ -459,28 +443,28 @@ and memory consumption.</td>
 </tr>
 
 <tr class="detail ht-detail">
-<td>Ability to spawn the executions of pipeline tasks through a cluster batch scheduler without the need of custom scripts or commands.</td>
-<td></td>
-<td></td>
+<td>Ability to use <a href="https://research.cs.wisc.edu/htcondor/">HTCondor</a> to execute workflows on large collections of distributively owned computing resources.</td>
+<td>Do not know because we have not had a chance to configure SoS to run on a HT Condor system.</td>
+<td>Nextflow <a href="https://www.nextflow.io/docs/latest/executor.html#htcondor">supports HTCondor</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td align="left"><a  href="#" class="toggle-detail" data-detail="tq-detail">Task Queue</a></td>
+<td align="left"><a  href="#" class="toggle-detail" data-detail="tq-detail">Distributed Task Queue</a></td>
 <td align="left">Yes</td>
-<td align="left">No</td>
+<td align="left">RQ</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
 </tr>
 
 <tr class="detail tq-detail">
-<td>Ability to send tasks to RQ task queues.
+<td>Ability to send tasks to distributed task queues such as <a href="http://python-rq.org/">RQ</a> and <a href="http://www.celeryproject.org/">Celery</a>.
 </td>
-<td></td>
-<td></td>
+<td>SoS supports RQ, Celery support is likely broken due to lack of maitainence.</td>
+<td>Nextflow cannot submit tasks to task queues</td>
 <td></td>
 <td></td>
 <td></td>
@@ -497,8 +481,8 @@ and memory consumption.</td>
 
 <tr class="detail ds-detail">
 <td>Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.</td>
-<td></td>
-<td></td>
+<td>No</td>
+<td>Nextflow supports distributed systems such as <a href="https://www.nextflow.io/docs/latest/ignite.html">Apache Ignite</a> and <a href="https://www.nextflow.io/docs/latest/kubernetes.html">Kubernetes</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -516,9 +500,9 @@ and memory consumption.</td>
 <tr class="detail cs-detail">
 <td>Ability to make use of cloud storage (such as AWS).
 </td>
-<td></td>
-<td></td>
-<td><a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>Link to relevant Snakemake documentation</a></td>
+<td>Not currently </td>
+<td>Snakemake can <a href="https://www.nextflow.io/docs/latest/amazons3.html">access S3 storage</a></td>
+<td>Snakemake can access files on <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>cloud storage</a></td>
 <td></td>
 <td></td>
 </tr>
