@@ -89,8 +89,7 @@ We would very much appreciate it if you could <a href="https://github.com/vatlab
 <p>In comparison to most workflow systems that are designed for &ldquo;consumers&rdquo; of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 <strong>SoS is designed for &ldquo;developers&rdquo; of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research</strong>.
 The following tables compare basic features, workflow features, and built-in support for external tools and services between <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS</a>,
-<a href="https://www.nextflow.io/" target="_blank">NextFlow</a>, <a href="https://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a>, <a href="https://github.com/ssadedin/bpipe" target="_blank">Bpipe</a>, and <a href="https://usegalaxy.org/" target="_blank">Galaxy</a>.
-Detailed information for each comparison can be displayed if you click the head of each comparison item.</p>
+<a href="https://www.nextflow.io/" target="_blank">NextFlow</a>, <a href="https://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a>, <a href="https://github.com/ssadedin/bpipe" target="_blank">Bpipe</a>, and <a href="https://usegalaxy.org/" target="_blank">Galaxy</a>. We exclude <a href="https://github.com/common-workflow-language/common-workflow-language" target="_blank">CWL</a> from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.</p>
 
 <h3 id="basic-information">Basic information</h3>
 
@@ -528,36 +527,15 @@ and memory consumption.</td>
 </table>
 </div>
 
-<h3 id="what-about-cwl">What about CWL?</h3>
-
-<p>We exclude <a href="https://github.com/common-workflow-language/common-workflow-language" target="_blank">CWL</a> from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.</p>
-
-<h3 id="why-xxx-is-not-in-the-list">Why XXX is not in the list?</h3>
-
-<p>There are more than 200 workflow systems and we cannot possible compare them all here. Here are however a few sources that provides meaningful comparison between some of the more popular systems.</p>
-
-<ul>
-<li>[The return of workflows](<a href="https://stackstorm.com/2015/04/10/the-return-of-workflows/）compares:" target="_blank">https://stackstorm.com/2015/04/10/the-return-of-workflows/）compares:</a> Pinball, Spiff, Luigi, Ansible, Dray, Score, ActionChain, Mistral
-*</li>
-</ul>
-
-<p>Please feel free to send us links to similar resources that comparison workflow systems and we will be happy to add them here. We can even add your favoriate workflow engine to the big table if you can provide us enough details.</p>
-
 <h2 id="is-sos-for-you">Is SoS for you?</h2>
 
 <p>SoS is not for everyone. As a workflow system:</p>
 
 <ul>
-<li><strong>If you are looking for a robust workflow system for huge projects</strong>, the anser is likely no, at least for now.</li>
-<li><strong>If you are looking for a script-less GUI-based workflow system</strong>, the answer is no.</li>
-</ul>
-
-<p>As an interactive analysis platform:</p>
-
-<ul>
-<li><strong>If you are a RStudio user</strong>, the anser is likely no.</li>
-<li><strong>If you are a Jupyter user</strong>, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
-<li><strong>If you use Python for daily data analysis</strong>, the answer is most likely yes.</li>
+<li>If you are looking for a robust workflow system for large projects, the anser is likely no, at least for now.</li>
+<li>If you are looking for a script-less GUI-based workflow system, the answer is no.</li>
+<li>If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
+<li>If you use multiple languages for daily data analysis, the answer is most likely yes.</li>
 </ul>
 
     </div>

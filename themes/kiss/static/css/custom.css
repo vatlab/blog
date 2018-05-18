@@ -60,7 +60,14 @@ div iframe {
   border-right: none;
   border-top: none;
 }
-
+.comparison table tr td:first-child,
+.comparison table tr th:first-child{
+  width: 20%;
+}
+.comparison table tr td:not(:first-child),
+.comparison table tr th:not(:first-child) {
+  width: 16%;
+}
 table thead th {
   font-weight:bold;
   color: white;

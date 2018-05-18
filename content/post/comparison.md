@@ -21,8 +21,7 @@ We would very much appreciate it if you could [send us your comments](https://gi
 In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 **SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
 The following tables compare basic features, workflow features, and built-in support for external tools and services between [SoS](https://vatlab.github.io/sos-docs/),
-[NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), and [Galaxy](https://usegalaxy.org/).
-Detailed information for each comparison can be displayed if you click the head of each comparison item.
+[NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), and [Galaxy](https://usegalaxy.org/). We exclude [CWL](https://github.com/common-workflow-language/common-workflow-language) from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.
 
 ### Basic information
 
@@ -462,29 +461,11 @@ and memory consumption.</td>
 </div>
 
 
-### What about CWL?
-
-We exclude [CWL](https://github.com/common-workflow-language/common-workflow-language) from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.
-
-### Why XXX is not in the list?
-
-There are more than 200 workflow systems and we cannot possible compare them all here. Here are however a few sources that provides meaningful comparison between some of the more popular systems.
-
-* [The return of workflows](https://stackstorm.com/2015/04/10/the-return-of-workflows/）compares: Pinball, Spiff, Luigi, Ansible, Dray, Score, ActionChain, Mistral
-*
-
-Please feel free to send us links to similar resources that comparison workflow systems and we will be happy to add them here. We can even add your favoriate workflow engine to the big table if you can provide us enough details.
-
-
 ## Is SoS for you?
 
 SoS is not for everyone. As a workflow system:
 
-* **If you are looking for a robust workflow system for huge projects**, the anser is likely no, at least for now.
-* **If you are looking for a script-less GUI-based workflow system**, the answer is no.
-
-As an interactive analysis platform:
-
-* **If you are a RStudio user**, the anser is likely no.
-* **If you are a Jupyter user**, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
-* **If you use Python for daily data analysis**, the answer is most likely yes.
+* If you are looking for a robust workflow system for large projects, the anser is likely no, at least for now.
+* If you are looking for a script-less GUI-based workflow system, the answer is no.
+* If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
+* If you use multiple languages for daily data analysis, the answer is most likely yes.
