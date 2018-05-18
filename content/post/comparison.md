@@ -9,9 +9,10 @@ tags: ["SoS"]
 ---
 
 Over [200 workflow systems](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) have been developed to date.
-Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
+Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this blog post is to illustrate, by means of
 comparison to some of the most popular workflow systems similar to SoS, **features and limitations of SoS as a conventional workflow system**.
-It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained
+in the next section and in [other posts](https://vatlab.github.io/blog/).
 We would very much appreciate it if you could [send us your comments](https://github.com/vatlab/blog/issues/10) if you believe more workflow engines or features should be compared, or if some comparisons are wrong or obsolete.
 
 
@@ -19,12 +20,13 @@ We would very much appreciate it if you could [send us your comments](https://gi
 
 In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 **SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
-The following tables compare basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy,
-**with references to corresponding documentation** (click the header of each column for details).
+The following tables compare basic features, workflow features, and built-in support for external tools and services between [SoS](https://vatlab.github.io/sos-docs/),
+[NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), and [Galaxy](https://usegalaxy.org/).
+Detailed information for each comparison can be displayed if you click the head of each comparison item.
 
 ### Basic information
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>
@@ -50,37 +52,20 @@ The following tables compare basic features, workflow features, and built-in sup
 
 <tr class="detail lan-detail">
 <td>
-Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as
-<a href="https://github.com/spotify/luigi">Luigi</a>, and people who are familiar with Groovy might prefer
-<code>Nextflow</code> or <code>Bpipe</code>.
-</td>
+The scripting language for workflow specification</td>
 <td>
 	SoS extends Python 3.6 with
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
-  The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.
-
 </td>
-<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The `nextflow` command is used to execute Nextflow workflows.</td>
-<td>Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified.
-</td>
+<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects.</td>
+<td>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution.</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
-
-<tr class="detail ui-detail">
-<td>Command line interface (CLI), graphical user interface (GUI) or others.
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -138,7 +123,7 @@ Language interface refers to the scripting language for workflow specification. 
 
 ### Workflow features
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>
@@ -309,7 +294,7 @@ and memory consumption.</td>
 
 ### Built-in support
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>

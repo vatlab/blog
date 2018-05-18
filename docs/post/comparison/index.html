@@ -14,7 +14,7 @@
 <title>How does SoS compare with other workflow engines (Under development) | vatlab</title>
 
 <meta property='og:title' content='How does SoS compare with other workflow engines (Under development) - vatlab'>
-<meta property='og:description' content='Over 200 workflow systems have been developed to date. Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system. It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.'>
+<meta property='og:description' content='Over 200 workflow systems have been developed to date. Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this blog post is to illustrate, by means of comparison to some of the most popular workflow systems similar to SoS, features and limitations of SoS as a conventional workflow system. It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained in the next section and in other posts.'>
 <meta property='og:url' content='https://vatlab.github.io/blog/post/comparison/'>
 <meta property='og:site_name' content='vatlab'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/969c44b6bc34a74a2f1d1dc59ddaa98f?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='SoS'><meta property='article:published_time' content='2018-03-29T00:00:00Z'/><meta property='article:modified_time' content='2018-03-29T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@ScriptOfScripts'><meta name='twitter:creator' content='@ScriptOfScripts'>
@@ -78,21 +78,23 @@
       
 
 <p>Over <a href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems" target="_blank">200 workflow systems</a> have been developed to date.
-Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this document is to illustrate, by means of
+Like any other software tools, many workflow systems are actively evolving with new features added from time to time. The goal of this blog post is to illustrate, by means of
 comparison to some of the most popular workflow systems similar to SoS, <strong>features and limitations of SoS as a conventional workflow system</strong>.
-It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems, as will be pointed out in the section below.
+It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained
+in the next section and in <a href="https://vatlab.github.io/blog/" target="_blank">other posts</a>.
 We would very much appreciate it if you could <a href="https://github.com/vatlab/blog/issues/10" target="_blank">send us your comments</a> if you believe more workflow engines or features should be compared, or if some comparisons are wrong or obsolete.</p>
 
 <h2 id="how-does-sos-compare-with-snakemake-nextflow-and-galaxy">How does SoS compare with SnakeMake, Nextflow, and Galaxy</h2>
 
 <p>In comparison to most workflow systems that are designed for &ldquo;consumers&rdquo; of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 <strong>SoS is designed for &ldquo;developers&rdquo; of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research</strong>.
-The following tables compare basic features, workflow features, and built-in support for external tools and services between SoS, NextFlow, Snakemake, Bpipe, and Galaxy,
-<strong>with references to corresponding documentation</strong> (click the header of each column for details).</p>
+The following tables compare basic features, workflow features, and built-in support for external tools and services between <a href="https://vatlab.github.io/sos-docs/" target="_blank">SoS</a>,
+<a href="https://www.nextflow.io/" target="_blank">NextFlow</a>, <a href="https://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a>, <a href="https://github.com/ssadedin/bpipe" target="_blank">Bpipe</a>, and <a href="https://usegalaxy.org/" target="_blank">Galaxy</a>.
+Detailed information for each comparison can be displayed if you click the head of each comparison item.</p>
 
 <h3 id="basic-information">Basic information</h3>
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>
@@ -118,37 +120,20 @@ The following tables compare basic features, workflow features, and built-in sup
 
 <tr class="detail lan-detail">
 <td>
-Language interface refers to the scripting language for workflow specification. Because it is easier to pick up a workflow system with familiar syntax, people who are at home with Python would prefer `SoS` or other Python-based workflow systems such as
-<a href="https://github.com/spotify/luigi">Luigi</a>, and people who are familiar with Groovy might prefer
-<code>Nextflow</code> or <code>Bpipe</code>.
-</td>
+The scripting language for workflow specification</td>
 <td>
     SoS extends Python 3.6 with
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/SoS_Syntax.html">a number of SoS-specific syntax extensions</a> and
   <a href="https://vatlab.github.io/sos-docs/doc/documentation/Targets_and_Actions.html">pre-defined functions</a>.
-  The <code>sos</code> command can run most Python scripts but you can not run sos workflow with Python.
-
 </td>
-<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. The `nextflow` command is used to execute Nextflow workflows.</td>
-<td>Snakemake is written in Python and has the flavor of `Make` system in syntax and execution. By default `snakemake` command is used to execute workflow in a `Snakefile` under the same directory though other script filenames can be specified.
-</td>
+<td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects.</td>
+<td>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution.</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
-
-<tr class="detail ui-detail">
-<td>Command line interface (CLI), graphical user interface (GUI) or others.
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -206,7 +191,7 @@ Language interface refers to the scripting language for workflow specification. 
 
 <h3 id="workflow-features">Workflow features</h3>
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>
@@ -376,7 +361,7 @@ and memory consumption.</td>
 
 <h3 id="built-in-support">Built-in support</h3>
 
-<div class="table ">
+<div class="comparison">
 <table>
 <thead>
 <tr>
@@ -622,7 +607,7 @@ ga('send', 'pageview');
 $(document).ready(function(){
     $(".toggle-detail").click(function(e){
         e.preventDefault();
-        $('.'+$(this).attr('data-detail')).addClass('text-info').toggle();
+        $('.'+$(this).attr('data-detail')).addClass('detail').toggle();
     });
 });
 

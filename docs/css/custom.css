@@ -54,7 +54,14 @@ div iframe {
 	font-weight: 150%!important;
 }
 
-.table thead th {
+.comparison table td,
+.comparison table th{
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+table thead th {
   font-weight:bold;
   color: white;
   background-color: darkgray;
@@ -66,5 +73,9 @@ div iframe {
 
 .detail {
   display: none;
-  font-size: smaller;
+  font-size: 70%;
+  background-color: #fcf8e3;
+}
+.detail table tr {
+  border-top: none;
 }
