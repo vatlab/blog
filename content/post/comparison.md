@@ -94,7 +94,7 @@ The scripting language for workflow specification</td>
 <td>Format(s) to save workflows</td>
 <td>SoS workflows can be saved in a plain text <code>.sos</code> format, or be embedded in a Jupyter Notebook with SoS kernel.</td>
 <td>Plain text file with <code>.nf</code> extension.</td>
-<td></td>
+<td>Plain text file named <code>Snakefile</code>, or with <code>*.rules</code> extension for </td>
 <td></td>
 <td></td>
 </tr>
@@ -112,7 +112,7 @@ The scripting language for workflow specification</td>
 <td>Integrated Development Environment</td>
 <td>SoS uses SoS Notebook, a companion Polyglot notebook environmnet based on Jupyter, as its IDE.</td>
 <td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
-<td></td>
+<td>No dedicated IDE is available but syntax highlighter plugin are provided for some text editors.</td>
 <td></td>
 <td></td>
 </tr>
@@ -160,7 +160,7 @@ The scripting language for workflow specification</td>
 <td align="left"><a href="#" class="toggle-detail" data-detail="sp-detail">Streaming processing</a></td>
 <td align="left">No</td>
 <td align="left">Yes</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
 </tr>
@@ -170,7 +170,7 @@ The scripting language for workflow specification</td>
 </td>
 <td>SoS "data" are passed around as files</td>
 <td>Processes in nextflow can communicate via asynchronous FIFO queues, called channels in the Nextflow lingo. </td>
-<td></td>
+<td>From Snakemake 5.0 on, it is possible to <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=pipe#piped-output'>mark output files as pipes</a>. </td>
 <td></td>
 <td></td>
 </tr>
@@ -188,8 +188,8 @@ The scripting language for workflow specification</td>
 <td>Support for executing subworkflows, potentially loaded from another pipeline file.
 </td>
 <td>SoS provides a <code>sos_run(name)</code> function to dynamically execute a subworkflow.</td>
-<td>Nextflow does not seem to support the dynamic creation of subworkflows</td>
-<td></td>
+<td>Nextflow does not seem to support the dynamic creation of subworkflows.</td>
+<td>Rules can be loaded from other text files. Subworkflows can be achieved by setting input of one workflow explicitly as output of another workflow.</td>
 <td></td>
 <td></td>
 </tr>
@@ -208,7 +208,7 @@ The scripting language for workflow specification</td>
 <td>SoS automatically keeps signatures of steps and tasks and can ignore steps and tasks that have already
 been executed, even if they were executed by a different workflow.</td>
 <td>Nextflow keeps track of all the processes executed in your pipeline. If you modify some parts of your script, only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead.</td>
-<td></td>
+<td>Similar to Make, Snakemake uses timestamps to determine modification status and resume points.</td>
 <td></td>
 <td></td>
 </tr>
@@ -227,7 +227,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td>SoS can execute entire workflows or individual tasks on multiple remote hosts, with file synchronization between
 heterogeneous file systems.</td>
 <td>Nextflow can be executed on a variety of environments but it has to be started within the environments</td>
-<td></td>
+<td>Snakemake can be executed on a variety of environments but it has to be started within the environments</td>
 <td></td>
 <td></td>
 </tr>
@@ -264,7 +264,7 @@ heterogeneous file systems.</td>
 <td>Workflows that are constructed and executed by steps to execute.</td>
 <td>SoS' "forward-style" workflow specifies steps of workflows through sequencial numbering although a DAG could be constructed with target dependencies.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
-<td></td>
+<td>Snakemake workflow depends on filename wildcard pattern matching, not rule names, although <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#handling-ambiguous-rules'>rule order</a> and <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#priorities'>rule priorities</a> can be configured to change execution ordering.</td>
 <td></td>
 <td></td>
 </tr>
@@ -282,7 +282,7 @@ heterogeneous file systems.</td>
 <td>Workflows that are constructed and executed by the "outcome" of the workflow.</td>
 <td>SoS' auxiliary steps specifies outcomes of steps and will be called when the target is needed.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
-<td></td>
+<td>Snakemake workflows are output-oriented: execution ordering relies on filename patterns (with exceptions).</td>
 <td></td>
 <td></td>
 </tr>
@@ -312,7 +312,7 @@ heterogeneous file systems.</td>
 <td align="left"><a href="#" class="toggle-detail" data-detail="do-detail">Docker</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 </tr>
@@ -322,7 +322,7 @@ heterogeneous file systems.</td>
 <td>A <code>docker_image</code> option can execute scripts inside specified docker images.</td>
 <td>Nextflow support <a href="https://www.nextflow.io/docs/latest/docker.html">docker containers. You can
 run all scripts in the specified docker image, or specify a docker image for each step.</a></td>
-<td></td>
+<td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td></td>
 <td></td>
 </tr>
@@ -341,7 +341,7 @@ run all scripts in the specified docker image, or specify a docker image for eac
 <td>Pending</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/singularity.html">supports singularity containers</a>.
 It works similar to docker but with options such as <code>singularty.enabled=true</code>.</td>
-<td></td>
+<td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td></td>
 <td></td>
 </tr>
@@ -370,7 +370,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left"><a href="#" class="toggle-detail" data-detail="ht-detail">HTCondor</a></td>
 <td align="left">Require template (?)</td>
 <td align="left">Yes</td>
-<td align="left">Require template</td>
+<td align="left">Require template (?)</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 </tr>
@@ -379,7 +379,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Ability to use <a href="https://research.cs.wisc.edu/htcondor/">HTCondor</a> to execute workflows on large collections of distributively owned computing resources.</td>
 <td>Do not know because we have not had a chance to configure SoS to run on a HT Condor system.</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/executor.html#htcondor">supports HTCondor</a></td>
-<td></td>
+<td>There is no build-in support for HTCondor, however we cannot find existing Snakemake HTCondor job templates either.</td>
 <td></td>
 <td></td>
 </tr>
@@ -398,7 +398,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 </td>
 <td>SoS supports RQ, Celery support is likely broken due to lack of maitainence.</td>
 <td>Nextflow cannot submit tasks to task queues</td>
-<td></td>
+<td>Snakemake cannot submit tasks to task queues</td>
 <td></td>
 <td></td>
 </tr>
@@ -416,7 +416,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.</td>
 <td>No</td>
 <td>Nextflow supports distributed systems such as <a href="https://www.nextflow.io/docs/latest/ignite.html">Apache Ignite</a> and <a href="https://www.nextflow.io/docs/latest/kubernetes.html">Kubernetes</a></td>
-<td></td>
+<td>Snakemake 4.0 and later <a href='http://snakemake.readthedocs.io/en/stable/executable.html?highlight=Kubernetes'>supports experimental execution</a> in the cloud via Kubernetes.</td>
 <td></td>
 <td></td>
 </tr>
