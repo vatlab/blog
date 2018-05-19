@@ -220,7 +220,7 @@ The scripting language for workflow specification</td>
 <td>SoS supports several ways to build its DAG, including explicit forward-style (sequential numbered steps), makefile-style (dependency), and dynamic creation of subworkflows (<code>sos_run</code> function)</td>
 <td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
 <td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
-<td></td>
+<td>Bpipe specifies stages with input and output, and creates DAG from the stages.</td>
 <td></td>
 </tr>
 
@@ -236,10 +236,10 @@ The scripting language for workflow specification</td>
 <tr class="detail sp-detail">
 <td>Ability to process tasks inputs/outputs as a stream of data.
 </td>
-<td>SoS "data" are passed around as files</td>
+<td>SoS "data" are passed around as files.</td>
 <td>Processes in nextflow can communicate via asynchronous FIFO queues, called channels in the Nextflow lingo. </td>
 <td>From Snakemake 5.0 on, it is possible to <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=pipe#piped-output'>mark output files as pipes</a>. </td>
-<td></td>
+<td>Bpipe input and output variables are files.</td>
 <td></td>
 </tr>
 
@@ -258,7 +258,7 @@ The scripting language for workflow specification</td>
 <td>SoS provides a <code>sos_run(name)</code> function to dynamically execute a subworkflow.</td>
 <td>Nextflow does not seem to support the dynamic creation of subworkflows.</td>
 <td>Rules can be loaded from other text files. Subworkflows can be achieved by setting input of one workflow explicitly as output of another workflow.</td>
-<td></td>
+<td>Bpipe <code>run</code> keyword uses <code>+</code> operator to connect selected stages to pipeline. The <code>Load</code> statement can be used to import variable and pipeline stages from other files.</td>
 <td></td>
 </tr>
 
@@ -266,8 +266,8 @@ The scripting language for workflow specification</td>
 <td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Modify and resume</a></td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
-<td align="left">?</td>
-<td align="left">?</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
 <td align="left">?</td>
 </tr>
 
@@ -277,7 +277,7 @@ The scripting language for workflow specification</td>
 been executed, even if they were executed by a different workflow.</td>
 <td>Nextflow keeps track of all the processes executed in your pipeline. If you modify some parts of your script, only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead.</td>
 <td>Similar to Make, Snakemake uses timestamps to determine modification status and resume points.</td>
-<td></td>
+<td>Uses customized timestamp signature (at millisecond resolution) of input / output to determine modification. By default <a href='https://github.com/ssadedin/bpipe/issues/157'>it does not</a> check status of command or script changes.</td>
 <td></td>
 </tr>
 
@@ -296,7 +296,7 @@ been executed, even if they were executed by a different workflow.</td>
 heterogeneous file systems.</td>
 <td>Nextflow can be executed on a variety of environments but it has to be started within the environments</td>
 <td>Snakemake can be executed on a variety of environments but it has to be started within the environments</td>
-<td></td>
+<td>Bpipe can be executed on a variety of environments but it has to be started within the environments</td>
 <td></td>
 </tr>
 
@@ -315,7 +315,7 @@ heterogeneous file systems.</td>
 <td>SoS can monitor tasks through the Jupyter Notebook interface with magics (e.g <code>%taskinfo</code>) to retrieve details about the tasks. It can also monitor status of tasks through a command line interface (e.g. <code>sos status</code>)</td>
 <td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#">complete reports</a> with details on CPU/task usage etc.</td>
 <td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
-<td></td>
+<td><a href='http://docs.bpipe.org/Guides/Notifications/'>Notification in Bpipe</a> can be configured by Gmail, or genetric SMTP / XMPP protocols. It also provides commands such as <code>send, succeed, fail</code> for arbitrary notifications.</td>
 <td></td>
 </tr>
 
@@ -333,7 +333,7 @@ heterogeneous file systems.</td>
 <td>SoS' "forward-style" workflow specifies steps of workflows through sequencial numbering although a DAG could be constructed with target dependencies.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td>Snakemake workflow depends on filename wildcard pattern matching, not rule names, although <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#handling-ambiguous-rules'>rule order</a> and <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#priorities'>rule priorities</a> can be configured to change execution ordering.</td>
-<td></td>
+<td>Bpipe workflow is <a href='http://docs.bpipe.org/Guides/ParallelTasks/'>process-oriented and executed in parallel</a>. </td>
 <td></td>
 </tr>
 
@@ -351,7 +351,7 @@ heterogeneous file systems.</td>
 <td>SoS' auxiliary steps specifies outcomes of steps and will be called when the target is needed.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td>Snakemake workflows are output-oriented: execution ordering relies on filename patterns (with exceptions).</td>
-<td></td>
+<td>Bpipe does not use implicit file name pattern matching to construct pipelines, although it supports input file wildcards for running multiple stages simultaneously on different data.</td>
 <td></td>
 </tr>
 </tbody>
