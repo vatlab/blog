@@ -59,7 +59,7 @@ The scripting language for workflow specification</td>
 </td>
 <td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. See <a href="https://www.nextflow.io/docs/latest/script.html">here</a> for details.</td>
 <td>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution.</td>
-<td></td>
+<td>Bpipe is implemented in Groovy. Its syntax departs as little as possible from the simplicity of the shell script.</td>
 <td></td>
 </tr>
 
@@ -77,7 +77,7 @@ The scripting language for workflow specification</td>
 <td>SoS provides two sets of user interface: <a href="https://vatlab.github.io/sos-docs/doc/documentation/User_Interface.html">command line</a> (<code>sos</code> command) and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Execution-of-Workflows--15">Jupyter magics</a> (<code>%run</code>, <code>%sorun</code> etc)</td>
 <td>Nextflow workflows are executed with a <code>nextflow</code> command.</td>
 <td>Snakemake workflows are executed with a <code>snakemake</code> command.</td>
-<td></td>
+<td>Bpipe workflows are executed with a <code>bpipe</code> command.</td>
 <td></td>
 </tr>
 
@@ -94,8 +94,8 @@ The scripting language for workflow specification</td>
 <td>Format(s) to save workflows</td>
 <td>SoS workflows can be saved in a plain text <code>.sos</code> format, or be embedded in a Jupyter Notebook with SoS kernel.</td>
 <td>Plain text file with <code>.nf</code> extension.</td>
-<td>Plain text file named <code>Snakefile</code>, or with <code>*.rules</code> extension for </td>
-<td></td>
+<td>Plain text file named <code>Snakefile</code>, or with <code>*.rules</code> extension for rules from another file.</td>
+<td>Plain text file with <code>.pipe</code>, or <code>*.groovy</code> extensions. </td>
 <td></td>
 </tr>
 
@@ -113,7 +113,7 @@ The scripting language for workflow specification</td>
 <td>SoS uses SoS Notebook, a companion Polyglot notebook environmnet based on Jupyter, as its IDE.</td>
 <td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
 <td>No dedicated IDE is available but syntax highlighter plugin are provided for some text editors.</td>
-<td></td>
+<td>No dedicated IDE is available but editors supporting Groovy syntax can be use to facilicate pipeline development.</td>
 <td></td>
 </tr>
 </tbody>
