@@ -13,10 +13,8 @@ Like any other software tools, many workflow systems are actively evolving with 
 comparison to some of the most popular workflow systems similar to SoS, **features and limitations of SoS as a conventional workflow system**.
 It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained
 in the next section and in [other posts](https://vatlab.github.io/blog/).
-We would very much appreciate it if you could [send us your comments](https://github.com/vatlab/blog/issues/10) if you believe more workflow engines or features should be compared, or if some comparisons are wrong or obsolete.
 
-
-## How does SoS compare with SnakeMake, Nextflow, and Galaxy
+## How does SoS compare with Nextflow, SnakeMake, Bpipe, and Galaxy
 
 In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 **SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
@@ -28,8 +26,10 @@ The following tables compare basic features, workflow features, and built-in sup
 <span class="alert-heading"><h5>Hint:</h5></span>
 <ol>
 <li>Click the row header to expand/collapse detailed explanations.</li>
-<li>We append "(?)" to some comparison items because of lack of information. Any help on resolving these items would be greatly apprecaited.</li>
+<li>"(?)" indicates uncertain comparisons due to lack of information.</li>
+<li>Information presented here can be inaccurate or obsolete due to rapid evolution of workflow engines.</li>
 </ol>
+We would very much appreciate it if you could <a href="https://github.com/vatlab/blog/issues/10" class="alert-link" target="_blank">send us your comments</a> or <a href="https://github.com/vatlab/blog" class="alert-link" target="_blank">pull requests</a> if you notice any problems with the table, or if you believe more workflow engines or features should be compared.
 </div>
 
 ### Basic information
