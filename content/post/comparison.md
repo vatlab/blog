@@ -23,6 +23,15 @@ In comparison to most workflow systems that are designed for "consumers" of work
 The following tables compare basic features, workflow features, and built-in support for external tools and services between [SoS](https://vatlab.github.io/sos-docs/),
 [NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), and [Galaxy](https://usegalaxy.org/). We exclude [CWL](https://github.com/common-workflow-language/common-workflow-language) from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.
 
+
+<div class="alert alert-success" role="alert">
+<span class="alert-heading"><h5>Hint:</h5></span>
+<ol>
+<li>Click the row header to expand/collapse detailed explanations.</li>
+<li>We append "(?)" to some comparison items because of lack of information. Any help on resolving these items would be greatly apprecaited.</li>
+</ol>
+</div>
+
 ### Basic information
 
 <div class="comparison">
@@ -149,7 +158,7 @@ The scripting language for workflow specification</td>
 <tr class="detail dag-detail">
 <td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
 </td>
-<td>SoS supports several ways to build its DAG, including explicit forward-style (sequential numbered steps), makefile-style (dependency), and dynamic creation of subworkflows (<code>sos_run</code> function)</td>
+<td>SoS supports explicit forward-style (sequential numbered steps), makefile-style (dependency), and mixed-style of subworkflows )</td>
 <td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
 <td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td>Bpipe specifies stages with input and output, and creates DAG from the stages.</td>
