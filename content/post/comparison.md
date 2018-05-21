@@ -380,7 +380,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Require template (?)</td>
 <td align="left">Yes</td>
 <td align="left">Require template (?)</td>
-<td align="left">No</td>
+<td align="left">Require template</td>
 <td align="left">Yes</td>
 </tr>
 
