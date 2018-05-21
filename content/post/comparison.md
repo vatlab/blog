@@ -458,7 +458,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 
 SoS is not for everyone. As a workflow system:
 
-* If you are looking for a robust workflow system for large projects, the anser is likely no, at least for now.
-* If you are looking for a script-less GUI-based workflow system, the answer is no.
+* If you are looking for a industrial-grade workflow system for the handling of millions of large jobs, you should look for proven solutions such as [Luigi](https://github.com/spotify/luigi).
+* If you are looking for a script-less GUI-based workflow system with the need for writing scripts, the answer is no because SoS is script based. [Galaxy](https://usegalaxy.org/) can be a good choice at least for bioinformatic applications.
 * If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
-* If you use multiple languages for daily data analysis, the answer is most likely yes.
+* If you use multiple languages for daily data analysis, the answer is likely yes because SoS greatly reduces the barrier between multiple languages, in both interactive data analysis and batch data processing.
