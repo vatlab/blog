@@ -243,7 +243,7 @@ heterogeneous file systems.</td>
 
 <tr>
 <td align="left"><a href="#" class="toggle-detail" data-detail="tm-detail">Task monitoring</a></td>
-<td align="left">Command line and GUI (Notebook)</td>
+<td align="left">Command line and GUI (Notebook), with summary report</td>
 <td align="left">Report traces and performances</td>
 <td align="left">Report traces and performance</td>
 <td align="left">Event notification</td>
@@ -253,10 +253,11 @@ heterogeneous file systems.</td>
 <tr class="detail tm-detail">
 <td>Ability to send tasks to multiple isolated computing environment and manage them from local host.
 "Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours and memory consumption.</td>
-<td>SoS can monitor tasks through the Jupyter Notebook interface with magics (e.g <code>%taskinfo</code>) to retrieve details about the tasks. It can also monitor status of tasks through a command line interface (e.g. <code>sos status</code>)</td>
-<td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#">complete reports</a> with details on CPU/task usage etc.</td>
-<td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
-<td><a href='http://docs.bpipe.org/Guides/Notifications/'>Notification in Bpipe</a> can be configured by Gmail, or genetric SMTP / XMPP protocols. It also provides commands such as <code>send, succeed, fail</code> for arbitrary notifications.</td>
+<td>SoS can monitor tasks through the Jupyter Notebook interface with magics (e.g <code>%taskinfo</code>) to retrieve details about the tasks. It can also monitor status of tasks through a command line interface (e.g. <code>sos status</code>).
+A summary report could be generated with <a href="https://vatlab.github.io/sos-docs/doc/tutorials/Execution_of_Workflow.html"  target="_blank">option <code>-p</code></a>.</td>
+<td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#"  target="_blank">complete reports</a> with details on CPU/task usage etc.</td>
+<td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking"  target="_blank">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
+<td><a href='http://docs.bpipe.org/Guides/Notifications/'  target="_blank">Notification in Bpipe</a> can be configured by Gmail, or genetric SMTP / XMPP protocols. It also provides commands such as <code>send, succeed, fail</code> for arbitrary notifications.</td>
 <td>The GUI shows the status of each step with colors.</td>
 </tr>
 
