@@ -25,7 +25,7 @@ The following tables compare basic features, workflow features, and built-in sup
 <div class="alert alert-success" role="alert">
 <span class="alert-heading"><h5>Hint:</h5></span>
 <ol>
-<li>Click the row header to expand/collapse detailed explanations.</li>
+<li>Click the result row to expand/collapse detailed explanations.</li>
 <li>"(?)" indicates uncertain comparisons due to lack of information.</li>
 <li>Information presented here can be inaccurate or obsolete due to rapid evolution of workflow engines.</li>
 </ol>
@@ -48,9 +48,8 @@ We would very much appreciate it if you could <a href="https://github.com/vatlab
 </thead>
 
 <tbody>
-<tr>
-<td align="left">
-<a href="#" class="toggle-detail" data-detail="lan-detail">Language interface</a>
+<tr class="result">
+<th align="left">Language</th>
 <td align="left">Python based</td>
 <td align="left">Groovy flavored</td>
 <td align="left">GNU Make style, Python flavored</td>
@@ -58,7 +57,7 @@ We would very much appreciate it if you could <a href="https://github.com/vatlab
 <td align="left">JSON flavored</td>
 </tr>
 
-<tr class="detail lan-detail">
+<tr class="detail">
 <td>
 The scripting language for workflow specification</td>
 <td>
@@ -72,8 +71,8 @@ The scripting language for workflow specification</td>
 <td>Galaxy's workflows are stored in JSON files together with GUI-related meta information</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="ui-detail">User interface</a></td>
+<tr class="result">
+<th align="left">User interface</td>
 <td align="left">CLI + Notebook (Jupyter)</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -81,7 +80,7 @@ The scripting language for workflow specification</td>
 <td align="left">CLI + GUI</td>
 </tr>
 
-<tr class="detail ui-detail">
+<tr class="detail">
 <td>Primary methods for users to interact with the workflow engine</td>
 <td>SoS provides two sets of user interface: <a href="https://vatlab.github.io/sos-docs/doc/documentation/User_Interface.html">command line</a> (<code>sos</code> command) and <a href="https://vatlab.github.io/sos-docs/doc/documentation/Notebook_Interface.html#Execution-of-Workflows--15">Jupyter magics</a> (<code>%run</code>, <code>%sorun</code> etc)</td>
 <td>Nextflow workflows are executed with a <code>nextflow</code> command.</td>
@@ -90,8 +89,8 @@ The scripting language for workflow specification</td>
 <td>Galaxy workflows are mostly executed using a web interface, but it can also be executed using a CLI.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="ff-detail">File format</a></td>
+<tr class="result">
+<th align="left">File format</th>
 <td align="left">.sos (plain text) and Jupyter notebook</td>
 <td align="left">.nf (plain text)</td>
 <td align="left">Snakefile (plain text)</td>
@@ -99,7 +98,7 @@ The scripting language for workflow specification</td>
 <td align="left">XML</td>
 </tr>
 
-<tr class="detail ff-detail">
+<tr class="detail">
 <td>Format(s) to save workflows</td>
 <td>SoS workflows can be saved in a plain text <code>.sos</code> format, or be embedded in a Jupyter Notebook with SoS kernel.</td>
 <td>Plain text file with <code>.nf</code> extension.</td>
@@ -108,8 +107,8 @@ The scripting language for workflow specification</td>
 <td>Galaxy files are saved by the framework and are not supposted to be edited directly.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="ide-detail">IDE</a></td>
+<tr class="result">
+<th align="left">IDE</th>
 <td align="left">SoS Notebook (Jupyter)</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -117,7 +116,7 @@ The scripting language for workflow specification</td>
 <td align="left">Yes (only for building DAG)</td>
 </tr>
 
-<tr class="detail ide-detail">
+<tr class="detail">
 <td>Integrated Development Environment</td>
 <td>SoS uses SoS Notebook, a companion Polyglot notebook environmnet based on Jupyter, as its IDE.</td>
 <td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
@@ -146,8 +145,8 @@ The scripting language for workflow specification</td>
 <tbody>
 
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="dag-detail">DAG Building</a></td>
+<tr class="result">
+<th align="left">DAG Building</th>
 <td align="left">Explicit, implicit and dynamic</td>
 <td align="left">Explicit</td>
 <td align="left">Implicit and dynamic</td>
@@ -155,7 +154,7 @@ The scripting language for workflow specification</td>
 <td align="left">Explicit</td>
 </tr>
 
-<tr class="detail dag-detail">
+<tr class="detail">
 <td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
 </td>
 <td>SoS supports explicit forward-style (sequential numbered steps), makefile-style (dependency), and mixed-style of subworkflows )</td>
@@ -165,8 +164,8 @@ The scripting language for workflow specification</td>
 <td>DAG of galaxy is built explicitly using its web interface.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="sp-detail">Streaming processing</a></td>
+<tr class="result">
+<th align="left">Streaming processing</th>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -174,7 +173,7 @@ The scripting language for workflow specification</td>
 <td align="left">No</td>
 </tr>
 
-<tr class="detail sp-detail">
+<tr class="detail">
 <td>Ability to process tasks inputs/outputs as a stream of data.
 </td>
 <td>SoS "data" are passed around as files.</td>
@@ -184,8 +183,8 @@ The scripting language for workflow specification</td>
 <td>Galaxy does not support streaming between steps.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="sw-detail">Subworkflow</a></td>
+<tr class="result">
+<th align="left">Subworkflow</th>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
@@ -193,7 +192,7 @@ The scripting language for workflow specification</td>
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail sw-detail">
+<tr class="detail">
 <td>Support for executing subworkflows, potentially loaded from another pipeline file.
 </td>
 <td>SoS provides a <code>sos_run(name)</code> function to dynamically execute a subworkflow.</td>
@@ -203,8 +202,8 @@ The scripting language for workflow specification</td>
 <td>Subworkflows are supported, although they cannot be generated dynamically as other workflow tools.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Modify and resume</a></td>
+<tr class="result">
+<th align="left">Modify and resume</th>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -212,7 +211,7 @@ The scripting language for workflow specification</td>
 <td align="left">No (?)</td>
 </tr>
 
-<tr class="detail rt-detail">
+<tr class="detail">
 <td>Able to resume interrupted or modified workflow and ignore parts of the workflow that have been successfully executed</td>
 <td>SoS automatically keeps signatures of steps and tasks and can ignore steps and tasks that have already
 been executed, even if they were executed by a different workflow.</td>
@@ -222,8 +221,8 @@ been executed, even if they were executed by a different workflow.</td>
 <td>No information on runtime signature or restart of failed jobs could be found.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="rt-detail">Remote execution</a></td>
+<tr class="result">
+<th align="left">Remote execution</th>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">No</td>
@@ -231,7 +230,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td align="left">No</td>
 </tr>
 
-<tr class="detail rt-detail">
+<tr class="detail">
 <td>Send tasks to remote hosts for execution.</td>
 <td>SoS can execute entire workflows or individual tasks on multiple remote hosts, with file synchronization between
 heterogeneous file systems.</td>
@@ -241,8 +240,8 @@ heterogeneous file systems.</td>
 <td>Bpipe can be executed on a variety of environments but it has to be started within the environments</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="tm-detail">Task monitoring</a></td>
+<tr class="result">
+<th align="left">Task monitoring</th>
 <td align="left">Command line and GUI (Notebook), with summary report</td>
 <td align="left">Report traces and performances</td>
 <td align="left">Report traces and performance</td>
@@ -250,7 +249,7 @@ heterogeneous file systems.</td>
 <td align="left">GUI to explore, share and reuse histories</td>
 </tr>
 
-<tr class="detail tm-detail">
+<tr class="detail">
 <td>Ability to send tasks to multiple isolated computing environment and manage them from local host.
 "Report traces and performance" means that benchmarking commands and outputs are logged, along with resources usage such as CPU hours and memory consumption.</td>
 <td>SoS can monitor tasks through the Jupyter Notebook interface with magics (e.g <code>%taskinfo</code>) to retrieve details about the tasks. It can also monitor status of tasks through a command line interface (e.g. <code>sos status</code>).
@@ -261,8 +260,8 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>The GUI shows the status of each step with colors.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="pow-detail">Process-oriented workflow</a></td>
+<tr class="result">
+<th align="left">Process-oriented workflow</th>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
@@ -270,7 +269,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail pow-detail">
+<tr class="detail">
 <td>Workflows that are constructed and executed by steps to execute.</td>
 <td>SoS' "forward-style" workflow specifies steps of workflows through sequencial numbering although a DAG could be constructed with target dependencies.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
@@ -279,8 +278,8 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>Galaxy construct and execute workflows as connected steps.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="oow-detail">Output-oriented workflow</a></td>
+<tr class="result">
+<th align="left">Output-oriented workflow</th>
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
@@ -288,7 +287,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">No</td>
 </tr>
 
-<tr class="detail oow-detail">
+<tr class="detail">
 <td>Workflows that are constructed and executed by the "outcome" of the workflow.</td>
 <td>SoS' auxiliary steps specifies outcomes of steps and will be called when the target is needed.</td>
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
@@ -318,8 +317,8 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <tbody>
 
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="do-detail">Docker</a></td>
+<tr class="result">
+<th align="left">Docker</th>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -327,7 +326,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail do-detail">
+<tr class="detail">
 <td>Support for docker</td>
 <td>A <code>docker_image</code> option can execute scripts inside specified docker images.</td>
 <td>Nextflow support <a href="https://www.nextflow.io/docs/latest/docker.html">docker containers. You can
@@ -337,8 +336,8 @@ run all scripts in the specified docker image, or specify a docker image for eac
 <td>Galaxy steps can execute <code>docker run</code> command with docker-flavored images.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="si-detail">Singularity</a></td>
+<tr class="result">
+<th align="left">Singularity</th>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -346,7 +345,7 @@ run all scripts in the specified docker image, or specify a docker image for eac
 <td align="left">No</td>
 </tr>
 
-<tr class="detail si-detail">
+<tr class="detail">
 <td>Support for singularity</td>
 <td>Pending</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/singularity.html">supports singularity containers</a>.
@@ -356,8 +355,8 @@ It works similar to docker but with options such as <code>singularty.enabled=tru
 <td>Galaxy supports Singularity containers.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="pbs-detail">PBS/Torque/LSF/SLURM</a></td>
+<tr class="result">
+<th align="left">PBS/Torque/LSF/SLURM</th>
 <td align="left">Needs template</td>
 <td align="left">Yes</td>
 <td align="left">Direct or via template</td>
@@ -365,7 +364,7 @@ It works similar to docker but with options such as <code>singularty.enabled=tru
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail pbs-detail">
+<tr class="detail">
 <td>Ability to execute workflows on a PBS-style computer cluster
 </td>
 <td>SoS interact with clusters through pre-configured templates and commands. It has been tested to work on
@@ -376,8 +375,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Galaxy can be deployed on clusters with steps executed on computing nodes.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="ht-detail">HTCondor</a></td>
+<tr class="result">
+<th align="left">HTCondor</th>
 <td align="left">Require template (?)</td>
 <td align="left">Yes</td>
 <td align="left">Require template (?)</td>
@@ -385,7 +384,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail ht-detail">
+<tr class="detail">
 <td>Ability to use <a href="https://research.cs.wisc.edu/htcondor/">HTCondor</a> to execute workflows on large collections of distributively owned computing resources.</td>
 <td>Do not know because we have not had a chance to configure SoS to run on a HT Condor system.</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/executor.html#htcondor">supports HTCondor</a></td>
@@ -394,8 +393,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Galaxy supports HTCondor as described <a href="https://galaxyproject.org/cloudman/ht-condor/">here</a>.</td>
 </tr>
 
-<tr>
-<td align="left"><a  href="#" class="toggle-detail" data-detail="tq-detail">Distributed Task Queue</a></td>
+<tr class="result">
+<th align="left">Distributed Task Queue</th>
 <td align="left">Yes</td>
 <td align="left">RQ</td>
 <td align="left">No</td>
@@ -403,7 +402,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">No</td>
 </tr>
 
-<tr class="detail tq-detail">
+<tr class="detail">
 <td>Ability to send tasks to distributed task queues such as <a href="http://python-rq.org/">RQ</a> and <a href="http://www.celeryproject.org/">Celery</a>.
 </td>
 <td>SoS supports RQ, Celery support is likely broken due to lack of maitainence.</td>
@@ -413,8 +412,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Galaxy does not support task queues.</td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="ds-detail">Distributed systems</a></td>
+<tr class="result">
+<th align="left">Distributed systems</th>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Experimental</td>
@@ -422,7 +421,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail ds-detail">
+<tr class="detail">
 <td>Ability to spawn the executions of pipeline tasks through a distributed cluster such as Apache Spark, Apache Ignite, Apache Mesos, and Kubernetes.</td>
 <td>No</td>
 <td>Nextflow supports distributed systems such as <a href="https://www.nextflow.io/docs/latest/ignite.html">Apache Ignite</a> and <a href="https://www.nextflow.io/docs/latest/kubernetes.html">Kubernetes</a></td>
@@ -431,8 +430,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Galaxy could be delopyed on top of Kubernetes as described <a href="https://github.com/galaxyproject/galaxy-kubernetes">here</a> </td>
 </tr>
 
-<tr>
-<td align="left"><a href="#" class="toggle-detail" data-detail="cs-detail">Cloud Storage</a></td>
+<tr class="result">
+<th align="left">Cloud Storage</th>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -440,7 +439,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 </tr>
 
-<tr class="detail cs-detail">
+<tr class="detail">
 <td>Ability to make use of cloud storage (such as AWS).
 </td>
 <td>Not currently </td>

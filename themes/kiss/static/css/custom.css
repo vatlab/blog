@@ -81,7 +81,10 @@ table thead th {
 .detail {
   display: none;
   font-size: 70%;
-  background-color: #fcf8e3;
+  background-color: #F8F8F8;
+}
+.expanded {
+  background-color: #F8F8F8;
 }
 .detail table tr {
   border-top: none;

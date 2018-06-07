@@ -137,10 +137,16 @@ ga('send', 'pageview');
 <script>
 
 $(document).ready(function(){
-    $(".toggle-detail").click(function(e){
-        e.preventDefault();
-        $('.'+$(this).attr('data-detail')).addClass('detail').toggle();
+    $(".result").click(function(){
+      $(this).toggleClass('expanded')
+      $(this).nextUntil('tr.result').slideToggle(100, function(){
+     });
+   });
+   $(".detail").click(function(){
+     $(this).prev().toggleClass('expanded');
+     $(this).slideToggle(100, function(){
     });
+  });
 });
 
 </script>
