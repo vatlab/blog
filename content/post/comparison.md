@@ -25,7 +25,7 @@ The following tables compare basic features, workflow features, and built-in sup
 <div class="alert alert-success" role="alert">
 <span class="alert-heading"><h5>Hint:</h5></span>
 <ol>
-<li>Click the result row to expand/collapse detailed explanations.</li>
+<li><b>Click on the rows of the table to expand/collapse detailed explanations.</b></li>
 <li>"(?)" indicates uncertain comparisons due to lack of information.</li>
 <li>Information presented here can be inaccurate or obsolete due to rapid evolution of workflow engines.</li>
 </ol>
