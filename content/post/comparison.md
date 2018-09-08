@@ -19,7 +19,7 @@ in the next section and in [other posts](https://vatlab.github.io/blog/).
 In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 **SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
 The following tables compare basic features, workflow features, and built-in support for external tools and services between [SoS](https://vatlab.github.io/sos-docs/),
-[NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), and [Galaxy](https://usegalaxy.org/). We exclude [CWL](https://github.com/common-workflow-language/common-workflow-language) from the comparison table because CWL is a specification, not a workflow engine. It is designed to create portable workflows that can be executed by multiple workflow engines, and although its verbosity is almost in direct contrast with SoS’ conciseness, it is required for its multi-engine design.
+[NextFlow](https://www.nextflow.io/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [Bpipe](https://github.com/ssadedin/bpipe), [CWL](https://github.com/common-workflow-language/common-workflow-language), and [Galaxy](https://usegalaxy.org/).
 
 
 <div class="alert alert-success" role="alert">
@@ -43,6 +43,7 @@ We would very much appreciate it if you could <a href="https://github.com/vatlab
 <th align="left">NextFlow</th>
 <th align="left">Snakemake</th>
 <th align="left">Bpipe</th>
+<th align="left">CWL</th>
 <th align="left">Galaxy</th>
 </tr>
 </thead>
@@ -54,6 +55,7 @@ We would very much appreciate it if you could <a href="https://github.com/vatlab
 <td align="left">Groovy flavored</td>
 <td align="left">GNU Make style, Python flavored</td>
 <td align="left">Groovy flavored</td>
+<td align="left">CWL language with JS expressions</td>
 <td align="left">JSON flavored</td>
 </tr>
 
@@ -68,12 +70,14 @@ The scripting language for workflow specification</td>
 <td>Nextflow is based on Groovy syntax with Nextflow-defined functions and objects. See <a href="https://www.nextflow.io/docs/latest/script.html">here</a> for details.</td>
 <td>Snakemake is written in Python and has the flavor of <code>Make</code> system in syntax and execution.</td>
 <td>Bpipe is implemented in Groovy. Its syntax departs as little as possible from the simplicity of the shell script.</td>
+<td></td>
 <td>Galaxy's workflows are stored in JSON files together with GUI-related meta information</td>
 </tr>
 
 <tr class="result">
 <th align="left">User interface</td>
 <td align="left">CLI + Notebook (Jupyter)</td>
+<td align="left">CLI</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
@@ -86,6 +90,7 @@ The scripting language for workflow specification</td>
 <td>Nextflow workflows are executed with a <code>nextflow</code> command.</td>
 <td>Snakemake workflows are executed with a <code>snakemake</code> command.</td>
 <td>Bpipe workflows are executed with a <code>bpipe</code> command.</td>
+<td></td>
 <td>Galaxy workflows are mostly executed using a web interface, but it can also be executed using a CLI.</td>
 </tr>
 
@@ -95,6 +100,7 @@ The scripting language for workflow specification</td>
 <td align="left">.nf (plain text)</td>
 <td align="left">Snakefile (plain text)</td>
 <td align="left">.pipe (groovy, plain text)</td>
+<td align="left"></td>
 <td align="left">XML</td>
 </tr>
 
@@ -104,6 +110,7 @@ The scripting language for workflow specification</td>
 <td>Plain text file with <code>.nf</code> extension.</td>
 <td>Plain text file named <code>Snakefile</code>, or with <code>*.rules</code> extension for rules from another file.</td>
 <td>Plain text file with <code>.pipe</code>, or <code>*.groovy</code> extensions. </td>
+<td></td>
 <td>Galaxy files are saved by the framework and are not supposted to be edited directly.</td>
 </tr>
 
@@ -113,6 +120,7 @@ The scripting language for workflow specification</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">Yes (only for building DAG)</td>
 </tr>
 
@@ -122,6 +130,7 @@ The scripting language for workflow specification</td>
 <td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
 <td>No dedicated IDE is available but syntax highlighter plugin are provided for some text editors.</td>
 <td>No dedicated IDE is available but editors supporting Groovy syntax can be use to facilicate pipeline development.</td>
+<td></td>
 <td>A web interface is provided to create steps and connect them</td>
 </tr>
 </tbody>
@@ -139,6 +148,7 @@ The scripting language for workflow specification</td>
 <th align="left">NextFlow</th>
 <th align="left">Snakemake</th>
 <th align="left">Bpipe</th>
+<th align="left">CWL</th>
 <th align="left">Galaxy</th>
 </tr>
 </thead>
@@ -151,6 +161,7 @@ The scripting language for workflow specification</td>
 <td align="left">Explicit</td>
 <td align="left">Implicit and dynamic</td>
 <td align="left">Explicit</td>
+<td align="left"></td>
 <td align="left">Explicit</td>
 </tr>
 
@@ -161,6 +172,7 @@ The scripting language for workflow specification</td>
 <td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
 <td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td>Bpipe specifies stages with input and output, and creates DAG from the stages.</td>
+<td></td>
 <td>DAG of galaxy is built explicitly using its web interface.</td>
 </tr>
 
@@ -170,6 +182,7 @@ The scripting language for workflow specification</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">No</td>
 </tr>
 
@@ -179,7 +192,9 @@ The scripting language for workflow specification</td>
 <td>SoS "data" are passed around as files.</td>
 <td>Processes in nextflow can communicate via asynchronous FIFO queues, called channels in the Nextflow lingo. </td>
 <td>From Snakemake 5.0 on, it is possible to <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=pipe#piped-output'>mark output files as pipes</a>. </td>
-<td>Bpipe input and output variables are files.</td>
+<td>
+	input and output variables are files.</td>
+<td></td>
 <td>Galaxy does not support streaming between steps.</td>
 </tr>
 
@@ -189,6 +204,7 @@ The scripting language for workflow specification</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -199,6 +215,7 @@ The scripting language for workflow specification</td>
 <td>Nextflow does not seem to support the dynamic creation of subworkflows.</td>
 <td>Rules can be loaded from other text files. Subworkflows can be achieved by setting input of one workflow explicitly as output of another workflow.</td>
 <td>Bpipe <code>run</code> keyword uses <code>+</code> operator to connect selected stages to pipeline. The <code>Load</code> statement can be used to import variable and pipeline stages from other files.</td>
+<td></td>
 <td>Subworkflows are supported, although they cannot be generated dynamically as other workflow tools.</td>
 </tr>
 
@@ -208,6 +225,7 @@ The scripting language for workflow specification</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
+<td align="left"></td>
 <td align="left">No (?)</td>
 </tr>
 
@@ -218,6 +236,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td>Nextflow keeps track of all the processes executed in your pipeline. If you modify some parts of your script, only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead.</td>
 <td>Similar to Make, Snakemake uses timestamps to determine modification status and resume points.</td>
 <td>Uses customized timestamp signature (at millisecond resolution) of input / output to determine modification. By default <a href='https://github.com/ssadedin/bpipe/issues/157'>it does not</a> check status of command or script changes.</td>
+<td></td>
 <td>No information on runtime signature or restart of failed jobs could be found.</td>
 </tr>
 
@@ -227,6 +246,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">No</td>
 </tr>
 
@@ -237,6 +257,7 @@ heterogeneous file systems.</td>
 <td>Nextflow can be executed on a variety of environments but it has to be started within the environments</td>
 <td>Snakemake can be executed on a variety of environments but it has to be started within the environments</td>
 <td>Bpipe can be executed on a variety of environments but it has to be started within the environments</td>
+<td></td>
 <td>Bpipe can be executed on a variety of environments but it has to be started within the environments</td>
 </tr>
 
@@ -246,6 +267,7 @@ heterogeneous file systems.</td>
 <td align="left">Report traces and performances</td>
 <td align="left">Report traces and performance</td>
 <td align="left">Event notification</td>
+<td align="left"></td>
 <td align="left">GUI to explore, share and reuse histories</td>
 </tr>
 
@@ -257,6 +279,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#"  target="_blank">complete reports</a> with details on CPU/task usage etc.</td>
 <td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking"  target="_blank">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
 <td><a href='http://docs.bpipe.org/Guides/Notifications/'  target="_blank">Notification in Bpipe</a> can be configured by Gmail, or genetric SMTP / XMPP protocols. It also provides commands such as <code>send, succeed, fail</code> for arbitrary notifications.</td>
+<td></td>
 <td>The GUI shows the status of each step with colors.</td>
 </tr>
 
@@ -266,6 +289,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">Yes</td>
 <td align="left">No</td>
 <td align="left">Yes</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -275,6 +299,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td>Snakemake workflow depends on filename wildcard pattern matching, not rule names, although <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#handling-ambiguous-rules'>rule order</a> and <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html?highlight=rules#priorities'>rule priorities</a> can be configured to change execution ordering.</td>
 <td>Bpipe workflow is <a href='http://docs.bpipe.org/Guides/ParallelTasks/'>process-oriented and executed in parallel</a>. </td>
+<td></td>
 <td>Galaxy construct and execute workflows as connected steps.</td>
 </tr>
 
@@ -284,6 +309,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">No</td>
 </tr>
 
@@ -293,6 +319,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>Nextflow executes specified workflow with specified input and parameters.</td>
 <td>Snakemake workflows are output-oriented: execution ordering relies on filename patterns (with exceptions).</td>
 <td>Bpipe does not use implicit file name pattern matching to construct pipelines, although it supports input file wildcards for running multiple stages simultaneously on different data.</td>
+<td></td>
 <td>Galaxy does not automatically build workflows from intended outcomes</td>
 </tr>
 </tbody>
@@ -311,6 +338,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <th align="left">NextFlow</th>
 <th align="left">Snakemake</th>
 <th align="left">Bpipe</th>
+<th align="left">CWL</th>
 <th align="left">Galaxy</th>
 </tr>
 </thead>
@@ -323,6 +351,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -333,25 +362,28 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 run all scripts in the specified docker image, or specify a docker image for each step.</a></td>
 <td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td>Bpipe does not have build-in support for containers.</td>
+<td></td>
 <td>Galaxy steps can execute <code>docker run</code> command with docker-flavored images.</td>
 </tr>
 
 <tr class="result">
 <th align="left">Singularity</th>
-<td align="left">No</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
+<td align="left">Yes</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">No</td>
 </tr>
 
 <tr class="detail">
 <td>Support for singularity</td>
-<td>Pending</td>
+<td>SoS supports singularity with action options <code>container</code> and <code>engine</code>m see <a href="https://vatlab.github.io/sos-docs/doc/tutorials/Singularity.html">SoS Singularity Guide</a> for details.</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/singularity.html">supports singularity containers</a>.
 It works similar to docker but with options such as <code>singularty.enabled=true</code>.</td>
 <td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td>Bpipe does not have build-in support for containers.</td>
+<td></td>
 <td>Galaxy supports Singularity containers.</td>
 </tr>
 
@@ -361,6 +393,7 @@ It works similar to docker but with options such as <code>singularty.enabled=tru
 <td align="left">Yes</td>
 <td align="left">Direct or via template</td>
 <td align="left">Yes</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -372,6 +405,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow supports Open grid, Univa grid, LSF, SLURM, PBS Works, Torque</td>
 <td>Snakemake can interact with clusters through templates, or directly if the cluster supports <a href="http://www.drmaa.org/http://www.drmaa.org/">DRMAA</a>.</td>
 <td>Bpipe provides <a href='http://docs.bpipe.org/Guides/ResourceManagers/'>build-in support for some resource manager systems</a>, and a template-based system (<a href='http://docs.bpipe.org/Guides/ImplementingAResourceManager/'>adapter script</a>) to support implementing resource managers.</td>
+<td></td>
 <td>Galaxy can be deployed on clusters with steps executed on computing nodes.</td>
 </tr>
 
@@ -381,6 +415,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Require template (?)</td>
 <td align="left">Require template</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -390,6 +425,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/executor.html#htcondor">supports HTCondor</a></td>
 <td>There is no build-in support for HTCondor, however we cannot find existing Snakemake HTCondor job templates either.</td>
 <td>There is no build-in support for HTCondor, however there seems to be <a href='https://github.com/GenomicParisCentre/eoulsan/blob/3b171735888f728b6804abcdfd7e7fce80b5218a/src/main/bin/bpipe-htcondor.sh'>third-party adapter scripts</a> for HTCondor job scheduler.</td>
+<td></td>
 <td>Galaxy supports HTCondor as described <a href="https://galaxyproject.org/cloudman/ht-condor/">here</a>.</td>
 </tr>
 
@@ -399,6 +435,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">No</td>
 </tr>
 
@@ -409,6 +446,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow cannot submit tasks to task queues</td>
 <td>Snakemake cannot submit tasks to task queues</td>
 <td>Bpipe does not provide build-in support for task queues</td>
+<td></td>
 <td>Galaxy does not support task queues.</td>
 </tr>
 
@@ -418,6 +456,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Experimental</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -427,6 +466,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow supports distributed systems such as <a href="https://www.nextflow.io/docs/latest/ignite.html">Apache Ignite</a> and <a href="https://www.nextflow.io/docs/latest/kubernetes.html">Kubernetes</a></td>
 <td>Snakemake 4.0 and later <a href='http://snakemake.readthedocs.io/en/stable/executable.html?highlight=Kubernetes'>supports experimental execution</a> in the cloud via Kubernetes.</td>
 <td>No</td>
+<td></td>
 <td>Galaxy could be delopyed on top of Kubernetes as described <a href="https://github.com/galaxyproject/galaxy-kubernetes">here</a> </td>
 </tr>
 
@@ -436,6 +476,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
+<td align="left"></td>
 <td align="left">Yes</td>
 </tr>
 
@@ -446,6 +487,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Snakemake can <a href="https://www.nextflow.io/docs/latest/amazons3.html">access S3 storage</a></td>
 <td>Snakemake can access files on <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>cloud storage</a></td>
 <td>No</td>
+<td></td>
 <td>Galaxy objects could be stored on distributed store or Amazon S3 (c.f. <a href="https://galaxyproject.org/object-store/">Galaxy Object Store</a>)</td>
 </tr>
 
