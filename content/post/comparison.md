@@ -501,6 +501,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 SoS is not for everyone. As a workflow system:
 
 * If you are looking for a industrial-grade workflow system for the handling of millions of large jobs, you should look for proven solutions such as [Luigi](https://github.com/spotify/luigi).
+* If you are aiming at the creation of "portable" workflows that can be executed in various cluster and cloud environments, [NextFlow](https://www.nextflow.io/) can be the first to try. [Snakemake](https://snakemake.readthedocs.io/en/stable/) also has a wide user base and is a close draw with NextFlow in many aspects. [Bpipe](https://github.com/ssadedin/bpipe) is also popular but seems to be less popular then NextFlow and SnakeMake.
+* If you are aiming at the creation of "general" workflows with no specific workflow engine in mind, [CWL](https://github.com/common-workflow-language/common-workflow-language) is currently the best bet as CWL workflows can be executed by multiple workflow engines in different environments.
 * If you are looking for a script-less GUI-based workflow system with the need for writing scripts, the answer is no because SoS is script based. [Galaxy](https://usegalaxy.org/) can be a good choice at least for bioinformatic applications.
 * If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
 * If you use multiple languages for daily data analysis, the answer is likely yes because SoS greatly reduces the barrier between multiple languages, in both interactive data analysis and batch data processing.
