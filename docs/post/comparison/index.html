@@ -83,7 +83,7 @@ comparison to some of the most popular workflow systems similar to SoS, <strong>
 It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained
 in the next section and in <a href="https://vatlab.github.io/blog/" target="_blank">other posts</a>.</p>
 
-<h2 id="how-does-sos-compare-with-nextflow-snakemake-bpipe-and-galaxy">How does SoS compare with Nextflow, SnakeMake, Bpipe, and Galaxy</h2>
+<h2 id="how-does-sos-compare-with-nextflow-snakemake-bpipe-cwl-and-galaxy">How does SoS compare with Nextflow, SnakeMake, Bpipe, CWL, and Galaxy</h2>
 
 <p>In comparison to most workflow systems that are designed for &ldquo;consumers&rdquo; of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 <strong>SoS is designed for &ldquo;developers&rdquo; of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research</strong>.
@@ -571,8 +571,8 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <li>If you are aiming at the creation of &ldquo;portable&rdquo; workflows that can be executed in various cluster and cloud environments, <a href="https://www.nextflow.io/" target="_blank">NextFlow</a> can be the first to try. <a href="https://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a> also has a wide user base and is a close draw with NextFlow in many aspects. <a href="https://github.com/ssadedin/bpipe" target="_blank">Bpipe</a> is also popular but seems to be less popular then NextFlow and SnakeMake.</li>
 <li>If you are aiming at the creation of &ldquo;general&rdquo; workflows with no specific workflow engine in mind, <a href="https://github.com/common-workflow-language/common-workflow-language" target="_blank">CWL</a> is currently the best bet as CWL workflows can be executed by multiple workflow engines in different environments.</li>
 <li>If you are looking for a script-less GUI-based workflow system with the need for writing scripts, the answer is no because SoS is script based. <a href="https://usegalaxy.org/" target="_blank">Galaxy</a> can be a good choice at least for bioinformatic applications.</li>
-<li>If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
-<li>If you use multiple languages for daily data analysis, the answer is likely yes because SoS greatly reduces the barrier between multiple languages, in both interactive data analysis and batch data processing.</li>
+<li>If you are a <strong>Jupyter</strong> or <strong>JupyterLab</strong> user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.</li>
+<li>If you would like to use <strong>a workflow system for daily exploratory data analysis and computaional research</strong>, SoS should be most usable since it is designed for interaction data analysis and execution of tasks on remote systems.</li>
 </ul>
 
     </div>

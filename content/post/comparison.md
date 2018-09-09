@@ -14,7 +14,7 @@ comparison to some of the most popular workflow systems similar to SoS, **featur
 It should be seen as a check-list of basic workflow features, in addition to the unique niche SoS places itself in the realm of workflow systems as explained
 in the next section and in [other posts](https://vatlab.github.io/blog/).
 
-## How does SoS compare with Nextflow, SnakeMake, Bpipe, and Galaxy
+## How does SoS compare with Nextflow, SnakeMake, Bpipe, CWL, and Galaxy
 
 In comparison to most workflow systems that are designed for "consumers" of workflows with emphases on efficient execution of well-crafted workflows with hidden details,
 **SoS is designed for "developers" of workflows for ad hoc data processing with emphases on lowering the barrier of using workflows in daily computational research**.
@@ -504,5 +504,5 @@ SoS is not for everyone. As a workflow system:
 * If you are aiming at the creation of "portable" workflows that can be executed in various cluster and cloud environments, [NextFlow](https://www.nextflow.io/) can be the first to try. [Snakemake](https://snakemake.readthedocs.io/en/stable/) also has a wide user base and is a close draw with NextFlow in many aspects. [Bpipe](https://github.com/ssadedin/bpipe) is also popular but seems to be less popular then NextFlow and SnakeMake.
 * If you are aiming at the creation of "general" workflows with no specific workflow engine in mind, [CWL](https://github.com/common-workflow-language/common-workflow-language) is currently the best bet as CWL workflows can be executed by multiple workflow engines in different environments.
 * If you are looking for a script-less GUI-based workflow system with the need for writing scripts, the answer is no because SoS is script based. [Galaxy](https://usegalaxy.org/) can be a good choice at least for bioinformatic applications.
-* If you are a Jupyter user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
-* If you use multiple languages for daily data analysis, the answer is likely yes because SoS greatly reduces the barrier between multiple languages, in both interactive data analysis and batch data processing.
+* If you are a **Jupyter** or **JupyterLab** user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
+* If you would like to use **a workflow system for daily exploratory data analysis and computaional research**, SoS should be most usable since it is designed for interaction data analysis and execution of tasks on remote systems.
