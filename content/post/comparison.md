@@ -157,7 +157,29 @@ The scripting language for workflow specification</td>
 
 <tr class="result">
 <th align="left">DAG Building</th>
-<td align="left">Explicit, implicit and dynamic</td>
+<td align="left">Explicit by connecting steps, implicit by target matching, and dynamic (nested workflow)</td>
+<td align="left">Implicit from input/output</td>
+<td align="left">Implicit (pattern matching) from input/output and dynamic</td>
+<td align="left">Implicit from input/output</td>
+<td align="left">Implicit from input/output</td>
+<td align="left">Explicit by connecting steps</td>
+</tr>
+
+<tr class="detail">
+<td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
+</td>
+<td>SoS supports explicit forward-style (sequential numbered steps), makefile-style (dependency), and mixed-style of subworkflows, and steps can be explicitly dependent upon.</td>
+<td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
+<td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
+<td>Bpipe specifies stages with input and output, and creates DAG from the stages.</td>
+<td>DAG is constructed from source of steps</td>
+<td>DAG of galaxy is built explicitly using its web interface.</td>
+</tr>
+
+
+<tr class="result">
+<th align="left">DAG Type</th>
+<td align="left">By step</td>
 <td align="left">Implicit (from input/output)</td>
 <td align="left">Implicit (pattern matching) and dynamic</td>
 <td align="left">Implicit (from input/output)</td>
