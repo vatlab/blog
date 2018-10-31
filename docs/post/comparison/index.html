@@ -236,7 +236,7 @@ The scripting language for workflow specification</td>
 <tr class="detail">
 <td>Methods and logic to construct dependency graphs connecting tasks in a workflow.
 </td>
-<td>SoS supports explicit forward-style (sequential numbered steps), makefile-style (dependency), and mixed-style of subworkflows )</td>
+<td>SoS supports explicit forward-style (sequential numbered steps), makefile-style (dependency), and mixed-style of subworkflows, and steps can be explicitly dependent upon.</td>
 <td>Nextflow specifies process with input and output, and creates DAG from the processes.</td>
 <td>Relies on <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">filename (pattern) matching</a> to determine execution sequence.</td>
 <td>Bpipe specifies stages with input and output, and creates DAG from the stages.</td>
@@ -286,6 +286,51 @@ The scripting language for workflow specification</td>
 <td>A CWL workflow can be used in place of a regular CWL step</td>
 <td>Subworkflows are supported, although they cannot be generated dynamically as other workflow tools.</td>
 </tr>
+
+<tr class="result">
+<th align="left">Atomic Write</th>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Implementation dependent</td>
+<td align="left">Likely yes</td>
+</tr>
+
+<tr class="detail">
+<td>Generate output only when the step completes so that failed steps do not leave incomplete output files.
+</td>
+<td>SoS uses step signature to track the output of steps and will remove partial output when the step fails.</td>
+<td>Nextflow steps are executed in a stage area so all outputs are complete.</td>
+<td>Snakemake uses .snakemake/incomplete_files to track paritial output files from failed runs.</td>
+<td>Output from failed steps got cleaned up so failed steps will not get in the way during re-execution</td>
+<td>The CWL specification does not require atomic write but individual workflow engine will likely implement it in some way</td>
+<td>We could not find any information related to how galaxy recovers from failed steps. It is likely that its steps are staged so writes are atomic.</td>
+</tr>
+
+<tr class="result">
+<th align="left">Named input/output</th>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+
+<tr class="detail">
+<td>Group input output files by names for easy access
+</td>
+<td>SoS allows the specification of "source" of input files and assign step name as names for input files obtained as the output from other steps</td>
+<td>The "from" part of input essentially names the input</td>
+<td>Snakemake support <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">named input</a></td>
+<td>There seems to be no way to group input by names in bpipe</td>
+<td>The CWL specification does not provide a way to separate input into named groups</td>
+<td>There seems to be no way to provided named input for Galaxy workflows</td>
+</tr>
+
+
+
 
 <tr class="result">
 <th align="left">Modify and resume</th>
