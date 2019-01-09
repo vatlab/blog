@@ -247,19 +247,19 @@ The scripting language for workflow specification</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
-<td align="left">No</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
 </tr>
 
 <tr class="detail">
-<td>Group input output files by names for easy access
+<td>Label step input and output and use the labels to connect steps as flow of data
 </td>
-<td>SoS allows the specification of "source" of input files and assign step name as names for input files obtained as the output from other steps</td>
+<td>SoS supports named input and output through keyword arguments in input and output statements and refer to them with functions <code>named_output</code></td>
 <td>The "from" part of input essentially names the input</td>
 <td>Snakemake support <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">named input</a></td>
 <td>There seems to be no way to group input by names in bpipe</td>
-<td>The CWL specification does not provide a way to separate input into named groups</td>
-<td>There seems to be no way to provided named input for Galaxy workflows</td>
+<td>CWL supports named output and the creation of data flow</td>
+<td>Galaxy workflows explicitly lables input and outputs</td>
 </tr>
 
 
