@@ -256,7 +256,7 @@ The scripting language for workflow specification</td>
 </td>
 <td>SoS supports named input and output through keyword arguments in input and output statements and refer to them with functions <code>named_output</code></td>
 <td>The "from" part of input essentially names the input</td>
-<td>Snakemake support <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">named input</a></td>
+<td>Snakemake support <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html">named input</a> through keyword arguments in input and output statements.</td>
 <td>There seems to be no way to group input by names in bpipe</td>
 <td>CWL supports named output and the creation of data flow</td>
 <td>Galaxy workflows explicitly lables input and outputs</td>
