@@ -202,7 +202,7 @@ The scripting language for workflow specification</td>
 <tr class="result">
 <th align="left">Subworkflow</th>
 <td align="left">Yes</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
@@ -213,7 +213,7 @@ The scripting language for workflow specification</td>
 <td>Support for executing subworkflows, potentially loaded from another pipeline file.
 </td>
 <td>SoS provides a <code>sos_run(name)</code> function to dynamically execute a subworkflow.</td>
-<td>Nextflow does not seem to support the dynamic creation of subworkflows.</td>
+<td>Nextflow supports subworkflows through the use of </a href="https://www.nextflow.io/docs/edge/dsl2.html#modules">submodules</a></td>
 <td>Rules can be loaded from other text files. Subworkflows can be achieved by setting input of one workflow explicitly as output of another workflow.</td>
 <td>Bpipe <code>run</code> keyword uses <code>+</code> operator to connect selected stages to pipeline. The <code>Load</code> statement can be used to import variable and pipeline stages from other files.</td>
 <td>A CWL workflow can be used in place of a regular CWL step</td>
