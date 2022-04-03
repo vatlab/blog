@@ -80,7 +80,7 @@ The scripting language for workflow specification</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
 <td align="left">CLI</td>
-<td align="left">CLI (cwltool)</td>
+<td align="left">CLI (various) + GUI (Rabix Composer/Benten)</td>
 <td align="left">CLI + GUI</td>
 </tr>
 
@@ -90,7 +90,7 @@ The scripting language for workflow specification</td>
 <td>Nextflow workflows are executed with a <code>nextflow</code> command.</td>
 <td>Snakemake workflows are executed with a <code>snakemake</code> command.</td>
 <td>Bpipe workflows are executed with a <code>bpipe</code> command.</td>
-<td>cwltool has a CLI, but other workflow engines could provide a GUI</td>
+<td>the CWL reference runner has a CLI; many production-ready implementation of CWL have a GUI</td>
 <td>Galaxy workflows are mostly executed using a web interface, but it can also be executed using a CLI.</td>
 </tr>
 
@@ -120,7 +120,7 @@ The scripting language for workflow specification</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-<td align="left">No (cwltools)</td>
+<td align="left">Yes</td>
 <td align="left">Yes (only for building DAG)</td>
 </tr>
 
@@ -130,7 +130,7 @@ The scripting language for workflow specification</td>
 <td>No dedicated IDE is available, but users can IDEs that support groovy (e.g. Eclipse, Netbeans) to edit (but not execute) nextflow workflows.</td>
 <td>No dedicated IDE is available but syntax highlighter plugin are provided for some text editors.</td>
 <td>No dedicated IDE is available but editors supporting Groovy syntax can be use to facilicate pipeline development.</td>
-<td>No IDE is provided for cwltools, but other task engines might provide one</td>
+<td><a href="https://github.com/rabix/benten"Benten CWL language server</a> in VS Code and other editors; built-in web IDEs from proprietary vendors</td>
 <td>A web interface is provided to create steps and connect them</td>
 </tr>
 </tbody>
@@ -237,7 +237,7 @@ The scripting language for workflow specification</td>
 <td>Nextflow steps are executed in a stage area so all outputs are complete.</td>
 <td>Snakemake uses .snakemake/incomplete_files to track paritial output files from failed runs.</td>
 <td>Output from failed steps got cleaned up so failed steps will not get in the way during re-execution</td>
-<td>The CWL specification does not require atomic write but individual workflow engine will likely implement it in some way</td>
+<td>The CWL standards do not require atomic write but individual workflow engine will likely implement it in some way</td>
 <td>We could not find any information related to how galaxy recovers from failed steps. It is likely that its steps are staged so writes are atomic.</td>
 </tr>
 
@@ -282,7 +282,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td>Nextflow keeps track of all the processes executed in your pipeline. If you modify some parts of your script, only the processes that are actually changed will be re-executed. The execution of the processes that are not changed will be skipped and the cached result used instead.</td>
 <td>Similar to Make, Snakemake uses timestamps to determine modification status and resume points.</td>
 <td>Uses customized timestamp signature (at millisecond resolution) of input / output to determine modification. By default <a href='https://github.com/ssadedin/bpipe/issues/157'>it does not</a> check status of command or script changes.</td>
-<td>Pausing and resuming workflow is not part of the specification and is not required </td>
+<td>Pausing and resuming workflow is not part of the CWL standard and is not required </td>
 <td>No information on runtime signature or restart of failed jobs could be found.</td>
 </tr>
 
@@ -292,7 +292,7 @@ been executed, even if they were executed by a different workflow.</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-<td align="left">No</td>
+<td align="left">N/A</td>
 <td align="left">No</td>
 </tr>
 
@@ -303,7 +303,7 @@ heterogeneous file systems.</td>
 <td>Nextflow can be executed on a variety of environments but it has to be started within the environments</td>
 <td>Snakemake can be executed on a variety of environments but it has to be started within the environments</td>
 <td>Bpipe can be executed on a variety of environments but it has to be started within the environments</td>
-<td>The CWL specification does not contain any feature for remote execution.</td>
+<td>The CWL standards do not mandate remote execution. Most CWL implementation support remote execution, and some support distributed remote execution.</td>
 <td>Galaxy can be executed on a variety of environments but it has to be started within the environments</td>
 </tr>
 
@@ -325,7 +325,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 <td>Nextflow can generate <a href="https://www.nextflow.io/docs/latest/tracing.html#"  target="_blank">complete reports</a> with details on CPU/task usage etc.</td>
 <td><a href="http://snakemake.readthedocs.io/en/stable/tutorial/additional_features.html#benchmarking"  target="_blank">Benchmarking</a> and <a href="http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files">logging</a></td>
 <td><a href='http://docs.bpipe.org/Guides/Notifications/'  target="_blank">Notification in Bpipe</a> can be configured by Gmail, or genetric SMTP / XMPP protocols. It also provides commands such as <code>send, succeed, fail</code> for arbitrary notifications.</td>
-<td>There is no mentioning of job monitoring of jobs in CWL specification, but workflow engines should provide their own facilities for job monitoring</td>
+<td>There is no mentioning of job monitoring of jobs in CWL standards, but workflow engines should provide their own facilities for job monitoring</td>
 <td>The GUI shows the status of each step with colors.</td>
 </tr>
 
@@ -408,7 +408,7 @@ A summary report could be generated with <a href="https://vatlab.github.io/sos-d
 run all scripts in the specified docker image, or specify a docker image for each step.</a></td>
 <td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td>Bpipe does not have build-in support for containers.</td>
-<td>CWL specification supports docker</td>
+<td>The CWL standards supports Docker format software containers.</td>
 <td>Galaxy steps can execute <code>docker run</code> command with docker-flavored images.</td>
 </tr>
 
@@ -429,7 +429,7 @@ run all scripts in the specified docker image, or specify a docker image for eac
 It works similar to docker but with options such as <code>singularty.enabled=true</code>.</td>
 <td>Snakemake supports the use of <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html?highlight=container#running-jobs-in-containers'>rule level containers</a>.</td>
 <td>Bpipe does not have build-in support for containers.</td>
-<td>Not mentioned in CWL specification but cwltool supports it</td>
+<td>The CWL standards allow for execution of docker format software containers using any contiainer engine, like Singularity. The CWL reference runner (and every other runner that uses that as a library) support execution of docker containers using singularity.</td>
 <td>Galaxy supports Singularity containers.</td>
 </tr>
 
@@ -451,7 +451,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow supports Open grid, Univa grid, LSF, SLURM, PBS Works, Torque</td>
 <td>Snakemake can interact with clusters through templates, or directly if the cluster supports <a href="http://www.drmaa.org/http://www.drmaa.org/">DRMAA</a>.</td>
 <td>Bpipe provides <a href='http://docs.bpipe.org/Guides/ResourceManagers/'>build-in support for some resource manager systems</a>, and a template-based system (<a href='http://docs.bpipe.org/Guides/ImplementingAResourceManager/'>adapter script</a>) to support implementing resource managers.</td>
-<td>cwltool and other implementations supports cluster</td>
+<td>The CWL reference runner (cwltool) does not support remote execution, but toil-cwl-runner and many other implementations supports grid/cluster job submissions.</td>
 <td>Galaxy can be deployed on clusters with steps executed on computing nodes.</td>
 </tr>
 
@@ -461,7 +461,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Require template (?)</td>
 <td align="left">Require template</td>
-<td align="left">No (?)</td>
+<td align="left">Yes</td>
 <td align="left">Yes</td>
 </tr>
 
@@ -471,7 +471,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow <a href="https://www.nextflow.io/docs/latest/executor.html#htcondor">supports HTCondor</a></td>
 <td>There is no built-in support for HTCondor, however we cannot find existing Snakemake HTCondor job templates either.</td>
 <td>There is no built-in support for HTCondor, however there seems to be <a href='https://github.com/GenomicParisCentre/eoulsan/blob/3b171735888f728b6804abcdfd7e7fce80b5218a/src/main/bin/bpipe-htcondor.sh'>third-party adapter scripts</a> for HTCondor job scheduler.</td>
-<td>There seems to be no built-in support for HTCondor</td>
+<td>toil-cwl-runner and <a href="https://docs.reana.io/">REANA</a> are two CWL implementations with HTCondor support. </td>
 <td>Galaxy supports HTCondor as described <a href="https://galaxyproject.org/cloudman/ht-condor/">here</a>.</td>
 </tr>
 
@@ -481,7 +481,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">No</td>
 <td align="left">No</td>
 <td align="left">No</td>
-<td align="left">No</td>
+<td align="left">N/A</td>
 <td align="left">No</td>
 </tr>
 
@@ -492,7 +492,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow cannot submit tasks to external task queues</td>
 <td>Snakemake cannot submit tasks to external task queues</td>
 <td>Bpipe does not provide build-in support for external task queues</td>
-<td>cwltools does not support external task queues</td>
+<td>The CWL standards do not forbid nor require support for distributed task queus. The CWL reference runner (cwltool) does not support external task queues itself.</td>
 <td>Galaxy does not support external task queues.</td>
 </tr>
 
@@ -502,7 +502,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Experimental</td>
 <td align="left">No</td>
-<td align="left">Implementation dependent</td>
+<td align="left">Yes</td>
 <td align="left">Yes</td>
 </tr>
 
@@ -512,7 +512,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nextflow supports distributed systems such as <a href="https://www.nextflow.io/docs/latest/ignite.html">Apache Ignite</a> and <a href="https://www.nextflow.io/docs/latest/kubernetes.html">Kubernetes</a></td>
 <td>Snakemake 4.0 and later <a href='http://snakemake.readthedocs.io/en/stable/executable.html?highlight=Kubernetes'>supports experimental execution</a> in the cloud via Kubernetes.</td>
 <td>No</td>
-<td>No trace of support from cwltool but other workflow engines might support it</td>
+<td>By design, the CWL reference runner does not do distributed execution. All production-ready CWL implementations support distributed execution. </td>
 <td>Galaxy could be delopyed on top of Kubernetes as described <a href="https://github.com/galaxyproject/galaxy-kubernetes">here</a> </td>
 </tr>
 
@@ -522,7 +522,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td align="left">Yes</td>
 <td align="left">Yes</td>
 <td align="left">No</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 <td align="left">Yes</td>
 </tr>
 
@@ -533,7 +533,7 @@ Torque, LSF, SLURM, PBS, and Torque</td>
 <td>Nexflow can <a href="https://www.nextflow.io/docs/latest/amazons3.html">access S3 storage</a></td>
 <td>Snakemake can access files on <a href='http://snakemake.readthedocs.io/en/stable/snakefiles/remote_files.html'>cloud storage</a></td>
 <td>No</td>
-<td>No information could be found for support for cloud storage. This should again be implementation/engine specific.</td>
+<td>By design, the CWL reference runner does not do distributed data. All production-ready CWL implementations support cloud/object storage.</td>
 <td>Galaxy objects could be stored on distributed store or Amazon S3 (c.f. <a href="https://galaxyproject.org/object-store/">Galaxy Object Store</a>)</td>
 </tr>
 
@@ -548,7 +548,7 @@ SoS is not for everyone. As a workflow system:
 
 * If you are looking for a industrial-grade workflow system for the handling of millions of large jobs, you should look for proven solutions such as [Luigi](https://github.com/spotify/luigi).
 * If you are aiming at the creation of "portable" workflows that can be executed in various cluster and cloud environments, [NextFlow](https://www.nextflow.io/) can be the first to try. [Snakemake](https://snakemake.readthedocs.io/en/stable/) also has a wide user base and is a close draw with NextFlow in many aspects. [Bpipe](https://github.com/ssadedin/bpipe) is also popular but seems to be less popular then NextFlow and SnakeMake.
-* If you are aiming at the creation of "general" workflows with no specific workflow engine in mind, [CWL](https://github.com/common-workflow-language/common-workflow-language) is currently the best bet as CWL workflows can be executed by multiple workflow engines in different environments.
+* If you are aiming at the creation of "general" workflows with no specific workflow engine in mind, [CWL](https://www.commonwl.org) is currently the best bet as CWL workflows can be executed by multiple workflow engines in different environments.
 * If you are looking for a script-less GUI-based workflow system with the need for writing scripts, the answer is no because SoS is script based. [Galaxy](https://usegalaxy.org/) can be a good choice at least for bioinformatic applications.
 * If you are a **Jupyter** or **JupyterLab** user, the answer is most likely yes because SoS is embedded into SoS Notebook, which is by itself a polyglot notebook. You can enjoy all features of SoS Notebook and step into SoS only when needed.
 * If you would like to use **a workflow system for daily exploratory data analysis and computaional research**, SoS should be most usable since it is designed for interaction data analysis and execution of tasks on remote systems.
